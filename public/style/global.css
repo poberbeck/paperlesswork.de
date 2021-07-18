@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.glass-blur {
+	-webkit-backdrop-filter: blur(8px);
+	backdrop-filter: blur(8px);
+}
