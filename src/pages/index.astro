@@ -3,17 +3,12 @@ import Navbar from "../components/Navbar.astro";
 import SectionFooter from "../components/SectionFooter.tsx";
 import SectionHeading from "../components/SectionHeading.tsx";
 import Footer from "../components/Footer.astro";
-
-let title = 'Paperless Work';
+import BaseMetaHead from "../components/BaseMetaHead.astro";
 ---
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{title}</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="stylesheet" href="/style/global.css">
-    <script async src="https://analytics-v2.plwo.de/tracker.js" data-ackee-server="https://analytics-v2.plwo.de" data-ackee-domain-id="73077f33-8ec8-4996-9e41-7fdc7cdfeb94"></script>
+    <title>Paperless Work</title>
+     <BaseMetaHead />
 </head>
 <body>
     <Navbar />
