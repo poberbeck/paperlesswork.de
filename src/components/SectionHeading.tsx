@@ -1,4 +1,3 @@
-import { h } from 'preact';
 import React from 'react';
 
 interface Props {

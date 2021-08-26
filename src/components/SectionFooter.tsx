@@ -1,5 +1,4 @@
 import React from 'react';
-import { h } from 'preact';
 
 interface Props {
     title: string;
