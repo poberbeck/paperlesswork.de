@@ -1,8 +1,9 @@
 import { Transition } from '@headlessui/react';
 import React, { useState } from 'react';
 
-const SiteSelector = () => {
+const SiteSelector: React.FC = () => {
     const [selected, setSelected] = useState('freelancer');
+
     return (
         <div className='h-screen min-h-[800px] flex'>
             <div className='w-full md:w-[500px] h-full bg-gray-800 flex justify-center items-center'>
@@ -41,15 +42,16 @@ const SiteSelector = () => {
                         <p>Beratung</p>
                     </button>
                     <small className='text-gray-500 text-sm px-3'>Für Schüler mit Sehbehinderung</small>
-                    <button className='bg-gray-600 text-white p-3 font-bold rounded-full shadow-lg flex justify-center items-center space-x-4'>
+                    <a href={selected} className='bg-gray-600 text-white p-3 font-bold rounded-full shadow-lg flex justify-center items-center space-x-4'>
                         <p>Seite öffnen</p>
                         <svg xmlns='http://www.w3.org/2000/svg' className='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
                             <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
                         </svg>
-                    </button>
+                    </a>
                 </div>
             </div>
-            <div className='hidden h-full w-full md:block relative text-gray-800'>
+            <div className='hidden h-full w-full md:block relative text-gray-100'>
+                <img src='/assets/blurry-gradient-gray-dark.svg' className='absolute top-0 left-0 h-full w-full object-cover' />
                 <Transition
                     appear
                     show={selected === 'freelancer'}
@@ -92,3 +94,6 @@ const SiteSelector = () => {
 };
 
 export default SiteSelector;
+function useCallback(arg0: () => void, arg1: any[]) {
+    throw new Error('Function not implemented.');
+}
