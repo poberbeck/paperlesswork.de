@@ -1,0 +1,50 @@
+---
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import BaseMetaHead from "../components/BaseMetaHead.astro";
+---
+<html lang="de">
+<head>
+    <title>Paperless Work | Beratung</title>
+    <BaseMetaHead />
+</head>
+<body>
+    <Navbar />
+    <section class="h-screen relative">
+        <img src="/assets/blob-scene-blue-light.svg" class="absolute top-0 left-0 h-full w-full object-cover" />
+        <div class="h-full w-full relative">
+            <div class="h-full w-full p-10 container mx-auto space-y-4 flex flex-col justify-center items-start">
+                <h1 class="text-4xl md:text-8xl font-bold use-hyphens text-gray-800"><span class="text-blue-900">Beratung</span> für Schüler*innen mit <span class="text-blue-900">Sehbehinderung</span> im Lernalltag</h1>
+                <p class="md:text-2xl text-gray-800">Ich berate Schüler*innen mit SehU+2010behinderung, Eltern oder Förderlehrer aus erster Hand um das lernen trotz herausforderung einfacher zu machen.</p>
+            </div>
+        </div>
+    </section>
+    <section class="bg-gray-100 flex flex-col space-y-5 justify-center items-center py-20 px-4">
+        <h2 class="text-6xl text-blue-800 font-bold">Fragen?</h2>
+        <p class="text-gray-800">Kontaktieren Sie mich unkompliziert und unverbindlich.</p>
+        <form action="https://api.web3forms.com/submit" method="POST" class="bg-white p-6 rounded-xl shadow-lg flex flex-col w-full md:w-[500px]">
+            <input type="hidden" name="apikey" value="51f0627c-7853-431c-9098-34e08ddaad15">
+            <input type="hidden" name="redirect" value="https://web3forms.com/success">
+
+            <label class="px-2 text-sm" for="name">Name</label>
+            <input required class="w-full m-2 p-2 rounded-xl bg-gray-100" type="text" name="name" placeholder="Name" />
+            <label class="px-2 text-sm" for="email">Email</label>
+            <input required class="w-full m-2 p-2 rounded-xl bg-gray-100" type="email" name="email" placeholder="Email" />
+            <label class="px-2 text-sm" for="betreff">Betreff</label>
+            <input required class="w-full m-2 p-2 rounded-xl bg-gray-100" type="text" name="betreff" placeholder="Betreff" />
+            <label class="px-2 text-sm" for="nachricht">Nachricht</label>
+            <textarea required rows="6" class="w-full m-2 p-2 rounded-xl bg-gray-100" name="nachricht" type="text" placeholder="Nachricht" />
+            <div class="mx-auto mt-4">
+                <button type="submit" class="bg-blue-800 text-gray-100 py-3 px-6 flex flex-row rounded-full shadow-lg">
+                    <p class="font-bold">Senden</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+            <small class="text-xs text-gray-400 mt-4">Durch das klicken auf "Senden" stimmen Sie der digitalen verarbeitung Ihrer persönlichen Daten zu. Sie können dem jedoch jederzeit wiedersprechen.</small>
+        </form>
+    </section>
+    <Footer />
+</body>
+</html>
