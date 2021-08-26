@@ -7,12 +7,13 @@
         "build": "astro build"
     },
     "devDependencies": {
-        "@astrojs/renderer-preact": "^0.2.1",
+        "@astrojs/renderer-react": "^0.2.0",
         "astro": "^0.19.4",
         "tailwindcss": "^2.2.7"
     },
     "dependencies": {
         "@tailwindcss/typography": "^0.4.1",
-        "react-cool-img": "^1.2.12"
+        "react-cool-img": "^1.2.12",
+        "react-spring": "^9.2.4"
     }
 }
