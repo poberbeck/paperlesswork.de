@@ -6,7 +6,7 @@ const SiteSelector: React.FC = () => {
 
     return (
         <div className='h-screen min-h-[800px] flex'>
-            <div className='w-full md:w-[500px] h-full bg-gray-800 flex justify-center items-center'>
+            <div className='w-full md:w-[500px] h-full bg-blue-700 flex justify-center items-center'>
                 <div className='space-y-5 flex flex-col text-white items-start'>
                     <h1 className='font-bold text-6xl'>
                         Sie
@@ -25,7 +25,7 @@ const SiteSelector: React.FC = () => {
                         </svg>
                         <p>Digital Freelancer</p>
                     </button>
-                    <small className='text-gray-500 text-sm px-3'>Ihr Projekt ist meine Aufgabe</small>
+                    <small className='text-gray-100 text-sm px-3'>Ihr Projekt ist meine Aufgabe</small>
                     <button
                         onClick={() => setSelected('advisor')}
                         className={`p-3 rounded-full border-2 border-white flex justify-center items-center space-x-4 ${selected === 'advisor' ? 'bg-white text-gray-700 shadow-md' : ''}`}>
@@ -41,8 +41,8 @@ const SiteSelector: React.FC = () => {
                         </svg>
                         <p>Beratung</p>
                     </button>
-                    <small className='text-gray-500 text-sm px-3'>Für Schüler mit Sehbehinderung</small>
-                    <a href={selected} className='bg-gray-600 text-white p-3 font-bold rounded-full shadow-lg flex justify-center items-center space-x-4'>
+                    <small className='text-gray-100 text-sm px-3'>Für Schüler mit Sehbehinderung</small>
+                    <a href={selected} className='bg-gray-700 text-white p-3 font-bold rounded-full shadow-lg flex justify-center items-center space-x-4'>
                         <p>Seite öffnen</p>
                         <svg xmlns='http://www.w3.org/2000/svg' className='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
                             <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
@@ -51,7 +51,7 @@ const SiteSelector: React.FC = () => {
                 </div>
             </div>
             <div className='hidden h-full w-full md:block relative text-gray-100'>
-                <img src='/assets/blurry-gradient-gray-dark.svg' className='absolute top-0 left-0 h-full w-full object-cover' />
+                <img src='/assets/wave-blue-dark.svg' className='absolute top-0 left-0 h-full w-full object-cover' />
                 <Transition
                     appear
                     show={selected === 'freelancer'}
@@ -64,7 +64,11 @@ const SiteSelector: React.FC = () => {
                     <div className='absolute top-0 left-0 h-full w-full flex justify-center items-center'>
                         <div className='m-20 space-y-5 flex flex-col items-center'>
                             <h1 className='font-bold text-3xl'>Ihr Ansprechpartner für digitale Lösungen</h1>
-                            <p className='max-w-md text-center'>Präsentieren Sie sich im Internet, so wie Sie es sich wünschen.</p>
+                            <p className='max-w-md text-center'>
+                                Präsentieren Sie sich im Internet, so wie Sie es sich wünschen.
+                                <br />
+                                Klicken Sie auf "Seite öffnen" um mehr zu erfahren.
+                            </p>
                             <img className='h-1/3 object-contain' src='/assets/freelancer.svg' />
                         </div>
                     </div>
@@ -83,6 +87,8 @@ const SiteSelector: React.FC = () => {
                             <h1 className='font-bold text-3xl'>Beratung für Schüler*innen mit Sehbehinderung</h1>
                             <p className='max-w-md text-center'>
                                 Ich berate Schüler*innen mit Sehbehinderung, Eltern oder Förderlehrer aus erster Hand um das lernen trotz herausforderung einfacher zu machen.
+                                <br />
+                                Klicken Sie auf "Seite öffnen" um mehr zu erfahren.
                             </p>
                             <img className='h-1/3 object-contain' src='/assets/learning.svg' />
                         </div>
@@ -94,6 +100,3 @@ const SiteSelector: React.FC = () => {
 };
 
 export default SiteSelector;
-function useCallback(arg0: () => void, arg1: any[]) {
-    throw new Error('Function not implemented.');
-}

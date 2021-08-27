@@ -4,6 +4,7 @@ import SectionFooter from "../components/SectionFooter.tsx";
 import SectionHeading from "../components/SectionHeading.tsx";
 import Footer from "../components/Footer.astro";
 import BaseMetaHead from "../components/BaseMetaHead.astro";
+import ContactForm from '../components/ContactForm.astro'
 ---
 <html lang="de">
 <head>
@@ -12,7 +13,7 @@ import BaseMetaHead from "../components/BaseMetaHead.astro";
 </head>
 <body>
     <Navbar />
-    <section class='h-screen flex items-center justify-center bg-gradient-to-t dark:from-gray-800 dark:to-gray-900 dark:text-gray-50'>
+    <section class='h-screen flex items-center justify-center bg-gradient-to-t'>
         <div class='p-10'>
             <h1 class='text-4xl md:text-6xl xl:text-8xl tracking-wider'>
                 Hi, I'm{' '}
@@ -26,20 +27,20 @@ import BaseMetaHead from "../components/BaseMetaHead.astro";
             </p>
         </div>
     </section>
-    <div class="flex justify-center items-center dark:bg-gray-800">
-        <h1 class="p-5 m-5 shadow-md rounded-full text-3xl md:text-6xl font-bold bg-gray-100">Meine Arbeit</h1>
+    <div class="flex justify-center items-center">
+        <h1 class="p-5 m-5 text-3xl md:text-6xl font-bold text-blue-800">Meine Arbeit</h1>
     </div>
-    <section class='py-10 md:h-screen flex flex-col justify-center items-center dark:from-gray-800 dark:to-gray-900 dark:text-gray-50 bg-gradient-to-b'>
+    <section class='py-10 md:h-screen flex flex-col justify-center items-center bg-gradient-to-b'>
         <SectionHeading title='Coder Connect' subTitle='Desktop' />
         <img loading="lazy" class='md:h-4/6 object-contain' src='https://res.cloudinary.com/dxguylhpx/image/upload/v1617486729/web/1_vgunfm.png' alt='Coder Connect' />
         <SectionFooter title='Coder Connect' content='Coder Connect ist ein Desktop Client für Code Server. Programmiert mit Electron, HTML und JavaScript.' date='Since 2018' />
     </section>
-    <section class='py-10 md:h-screen flex flex-col justify-center items-center dark:to-gray-900 dark:text-gray-50 bg-gradient-to-t dark:from-gray-800'>
+    <section class='py-10 md:h-screen flex flex-col justify-center items-center bg-gradient-to-t'>
         <SectionHeading title='Pull Up' subTitle='Mobile' />
         <img loading="lazy" class='md:h-4/6 object-contain' src='https://res.cloudinary.com/dxguylhpx/image/upload/v1617486734/web/2_si7l99.png' alt='Pull Up' />
         <SectionFooter title='Pull Up' content='Pull Up ist ein Blogging Client für iOS und Android. Programmiert mit React Native und Firebase.' date='Since 2019' />
     </section>
-    <section class='py-10 md:h-screen flex flex-col justify-center items-center dark:to-gray-900 dark:text-gray-50 bg-gradient-to-b dark:from-gray-800'>
+    <section class='py-10 md:h-screen flex flex-col justify-center items-center bg-gradient-to-b'>
         <SectionHeading title='Paperless Work' subTitle='Website' />
         <img loading="lazy" class='md:h-4/6 object-contain' src='https://res.cloudinary.com/dxguylhpx/image/upload/v1617486732/web/6_t9tcu7.png' alt='Pull Up' />
         <SectionFooter
@@ -48,6 +49,7 @@ import BaseMetaHead from "../components/BaseMetaHead.astro";
             date='Since 2020'
         />
     </section>
+    <ContactForm />
     <Footer />
 </body>
 </html>
