@@ -5,7 +5,7 @@ const SiteSelector: React.FC = () => {
     const [selected, setSelected] = useState('freelancer');
 
     return (
-        <div className='h-screen min-h-[800px] flex'>
+        <div className='h-screen min-h-[800px] hidden md:flex'>
             <div className='w-full md:w-[500px] h-full bg-blue-700 flex justify-center items-center'>
                 <div className='space-y-5 flex flex-col text-white items-start'>
                     <h1 className='font-bold text-6xl'>
