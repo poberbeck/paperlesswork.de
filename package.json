@@ -12,7 +12,7 @@
         "tailwindcss": "^2.2.7"
     },
     "dependencies": {
-        "@headlessui/react": "^1.4.0",
+        "@headlessui/react": "^1.4.1",
         "@tailwindcss/typography": "^0.4.1",
         "react-cool-img": "^1.2.12"
     }
