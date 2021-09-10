@@ -9,7 +9,7 @@
     "devDependencies": {
         "@astrojs/renderer-react": "^0.2.0",
         "astro": "^0.19.4",
-        "tailwindcss": "^2.2.7"
+        "tailwindcss": "^2.2.15"
     },
     "dependencies": {
         "@headlessui/react": "^1.4.0",
