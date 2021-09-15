@@ -7,7 +7,7 @@
         "build": "astro build"
     },
     "devDependencies": {
-        "@astrojs/renderer-react": "^0.2.0",
+        "@astrojs/renderer-react": "^0.2.1",
         "astro": "^0.19.4",
         "tailwindcss": "^2.2.7"
     },
