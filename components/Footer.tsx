@@ -26,12 +26,12 @@ const Footer: React.FC = () => {
                 </div>
                 <div>
                     <p className='text-black'>Legal</p>
-                    <Link href='/'>
+                    <Link href='/legal'>
                         <a>
                             <p>Impressum</p>
                         </a>
                     </Link>
-                    <Link href='/'>
+                    <Link href='/privacy'>
                         <a>
                             <p>Datenschutz</p>
                         </a>
