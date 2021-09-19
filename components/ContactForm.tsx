@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const ContactForm = () => {
     return (
@@ -21,7 +21,7 @@ const ContactForm = () => {
             <label className='px-2 text-sm' htmlFor='nachricht'>
                 Nachricht
             </label>
-            <textarea required rows='6' className='w-full m-2 p-2 rounded-xl bg-gray-100' name='nachricht' type='text' placeholder='Nachricht' />
+            <textarea required rows={6} className='w-full m-2 p-2 rounded-xl bg-gray-100' name='nachricht' placeholder='Nachricht' />
             <div className='mx-auto mt-4'>
                 <button type='submit' className='bg-indigo-700 text-white py-3 px-6 flex flex-row font-bold rounded-xl shadow-md'>
                     <p className='font-bold'>Senden</p>
@@ -31,10 +31,10 @@ const ContactForm = () => {
                 </button>
             </div>
             <small className='text-xs text-gray-400 mt-4'>
-                Durch das klicken auf "Senden" stimmen Sie der digitalen verarbeitung Ihrer persönlichen Daten zu. Sie können dem jedoch jederzeit wiedersprechen.
+                Durch das klicken auf &#34;Senden&#34; stimmen Sie der digitalen verarbeitung Ihrer persönlichen Daten zu. Sie können dem jedoch jederzeit wiedersprechen.
             </small>
         </form>
     );
-}
+};
 
-export default ContactForm
+export default ContactForm;
