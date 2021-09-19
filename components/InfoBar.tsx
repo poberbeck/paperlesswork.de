@@ -5,9 +5,10 @@ const InfoBar: React.FC = () => {
     return (
         <div className='relative container mx-auto mt-8'>
             <div className='absolute -inset-0.5 rounded-2xl bg-gradient-to-tr from-indigo-700 to-pink-700 blur-lg opacity-75'></div>
-            <div className='relative bg-gradient-to-tr from-indigo-700 to-pink-700 p-1 rounded-2xl shadow-lg flex justify-between items-center'>
-                <div className='relative flex space-x-4 text-white'>
-                    <svg xmlns='http://www.w3.org/2000/svg' className='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+
+            <div className='relative bg-gradient-to-tr from-indigo-700 to-pink-700 p-1 rounded-2xl shadow-lg flex flex-col md:flex-row space-y-3 md:space-y-0 justify-between items-center'>
+                <div className='relative flex items-center space-x-4 text-white'>
+                    <svg xmlns='http://www.w3.org/2000/svg' className='h-10 w-10 md:h-6 md:w-6 ml-4' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
                         <path
                             strokeLinecap='round'
                             strokeLinejoin='round'
@@ -20,7 +21,7 @@ const InfoBar: React.FC = () => {
                 <Link href='/digital'>
                     <a className='flex items-center px-4 py-2 space-x-2 rounded-2xl bg-white text-pink-700'>
                         <p>Hier klicken</p>
-                        <svg xmlns='http://www.w3.org/2000/svg' className='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+                        <svg xmlns='http://www.w3.org/2000/svg' className='h-6 w-6 ' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
                             <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z' />
                         </svg>
                     </a>
