@@ -20,11 +20,11 @@ const NavigationBar: React.FC = () => {
                 as={Fragment}
                 show={mobileMenuOpen}
                 enter='transform duration-200 transition ease-in-out'
-                enterFrom='opacity-0'
-                enterTo='opacity-100'
+                enterFrom='opacity-0 translate-y-[-100%]'
+                enterTo='opacity-100 translate-y-0'
                 leave='transform duration-200 transition ease-in-out'
-                leaveFrom='opacity-100'
-                leaveTo='opacity-0'>
+                leaveFrom='opacity-100 translate-y-0'
+                leaveTo='opacity-0 translate-y-[-100%]'>
                 <div className='absolute z-50 top-1 right-0 left-0 bg-white rounded-2xl shadow-md p-4'>
                     <div className='flex justify-between'>
                         <p className='font-bold text-lg'>Menü</p>
