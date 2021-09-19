@@ -1,10 +1,12 @@
 import React from 'react';
 import Footer from '../components/Footer';
 import NavigationBar from '../components/NavigationBar';
+import { NextSeo } from 'next-seo';
 
 const Legal = () => {
     return (
         <div>
+            <NextSeo title='Impressum' />
             <NavigationBar />
             <div className='container mx-auto prose p-4'>
                 <h1>Impressum</h1>

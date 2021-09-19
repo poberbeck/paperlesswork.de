@@ -1,10 +1,12 @@
 import React from 'react';
 import Footer from '../components/Footer';
 import NavigationBar from '../components/NavigationBar';
+import { NextSeo } from 'next-seo';
 
 const Privacy: React.FC = () => {
     return (
         <div>
+            <NextSeo title='Datenschutz' />
             <NavigationBar />
             <div className='container mx-auto prose p-4'>
                 <h1>Datenschutz</h1>

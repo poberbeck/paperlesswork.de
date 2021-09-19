@@ -3,10 +3,12 @@ import NavigationBar from '../components/NavigationBar';
 import InfoBar from '../components/InfoBar';
 import Button from '../components/Button';
 import Footer from '../components/Footer';
+import { NextSeo } from 'next-seo';
 
 const HomePage: React.FC = () => {
     return (
         <div>
+            <NextSeo title='Home' />
             <div className='min-h-screen bg-gray-50 flex flex-col'>
                 <NavigationBar />
                 <InfoBar />
