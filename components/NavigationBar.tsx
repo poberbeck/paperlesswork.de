@@ -25,7 +25,7 @@ const NavigationBar: React.FC = () => {
                 leave='transform duration-200 transition ease-in-out'
                 leaveFrom='opacity-100 translate-y-0'
                 leaveTo='opacity-0 translate-y-[-100%]'>
-                <div className='absolute z-50 top-1 right-0 left-0 bg-white rounded-2xl shadow-md p-4'>
+                <div className='absolute z-50 top-2 right-2 left-2 bg-white rounded-2xl shadow-md p-4'>
                     <div className='flex justify-between'>
                         <p className='font-bold text-lg'>Menü</p>
                         <button onClick={() => setMobileMenuOpen(false)}>
@@ -46,7 +46,9 @@ const NavigationBar: React.FC = () => {
                 </div>
             </Transition>
             <div className='relative flex justify-between items-center p-6'>
-                <img className='h-16 w-16' src='/images/plwo_logo.svg' alt='Paperless Work Logo' />
+                <Link passHref href='/'>
+                    <img className='h-16 w-16' src='/images/plwo_logo.svg' alt='Paperless Work Logo' />
+                </Link>
                 <div className='hidden md:flex space-x-6'>
                     {menueItems.map((item, key) => (
                         <Link key={key + item.link} href={item.link}>

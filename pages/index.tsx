@@ -7,10 +7,10 @@ import Footer from '../components/Footer';
 const HomePage: React.FC = () => {
     return (
         <div>
-            <div className='min-h-screen px-4 bg-gray-50 flex flex-col'>
+            <div className='min-h-screen bg-gray-50 flex flex-col'>
                 <NavigationBar />
                 <InfoBar />
-                <div className='flex flex-1 justify-center items-center my-8'>
+                <div className='flex px-4 flex-1 justify-center items-center my-8'>
                     <div className='max-w-2xl flex flex-col items-center space-y-8'>
                         <h1 className='font-bold text-4xl md:text-8xl text-center'>Ideen lebendig werden lassen</h1>
                         <p className='text-center text-gray-800'>
@@ -22,7 +22,7 @@ const HomePage: React.FC = () => {
                             Jetzt Kontakt aufnehmen
                         </Button>
 
-                        <Button className='mx-5' href='/kontakt'>
+                        <Button className='mx-5' href='/contact'>
                             Meine Arbeit
                         </Button>
                     </div>
