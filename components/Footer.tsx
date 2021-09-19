@@ -18,6 +18,11 @@ const Footer: React.FC = () => {
                             <p>Meine Arbeit</p>
                         </a>
                     </Link>
+                    <Link href='/contact'>
+                        <a>
+                            <p>Kontakt</p>
+                        </a>
+                    </Link>
                 </div>
                 <div>
                     <p className='text-black'>Legal</p>
@@ -33,7 +38,7 @@ const Footer: React.FC = () => {
                     </Link>
                 </div>
             </div>
-            <small>Copyright © 2021 Paperless Work | Pascal Oberbeck</small>
+            <small>Copyright © {new Date().getFullYear()} Paperless Work | Pascal Oberbeck</small>
         </footer>
     );
 };
