@@ -13,7 +13,7 @@ const SEO: DefaultSeoProps = {
     ],
     openGraph: {
         type: 'website',
-        locale: 'de_DE',
+        locale: 'de',
         url: 'https://paperlesswork.de/',
         site_name: 'Paperless Work',
     },
