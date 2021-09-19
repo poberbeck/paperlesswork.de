@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import Link from 'next/link';
 
@@ -5,7 +6,6 @@ const NavigationBar: React.FC = () => {
     return (
         <div className='container mx-auto'>
             <div className='flex justify-between items-center p-6'>
-                // eslint-disable-next-line @next/next/no-img-element
                 <img className='h-16 w-16' src='/images/plwo_logo.svg' alt='Paperless Work Logo' />
                 <div className='flex space-x-6'>
                     <Link href='/'>
