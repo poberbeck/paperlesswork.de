@@ -20,11 +20,11 @@ const HomePage: React.FC = () => {
                             optimieren und umzusetzen.
                         </p>
 
-                        <LinkButton className='mx-5' href='/kontakt' type='primary'>
+                        <LinkButton className='mx-5' href='/contact' type='primary'>
                             Jetzt Kontakt aufnehmen
                         </LinkButton>
 
-                        <LinkButton className='mx-5' href='/contact'>
+                        <LinkButton className='mx-5' href='/work'>
                             Meine Arbeit
                         </LinkButton>
                     </div>
