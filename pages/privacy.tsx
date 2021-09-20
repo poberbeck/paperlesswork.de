@@ -3,7 +3,7 @@ import Footer from '../components/Footer';
 import NavigationBar from '../components/NavigationBar';
 import { NextSeo } from 'next-seo';
 
-const Privacy: React.FC = () => {
+const PrivacyPage: React.FC = () => {
     return (
         <div>
             <NextSeo title='Datenschutz' />
@@ -293,4 +293,4 @@ const Privacy: React.FC = () => {
     );
 };
 
-export default Privacy;
+export default PrivacyPage;

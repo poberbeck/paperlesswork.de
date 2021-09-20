@@ -3,7 +3,7 @@ import Footer from '../components/Footer';
 import NavigationBar from '../components/NavigationBar';
 import { NextSeo } from 'next-seo';
 
-const Legal = () => {
+const LegalPage = () => {
     return (
         <div>
             <NextSeo title='Impressum' />
@@ -56,4 +56,4 @@ const Legal = () => {
     );
 };
 
-export default Legal;
+export default LegalPage;
