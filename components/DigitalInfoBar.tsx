@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const DigitalInfoBar: React.FC = () => {
     return (
-        <div className='relative container mx-auto mt-8 px-4'>
+        <div className='relative container mx-auto mb-8 px-4'>
             <div className='absolute -inset-0.5 rounded-2xl bg-gradient-to-tr from-indigo-700 to-pink-700 blur-lg opacity-75'></div>
 
             <div className='relative bg-gradient-to-tr from-indigo-700 to-pink-700 p-1 rounded-2xl shadow-lg flex flex-col md:flex-row space-y-3 md:space-y-0 justify-between items-center'>

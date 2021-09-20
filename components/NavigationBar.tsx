@@ -15,7 +15,7 @@ const NavigationBar: React.FC = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
-        <div className='relative container mx-auto'>
+        <div className='relative container mx-auto mb-8'>
             <Transition
                 as={Fragment}
                 show={mobileMenuOpen}

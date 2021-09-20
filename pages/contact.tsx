@@ -10,7 +10,7 @@ const contact = () => {
             <NextSeo title='Kontakt' />
             <div className='min-h-screen flex flex-col bg-gray-50'>
                 <NavigationBar />
-                <div className='container mx-auto px-4 flex-1 flex flex-col items-center space-y-4 my-8'>
+                <div className='container mx-auto px-4 flex-1 flex flex-col items-center space-y-4 mb-8'>
                     <h1 className='font-bold text-4xl'>Kontakt aufnehmen</h1>
                     <p className='text-gray-800 text-center leading-loose'>
                         Kontaktieren Sie mich unkompliziert und unverbindlich via Email unter{' '}

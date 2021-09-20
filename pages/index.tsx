@@ -12,7 +12,7 @@ const HomePage: React.FC = () => {
             <div className='min-h-screen bg-gray-50 flex flex-col'>
                 <NavigationBar />
                 <DigitalInfoBar />
-                <div className='flex px-4 flex-1 justify-center items-center my-8'>
+                <div className='flex px-4 flex-1 justify-center items-center mb-8'>
                     <div className='max-w-2xl flex flex-col items-center space-y-8'>
                         <h1 className='font-bold text-4xl md:text-8xl text-center'>Ideen lebendig werden lassen</h1>
                         <p className='text-center text-gray-800'>
