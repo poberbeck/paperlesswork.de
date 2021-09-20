@@ -43,7 +43,7 @@ const DigitalPage: React.FC = () => {
                         <img className='w-40 rounded-lg shadow-md' src='/images/AppleTeacher_white.png' alt='Apple Teacher Signatur' />
                     </div>
                     <div>
-                        <img className='object-cover h-full object-center' src='/images/me.png' alt='Pascal Oberbeck' />
+                        <img className='object-cover xl:h-full object-center' src='/images/me.png' alt='Pascal Oberbeck' />
                     </div>
                 </div>
             </div>
