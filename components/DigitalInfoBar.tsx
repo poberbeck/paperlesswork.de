@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-const InfoBar: React.FC = () => {
+const DigitalInfoBar: React.FC = () => {
     return (
         <div className='relative container mx-auto mt-8 px-4'>
             <div className='absolute -inset-0.5 rounded-2xl bg-gradient-to-tr from-indigo-700 to-pink-700 blur-lg opacity-75'></div>
@@ -31,4 +31,4 @@ const InfoBar: React.FC = () => {
     );
 };
 
-export default InfoBar;
+export default DigitalInfoBar;

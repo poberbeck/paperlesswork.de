@@ -1,6 +1,6 @@
 import React from 'react';
 import NavigationBar from '../components/NavigationBar';
-import InfoBar from '../components/InfoBar';
+import DigitalInfoBar from '../components/DigitalInfoBar';
 import LinkButton from '../components/LinkButton';
 import Footer from '../components/Footer';
 import { NextSeo } from 'next-seo';
@@ -11,7 +11,7 @@ const HomePage: React.FC = () => {
             <NextSeo title='Home' />
             <div className='min-h-screen bg-gray-50 flex flex-col'>
                 <NavigationBar />
-                <InfoBar />
+                <DigitalInfoBar />
                 <div className='flex px-4 flex-1 justify-center items-center my-8'>
                     <div className='max-w-2xl flex flex-col items-center space-y-8'>
                         <h1 className='font-bold text-4xl md:text-8xl text-center'>Ideen lebendig werden lassen</h1>
