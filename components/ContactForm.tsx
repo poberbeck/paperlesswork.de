@@ -23,7 +23,7 @@ const ContactForm = () => {
             </label>
             <textarea required rows={6} className='w-full m-2 p-2 rounded-xl bg-gray-100' name='nachricht' placeholder='Nachricht' />
             <div className='mx-auto mt-4'>
-                <button type='submit' className='bg-indigo-700 text-white py-3 px-6 flex flex-row font-bold rounded-xl shadow-md'>
+                <button aria-label='Absenden' type='submit' className='bg-indigo-700 text-white py-3 px-6 flex flex-row font-bold rounded-xl shadow-md'>
                     <p className='font-bold'>Senden</p>
                     <svg xmlns='http://www.w3.org/2000/svg' className='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
                         <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M9 5l7 7-7 7' />

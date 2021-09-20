@@ -28,7 +28,7 @@ const NavigationBar: React.FC = () => {
                 <div className='absolute z-50 top-2 right-2 left-2 bg-white rounded-2xl shadow-md p-4'>
                     <div className='flex justify-between'>
                         <p className='font-bold text-lg'>Menü</p>
-                        <button onClick={() => setMobileMenuOpen(false)}>
+                        <button aria-label='Menü schließen' onClick={() => setMobileMenuOpen(false)}>
                             <svg xmlns='http://www.w3.org/2000/svg' className='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
                                 <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M6 18L18 6M6 6l12 12' />
                             </svg>
@@ -58,7 +58,7 @@ const NavigationBar: React.FC = () => {
                         </Link>
                     ))}
                 </div>
-                <button onClick={() => setMobileMenuOpen(true)} className='block md:hidden'>
+                <button aria-label='Menü öffnen' onClick={() => setMobileMenuOpen(true)} className='block md:hidden'>
                     <svg xmlns='http://www.w3.org/2000/svg' className='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
                         <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M4 6h16M4 12h16M4 18h16' />
                     </svg>
