@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
                                 <p>Home</p>
                             </a>
                         </Link>
-                        <Link href='/'>
+                        <Link href='/work'>
                             <a>
                                 <p>Meine Arbeit</p>
                             </a>
@@ -22,6 +22,11 @@ const Footer: React.FC = () => {
                         <Link href='/contact'>
                             <a>
                                 <p>Kontakt</p>
+                            </a>
+                        </Link>
+                        <Link href='/digital'>
+                            <a>
+                                <p>Digital Work</p>
                             </a>
                         </Link>
                     </div>
