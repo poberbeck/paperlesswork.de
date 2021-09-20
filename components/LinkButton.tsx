@@ -8,7 +8,7 @@ interface Props {
     className?: string;
 }
 
-const Button: React.FC<Props> = (props) => {
+const LinkButton: React.FC<Props> = (props) => {
     const { children, type = 'white', href, className } = props;
 
     return (
@@ -18,4 +18,4 @@ const Button: React.FC<Props> = (props) => {
     );
 };
 
-export default Button;
+export default LinkButton;

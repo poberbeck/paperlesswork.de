@@ -1,7 +1,7 @@
 import React from 'react';
 import NavigationBar from '../components/NavigationBar';
 import InfoBar from '../components/InfoBar';
-import Button from '../components/Button';
+import LinkButton from '../components/LinkButton';
 import Footer from '../components/Footer';
 import { NextSeo } from 'next-seo';
 
@@ -20,13 +20,13 @@ const HomePage: React.FC = () => {
                             optimieren und umzusetzen.
                         </p>
 
-                        <Button className='mx-5' href='/kontakt' type='primary'>
+                        <LinkButton className='mx-5' href='/kontakt' type='primary'>
                             Jetzt Kontakt aufnehmen
-                        </Button>
+                        </LinkButton>
 
-                        <Button className='mx-5' href='/contact'>
+                        <LinkButton className='mx-5' href='/contact'>
                             Meine Arbeit
-                        </Button>
+                        </LinkButton>
                     </div>
                 </div>
             </div>
