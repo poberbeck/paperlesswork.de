@@ -11,11 +11,14 @@ const SEO: DefaultSeoProps = {
             content: 'EDV, Pascal Oberbeck, Digital, iPad, Sehbehindert, Freelancer, German, Deutsch',
         },
     ],
+    defaultOpenGraphImageHeight: 627,
+    defaultOpenGraphImageWidth: 1200,
     openGraph: {
         type: 'website',
         locale: 'de',
         url: 'https://paperlesswork.de/',
         site_name: 'Paperless Work',
+        images: [{ url: 'https://paperlesswork.de/HomePage_Card.png' }],
     },
     twitter: {
         handle: '@pascaloberbeck',
