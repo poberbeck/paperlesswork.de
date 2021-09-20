@@ -8,7 +8,7 @@ import NavigationBar from '../components/NavigationBar';
 const DigitalPage: React.FC = () => {
     return (
         <div className='bg-gray-50'>
-            <NextSeo title='Digital Work' />
+            <NextSeo title='Digital Work' openGraph={{ images: [{ url: 'https://paperlesswork.de/DigitalPage_Card.png' }] }} />
             <div className='min-h-screen flex flex-col digital-bg'>
                 <NavigationBar />
                 <div className='flex-1 max-w-5xl mx-auto px-4 md:px-12 flex flex-col items-center justify-center space-y-4'>
