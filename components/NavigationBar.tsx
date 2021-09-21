@@ -37,8 +37,9 @@ const NavigationBar: React.FC = () => {
                     <div className='mt-4 flex flex-col space-y-4'>
                         {menueItems.map((item, key) => (
                             <Link key={key + item.link} href={item.link}>
-                                <a className={router.pathname === item.link ? 'text-indigo-700 underline' : ''}>
+                                <a className='flex flex-col justify-center items-center'>
                                     <p>{item.name}</p>
+                                    {router.pathname === item.link ? <div className='h-[4px] bg-indigo-700 rounded-full w-2/3'></div> : <div className='h-[4px] w-2/3'></div>}
                                 </a>
                             </Link>
                         ))}
@@ -52,8 +53,9 @@ const NavigationBar: React.FC = () => {
                 <div className='hidden md:flex space-x-6'>
                     {menueItems.map((item, key) => (
                         <Link key={key + item.link} href={item.link}>
-                            <a className={router.pathname === item.link ? 'text-indigo-700 underline' : ''}>
+                            <a className='flex flex-col justify-center items-center'>
                                 <p>{item.name}</p>
+                                {router.pathname === item.link ? <div className='h-[4px] bg-indigo-700 rounded-full w-2/3'></div> : <div className='h-[4px] w-2/3'></div>}
                             </a>
                         </Link>
                     ))}
