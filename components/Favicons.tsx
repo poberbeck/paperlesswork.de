@@ -20,7 +20,7 @@ const Favicons: React.FC = () => {
             <meta name='msapplication-TileColor' content='#ffffff' />
             <meta name='msapplication-TileImage' content='/images/icons/ms-icon-144x144.png' />
             <link rel='manifest' href='/manifest.json' />
-            <meta name='theme-color' content='#ffffff' />
+            <meta name='theme-color' content='#F9FAFB' />
         </Head>
     );
 };
