@@ -4,28 +4,30 @@ import DigitalInfoBar from '../components/DigitalInfoBar';
 import LinkButton from '../components/LinkButton';
 import Footer from '../components/Footer';
 import { NextSeo } from 'next-seo';
+import { GetStaticProps } from 'next';
+import axios, { AxiosResponse } from 'axios';
+import { COCKPIT_API_KEY, COCKPIT_URL } from '../constants';
+import { CockpitHomePage } from '../types';
 
-const HomePage: React.FC = () => {
+const HomePage: React.FC<CockpitHomePage> = (props) => {
+    const { seoTitle, leading, leadingSub, ctaPrimaryText, ctaPrimaryLink, ctaSeconderyText, ctaSeconderyLink, infoBannerText, infoBannerLink } = props;
     return (
         <div>
-            <NextSeo title='Home' />
+            <NextSeo title={seoTitle} />
             <div className='min-h-screen bg-gray-50 flex flex-col'>
                 <NavigationBar />
-                <DigitalInfoBar />
+                <DigitalInfoBar content={infoBannerText} link={infoBannerLink} />
                 <div className='flex px-4 flex-1 justify-center items-center mb-8'>
                     <div className='max-w-2xl flex flex-col items-center space-y-8'>
-                        <h1 className='font-bold text-4xl md:text-8xl text-center'>Ideen lebendig werden lassen</h1>
-                        <p className='text-center text-gray-800'>
-                            Egal ob im Web, Mobil oder im Print, ein professionelles Auftreten ist wichtig für das Gewinnen von neuen Kunden. Ich helfe Ihnen diese Auftritt zu entwickeln, zu
-                            optimieren und umzusetzen.
-                        </p>
+                        <h1 className='font-bold text-4xl md:text-8xl text-center'>{leading}</h1>
+                        <p className='text-center text-gray-800'>{leadingSub}</p>
 
-                        <LinkButton className='mx-5' href='/contact' type='primary'>
-                            Jetzt Kontakt aufnehmen
+                        <LinkButton className='mx-5' href={ctaPrimaryLink} type='primary'>
+                            {ctaPrimaryText}
                         </LinkButton>
 
-                        <LinkButton className='mx-5' href='/work'>
-                            Meine Arbeit
+                        <LinkButton className='mx-5' href={ctaSeconderyLink}>
+                            {ctaSeconderyText}
                         </LinkButton>
                     </div>
                 </div>
@@ -36,3 +38,13 @@ const HomePage: React.FC = () => {
 };
 
 export default HomePage;
+
+export const getStaticProps: GetStaticProps = async (ctx) => {
+    const cockpitResult: AxiosResponse<CockpitHomePage> = await axios.get(COCKPIT_URL + '/api/singletons/get/homePage?token=' + COCKPIT_API_KEY);
+
+    return {
+        props: {
+            ...cockpitResult.data,
+        },
+    };
+};
