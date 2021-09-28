@@ -6,8 +6,6 @@ name: Build & Depoly
 on:
     push:
         branches: [master]
-    pull_request:
-        branches: []
 
 jobs:
     build:
