@@ -78,3 +78,11 @@ export interface FeaturedApp {
     _created: number;
     _id: number;
 }
+
+export interface CockpitSimplePage {
+    seoTitle: string;
+    seoDescription?: string;
+    content: string;
+    _mby: string;
+    _by: string;
+}
