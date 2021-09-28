@@ -25,7 +25,7 @@ const FeaturedApps: React.FC<Props> = (props) => {
                             <img className='rounded-2xl absolute -inset-0 filter blur-xl' src={COCKPIT_ASSETS_URL + item.appIcon.path} alt={item.appName + ' Blur Background'} />
                             <img className='rounded-2xl shadow-md h-28 w-28 relative' src={COCKPIT_ASSETS_URL + item.appIcon.path} alt={item.appName + ' Icon'} />
                         </div>
-                        <h3 className='font-bold text-3xl md:text-5xl'>{item.appName}</h3>
+                        <h3 className='font-bold text-3xl'>{item.appName}</h3>
                         <p className='text-gray-800 font-bold text-xl'>{item.appCreator}</p>
                         <p className='text-gray-800'>{item.appDescription}</p>
                         <Link href={item.appStoreLink}>
