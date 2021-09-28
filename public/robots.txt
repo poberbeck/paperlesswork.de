@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://paperlesswork.de
+
+# Sitemaps
+Sitemap: https://paperlesswork.de/sitemap.xml
