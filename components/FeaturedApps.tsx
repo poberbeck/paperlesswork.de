@@ -13,7 +13,6 @@ interface Props {
 
 const FeaturedApps: React.FC<Props> = (props) => {
     const { apps, title, subTitle } = props;
-    console.log(apps);
 
     return (
         <div className='container mx-auto py-12 flex flex-col justify-center items-center space-y-4'>
