@@ -15,10 +15,10 @@ const FeaturedApps: React.FC<Props> = (props) => {
     const { apps, title, subTitle } = props;
 
     return (
-        <div className='container mx-auto py-12 flex flex-col justify-center items-center space-y-4'>
+        <div className='container mx-auto py-12 px-4 flex flex-col justify-center items-center space-y-4'>
             <Title className='text-center'>{title}</Title>
             <SubTitle className='text-center'>{subTitle}</SubTitle>
-            <div className='grid grid-rows-3 md:grid-rows-1 grid-cols-1 md:grid-cols-3 gap-y-8 md:gap-0 divide-x'>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-y-8 md:gap-0 divide-x'>
                 {apps.map((item: FeaturedApp) => (
                     <div className='flex flex-col justify-between items-center space-y-4 p-4 text-center' key={item._id}>
                         <div className='relative'>
