@@ -36,9 +36,8 @@ const NavigationBar: React.FC = () => {
                     <div className='mt-4 flex flex-col space-y-4'>
                         {menueItems.map((item, key) => (
                             <Link key={key + item.link} href={item.link}>
-                                <a className='flex flex-col justify-center items-center'>
-                                    <p>{item.name}</p>
-                                    {router.pathname === item.link ? <div className='h-[4px] bg-indigo-700 rounded-full w-2/3'></div> : <div className='h-[4px] w-2/3'></div>}
+                                <a className='flex flex-col justify-start items-start'>
+                                    <p className={router.pathname === item.link ? 'font-bold text-indigo-700' : ''}>{item.name}</p>
                                 </a>
                             </Link>
                         ))}
