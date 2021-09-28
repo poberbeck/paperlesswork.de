@@ -6,6 +6,7 @@ import { Transition } from '@headlessui/react';
 const menueItems = [
     { name: 'Home', link: '/' },
     { name: 'Meine Arbeit', link: '/work' },
+    { name: 'Digital Work', link: '/digital' },
     { name: 'Kontakt', link: '/contact' },
 ];
 
@@ -48,10 +49,10 @@ const NavigationBar: React.FC = () => {
                 <Link passHref href='/'>
                     <img className='h-16 w-16' src='/images/plwo_logo.svg' alt='Paperless Work Logo' />
                 </Link>
-                <div className='hidden md:flex space-x-6'>
+                <div className='hidden md:flex divide-x'>
                     {menueItems.map((item, key) => (
                         <Link key={key + item.link} href={item.link}>
-                            <a className='flex flex-col justify-center items-center'>
+                            <a className='flex flex-col justify-center items-center px-3'>
                                 <p>{item.name}</p>
                                 {router.pathname === item.link ? <div className='h-[4px] bg-indigo-700 rounded-full w-2/3'></div> : <div className='h-[4px] w-2/3'></div>}
                             </a>
