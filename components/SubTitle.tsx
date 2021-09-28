@@ -1,7 +1,11 @@
 import React from 'react';
 
-const SubTitle: React.FC = ({ children }) => {
-    return <p className='text-gray-800 text-center leading-loose'>{children}</p>;
+interface Props {
+    className?: string;
+}
+
+const SubTitle: React.FC<Props> = ({ children, className = '' }) => {
+    return <p className={'text-gray-800 text-center leading-loose ' + className}>{children}</p>;
 };
 
 export default SubTitle;

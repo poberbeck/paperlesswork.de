@@ -49,8 +49,8 @@ const DigitalPage: React.FC<Props> = (props) => {
             </div>
             <FeaturedApps apps={featuredAppsEntries.entries} title={featuredApps.title} subTitle={featuredApps.subTitle} />
             <div className='flex flex-col justify-center items-center space-y-4 py-8 px-4'>
-                <Title>Kontakt aufnehmen</Title>
-                <SubTitle>
+                <Title className='text-center'>Kontakt aufnehmen</Title>
+                <SubTitle className='text-center'>
                     Kontaktieren Sie mich unkompliziert und unverbindlich via Email unter{' '}
                     <span className='p-2 bg-indigo-700 rounded-lg text-white font-bold m-2'>pascal.oberbeck(at)paperlesswork.de</span> oder via Kontaktformular.
                 </SubTitle>

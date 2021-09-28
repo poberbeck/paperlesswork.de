@@ -13,18 +13,22 @@ interface Props {
 
 const FeaturedApps: React.FC<Props> = (props) => {
     const { apps, title, subTitle } = props;
+    console.log(apps);
 
     return (
         <div className='container mx-auto py-12 flex flex-col justify-center items-center space-y-4'>
-            <Title>{title}</Title>
-            <SubTitle>{subTitle}</SubTitle>
-            <div className='grid grid-cols-3 divide-x'>
+            <Title className='text-center'>{title}</Title>
+            <SubTitle className='text-center'>{subTitle}</SubTitle>
+            <div className='grid grid-rows-3 md:grid-rows-1 grid-cols-1 md:grid-cols-3 gap-y-8 md:gap-0 divide-x'>
                 {apps.map((item: FeaturedApp) => (
-                    <div className='flex flex-col justify-between items-center space-y-4 p-4' key={item._id}>
-                        <img className='rounded-xl shadow-md h-28 w-28' src={COCKPIT_ASSETS_URL + item.appIcon.path} alt={item.appName + ' Icon'} />
-                        <h3 className='font-bold text-5xl'>{item.appName}</h3>
+                    <div className='flex flex-col justify-between items-center space-y-4 p-4 text-center' key={item._id}>
+                        <div className='relative'>
+                            <img className='rounded-2xl absolute -inset-0 filter blur-xl' src={COCKPIT_ASSETS_URL + item.appIcon.path} alt={item.appName + ' Blur Background'} />
+                            <img className='rounded-2xl shadow-md h-28 w-28 relative' src={COCKPIT_ASSETS_URL + item.appIcon.path} alt={item.appName + ' Icon'} />
+                        </div>
+                        <h3 className='font-bold text-3xl md:text-5xl'>{item.appName}</h3>
                         <p className='text-gray-800 font-bold text-xl'>{item.appCreator}</p>
-                        <p className='text-gray-800 text-center'>{item.appDescription}</p>
+                        <p className='text-gray-800'>{item.appDescription}</p>
                         <Link href={item.appStoreLink}>
                             <a className='font-bold text-indigo-700'>
                                 <p>Im App Store anzeigen</p>
