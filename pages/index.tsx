@@ -8,6 +8,7 @@ import { GetStaticProps } from 'next';
 import axios, { AxiosResponse } from 'axios';
 import { COCKPIT_API_KEY, COCKPIT_URL } from '../constants';
 import { CockpitHomePage } from '../types';
+import SozialIcons from '../components/SozialIcons';
 
 const HomePage: React.FC<CockpitHomePage> = (props) => {
     const { seoTitle, leading, leadingSub, ctaPrimaryText, ctaPrimaryLink, ctaSeconderyText, ctaSeconderyLink, infoBannerText, infoBannerLink } = props;
@@ -29,6 +30,8 @@ const HomePage: React.FC<CockpitHomePage> = (props) => {
                         <LinkButton className='mx-5' href={ctaSeconderyLink}>
                             {ctaSeconderyText}
                         </LinkButton>
+
+                        <SozialIcons />
                     </div>
                 </div>
             </div>
