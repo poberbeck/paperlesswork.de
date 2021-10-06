@@ -33,10 +33,10 @@ jobs:
               uses: actions/setup-node@v2
               with:
                   node-version: ${{ matrix.node-version }}
-                  cache: 'yarn'
+                  cache: 'npm'
 
-            - run: yarn install
-            - run: yarn export
+            - run: npm install
+            - run: npm run export
 
             - name: 🎉 Deploy
               uses: sebastianpopp/ftp-action@releases/v2
