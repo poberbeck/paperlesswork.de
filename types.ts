@@ -59,6 +59,21 @@ export interface CockpitFeaturedAppsCollection {
     entries: FeaturedApp[];
 }
 
+export interface CockpitSkillsCollection {
+    entries: Skill[];
+}
+
+export interface Skill {
+    skillName: string;
+    skillValue: string;
+    skillDescription: string;
+    skillIcon: string;
+    _mby: string;
+    _by: string;
+    _modified: number;
+    _created: number;
+    _id: string;
+}
 export interface CockpitFeaturedAppsComponent {
     title: string;
     subTitle: string;
