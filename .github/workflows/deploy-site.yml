@@ -1,48 +1,45 @@
-# This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+# name: Build & Depoly
 
-name: Build & Depoly
+# on:
+#     push:
+#         branches: [master]
 
-on:
-    push:
-        branches: [master]
+# jobs:
+#     build:
+#         runs-on: ubuntu-latest
 
-jobs:
-    build:
-        runs-on: ubuntu-latest
+#         strategy:
+#             matrix:
+#                 node-version: [16.x]
 
-        strategy:
-            matrix:
-                node-version: [16.x]
+#         steps:
+#             - name: 🚚 Get latest code
+#               uses: actions/checkout@v2
 
-        steps:
-            - name: 🚚 Get latest code
-              uses: actions/checkout@v2
+#             - name: Restore cache
+#               uses: actions/cache@v2
+#               with:
+#                   path: ${{ github.workspace }}/.next/cache
+#                   # Generate a new cache whenever packages or source files change.
+#                   key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]sx?') }}
+#                   # If source files changed but packages didn't, rebuild from a prior cache.
+#                   restore-keys: |
+#                       ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
 
-            - name: Restore cache
-              uses: actions/cache@v2
-              with:
-                  path: ${{ github.workspace }}/.next/cache
-                  # Generate a new cache whenever packages or source files change.
-                  key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]sx?') }}
-                  # If source files changed but packages didn't, rebuild from a prior cache.
-                  restore-keys: |
-                      ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+#             - name: ☄️ Build
+#               uses: actions/setup-node@v2
+#               with:
+#                   node-version: ${{ matrix.node-version }}
+#                   cache: 'npm'
 
-            - name: ☄️ Build
-              uses: actions/setup-node@v2
-              with:
-                  node-version: ${{ matrix.node-version }}
-                  cache: 'npm'
+#             - run: npm install
+#             - run: npm run export
 
-            - run: npm install
-            - run: npm run export
-
-            - name: 🎉 Deploy
-              uses: sebastianpopp/ftp-action@releases/v2
-              with:
-                  host: ${{ secrets.ftp_server }}
-                  user: ${{ secrets.ftp_user }}
-                  password: ${{ secrets.ftp_password }}
-                  localDir: ./out/
-                  options: '--delete --asci'
+#             - name: 🎉 Deploy
+#               uses: sebastianpopp/ftp-action@releases/v2
+#               with:
+#                   host: ${{ secrets.ftp_server }}
+#                   user: ${{ secrets.ftp_user }}
+#                   password: ${{ secrets.ftp_password }}
+#                   localDir: ./out/
+#                   options: '--delete --asci'
