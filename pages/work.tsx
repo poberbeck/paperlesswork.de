@@ -6,7 +6,8 @@ import { GetStaticProps } from 'next';
 import axios, { AxiosResponse } from 'axios';
 import { COCKPIT_API_KEY, COCKPIT_URL } from '../constants';
 import { CockpitSkillsCollection } from '../types';
-import SkillBar from '../components/SkillBar';
+import SkillCard from '../components/SkillCard';
+import { NextSeo } from 'next-seo';
 
 interface Props {
     cockpitSkillsEntriesResult: CockpitSkillsCollection;
@@ -18,10 +19,11 @@ const WorkPage: React.FC<Props> = (props) => {
         <div className='bg-gray-50'>
             <div className='min-h-screen container mx-auto px-4 md:px-12'>
                 <NavigationBar />
+                <NextSeo title={'Freelancing'} />
 
                 <div className='flex-1 grid md:grid-cols-2 gap-10'>
                     <div className='flex space-y-8 flex-col justify-center'>
-                        <h1 className='font-bold text-4xl md:text-7xl'>
+                        <h1 className='font-bold text-5xl md:text-7xl'>
                             Nicht <span className='text-indigo-700'>Träumen</span>
                             <br />
                             Sondern <span className='text-indigo-700'>Machen</span>
@@ -40,11 +42,11 @@ const WorkPage: React.FC<Props> = (props) => {
                         <img src='/images/dreamer.svg' alt='Dreamer Grafik' />
                     </div>
                 </div>
-                <section className='py-8 space-y-8'>
+                <section className='py-12 space-y-8'>
                     <h1 className='font-bold text-4xl md:text-6xl'>Meine Skills</h1>
-                    <div className='grid grid-cols-1 md:grid-cols-2 gap-y-20 gap-10'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
                         {cockpitSkillsEntriesResult.entries.map((item) => (
-                            <SkillBar key={item._id} skillDescription={item.skillDescription} skillIcon={item.skillIcon} skillName={item.skillName} skillValue={item.skillValue} />
+                            <SkillCard key={item._id} skillDescription={item.skillDescription} skillIcon={item.skillIcon} skillName={item.skillName} />
                         ))}
                     </div>
                 </section>

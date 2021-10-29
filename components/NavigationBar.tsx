@@ -5,7 +5,7 @@ import { Transition } from '@headlessui/react';
 
 const menueItems = [
     { name: 'Home', link: '/' },
-    { name: 'Meine Arbeit', link: '/work' },
+    { name: 'Freelancing', link: '/work' },
     { name: 'Digital Work', link: '/digital' },
     { name: 'Kontakt', link: '/contact' },
 ];
