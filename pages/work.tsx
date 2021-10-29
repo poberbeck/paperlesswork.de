@@ -17,10 +17,10 @@ const WorkPage: React.FC<Props> = (props) => {
     const { cockpitSkillsEntriesResult } = props;
     return (
         <div className='bg-gray-50'>
-            <div className='min-h-screen container mx-auto px-4 md:px-12'>
-                <NavigationBar />
-                <NextSeo title={'Freelancing'} />
+            <NavigationBar />
+            <NextSeo title={'Freelancing'} />
 
+            <div className='min-h-screen container mx-auto px-4 md:px-12'>
                 <div className='flex-1 grid md:grid-cols-2 gap-10'>
                     <div className='flex space-y-8 flex-col justify-center'>
                         <h1 className='font-bold text-5xl md:text-7xl'>
@@ -43,7 +43,7 @@ const WorkPage: React.FC<Props> = (props) => {
                     </div>
                 </div>
                 <section className='py-12 space-y-8'>
-                    <h1 className='font-bold text-4xl md:text-6xl'>Meine Skills</h1>
+                    <h1 className='font-bold text-4xl md:text-6xl text-center'>Meine Skills</h1>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
                         {cockpitSkillsEntriesResult.entries.map((item) => (
                             <SkillCard key={item._id} skillDescription={item.skillDescription} skillIcon={item.skillIcon} skillName={item.skillName} />
