@@ -22,7 +22,7 @@ const WorkPage: React.FC<Props> = (props) => {
             <NextSeo title={'Freelancing'} />
 
             <div className='min-h-screen container mx-auto px-4 md:px-12'>
-                <div className='flex-1 grid md:grid-cols-2 gap-10'>
+                <section className='flex-1 grid md:grid-cols-2 gap-10'>
                     <div className='flex space-y-8 flex-col justify-center'>
                         <h1 className='font-bold text-5xl md:text-7xl'>
                             Nicht <span className='text-indigo-700'>Träumen</span>
@@ -42,7 +42,7 @@ const WorkPage: React.FC<Props> = (props) => {
                     <div className='p-4 flex justify-center items-center'>
                         <img src='/images/dreamer.svg' alt='Dreamer Grafik' />
                     </div>
-                </div>
+                </section>
                 <section className='py-12 space-y-8'>
                     <h2 className='font-bold text-4xl md:text-6xl text-center'>Meine Skills</h2>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>

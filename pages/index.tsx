@@ -15,7 +15,7 @@ const HomePage: React.FC<CockpitHomePage> = (props) => {
     return (
         <div>
             <NextSeo title={seoTitle} />
-            <div className='min-h-screen bg-gray-50 flex flex-col'>
+            <main className='min-h-screen bg-gray-50 flex flex-col'>
                 <NavigationBar />
                 <DigitalInfoBar content={infoBannerText} link={infoBannerLink} />
                 <div className='flex px-4 flex-1 justify-center items-center mb-8'>
@@ -34,7 +34,7 @@ const HomePage: React.FC<CockpitHomePage> = (props) => {
                         <SozialIcons />
                     </div>
                 </div>
-            </div>
+            </main>
             <Footer />
         </div>
     );
