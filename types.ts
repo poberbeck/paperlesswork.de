@@ -22,6 +22,20 @@ export interface CockpitDigitalWorkPage {
     _by: string;
 }
 
+export interface CockpitFreelancingPage {
+    seoTitle: string;
+    seoDescription: string;
+    leading: string;
+    leadingSub: string;
+    ctaLabel: string;
+    ctaLink: string;
+    heroImage: CockpitImage;
+    sectionOneHeading: string;
+    sectionTwoHeading: string;
+    _mby: string;
+    _by: string;
+}
+
 export interface CockpitAboutMeComponent {
     title: string;
     description: string;
@@ -59,6 +73,36 @@ export interface CockpitFeaturedAppsCollection {
     entries: FeaturedApp[];
 }
 
+export interface CockpitSkillsCollection {
+    entries: Skill[];
+}
+
+export interface CockpitQualitiesCollection {
+    entries: Qualities[];
+}
+
+export interface Qualities {
+    title: string;
+    description: string;
+    image: CockpitImage;
+    _mby: string;
+    _by: string;
+    _modified: number;
+    _created: number;
+    _id: string;
+}
+
+export interface Skill {
+    skillName: string;
+    skillValue: string;
+    skillDescription: string;
+    skillIcon: string;
+    _mby: string;
+    _by: string;
+    _modified: number;
+    _created: number;
+    _id: string;
+}
 export interface CockpitFeaturedAppsComponent {
     title: string;
     subTitle: string;

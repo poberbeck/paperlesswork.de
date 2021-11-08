@@ -1,10 +1,10 @@
 import React from 'react';
-import Footer from '../components/Footer';
-import NavigationBar from '../components/NavigationBar';
+import Footer from '@components/Footer';
+import NavigationBar from '@components/NavigationBar';
 import { NextSeo } from 'next-seo';
 import { GetStaticProps } from 'next';
 import axios, { AxiosResponse } from 'axios';
-import { CockpitSimplePage } from '../types';
+import { CockpitSimplePage } from '@types';
 import { COCKPIT_API_KEY, COCKPIT_URL } from '../constants';
 
 const LegalPage: React.FC<CockpitSimplePage> = ({ seoTitle, content }) => {

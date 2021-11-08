@@ -3,14 +3,14 @@ import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import ContactForm from '../components/ContactForm';
-import Footer from '../components/Footer';
-import NavigationBar from '../components/NavigationBar';
+import ContactForm from '@components/ContactForm';
+import Footer from '@components/Footer';
+import NavigationBar from '@components/NavigationBar';
 import { COCKPIT_API_KEY, COCKPIT_ASSETS_URL, COCKPIT_URL } from '../constants';
-import { CockpitAboutMeComponent, CockpitDigitalWorkPage, CockpitFeaturedAppsCollection, CockpitFeaturedAppsComponent } from '../types';
-import FeaturedApps from '../components/FeaturedApps';
-import SubTitle from '../components/SubTitle';
-import Title from '../components/Title';
+import { CockpitAboutMeComponent, CockpitDigitalWorkPage, CockpitFeaturedAppsCollection, CockpitFeaturedAppsComponent } from '@types';
+import FeaturedApps from '@components/FeaturedApps';
+import SubTitle from '@components/SubTitle';
+import Title from '@components/Title';
 
 interface Props {
     page: CockpitDigitalWorkPage;
@@ -24,7 +24,7 @@ const DigitalPage: React.FC<Props> = (props) => {
     return (
         <div className='bg-gray-50'>
             <NextSeo title={page.seoTitle} openGraph={{ images: [{ url: 'https://paperlesswork.de/DigitalPage_Card.png' }] }} />
-            <div className='min-h-screen flex flex-col digital-bg'>
+            <section className='min-h-screen flex flex-col digital-bg'>
                 <NavigationBar />
                 <div className='flex-1 max-w-5xl mx-auto px-4 md:px-12 flex flex-col items-center justify-center space-y-4'>
                     <h1 className='font-bold text-4xl md:text-6xl xl:text-7xl'>
@@ -32,9 +32,9 @@ const DigitalPage: React.FC<Props> = (props) => {
                     </h1>
                     <p className='text-gray-800 text-xl'>{page.leadingSub}</p>
                 </div>
-            </div>
+            </section>
 
-            <div className='container mx-auto xl:py-12'>
+            <section className='container mx-auto xl:py-12'>
                 <div className='grid xl:grid-cols-2 bg-gray-800 text-white xl:rounded-2xl xl:shadow-md overflow-hidden'>
                     <div className='px-4 py-8 xl:p-12 flex flex-col justify-center space-y-4'>
                         <h2 className='font-bold text-4xl'>{aboutMe.title}</h2>
@@ -46,16 +46,16 @@ const DigitalPage: React.FC<Props> = (props) => {
                         <img className='object-cover object-center h-full max-h-[880px] w-full' src={COCKPIT_ASSETS_URL + aboutMe.image.path} alt='Pascal Oberbeck' />
                     </div>
                 </div>
-            </div>
+            </section>
             <FeaturedApps apps={featuredAppsEntries.entries} title={featuredApps.title} subTitle={featuredApps.subTitle} />
-            <div className='flex flex-col justify-center items-center space-y-4 py-8 px-4'>
+            <section className='flex flex-col justify-center items-center space-y-4 py-8 px-4'>
                 <Title className='text-center'>Kontakt aufnehmen</Title>
                 <SubTitle className='text-center'>
                     Kontaktieren Sie mich unkompliziert und unverbindlich via Email unter{' '}
                     <span className='p-2 bg-indigo-700 rounded-lg text-white font-bold m-2'>pascal.oberbeck(at)paperlesswork.de</span> oder via Kontaktformular.
                 </SubTitle>
                 <ContactForm />
-            </div>
+            </section>
             <Footer />
             <style jsx>{`
                 .digital-bg {

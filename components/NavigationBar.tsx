@@ -5,7 +5,7 @@ import { Transition } from '@headlessui/react';
 
 const menueItems = [
     { name: 'Home', link: '/' },
-    { name: 'Meine Arbeit', link: '/work' },
+    { name: 'Freelancing', link: '/work' },
     { name: 'Digital Work', link: '/digital' },
     { name: 'Kontakt', link: '/contact' },
 ];
@@ -15,7 +15,7 @@ const NavigationBar: React.FC = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
-        <div className='relative container mx-auto mb-8'>
+        <header className='relative container mx-auto mb-8'>
             <Transition
                 as={Fragment}
                 show={mobileMenuOpen}
@@ -34,7 +34,7 @@ const NavigationBar: React.FC = () => {
                             </svg>
                         </button>
                     </div>
-                    <div className='mt-4 flex flex-col space-y-4'>
+                    <nav className='mt-4 flex flex-col space-y-4'>
                         {menueItems.map((item, key) => (
                             <Link key={key + item.link} href={item.link}>
                                 <a className='flex flex-col justify-start items-start'>
@@ -42,14 +42,14 @@ const NavigationBar: React.FC = () => {
                                 </a>
                             </Link>
                         ))}
-                    </div>
+                    </nav>
                 </div>
             </Transition>
             <div className='relative flex justify-between items-center p-6'>
                 <Link passHref href='/'>
                     <img className='h-16 w-16' src='/images/plwo_logo.svg' alt='Paperless Work Logo' />
                 </Link>
-                <div className='hidden md:flex divide-x'>
+                <nav className='hidden md:flex divide-x'>
                     {menueItems.map((item, key) => (
                         <Link key={key + item.link} href={item.link}>
                             <a className='flex flex-col justify-center items-center px-3'>
@@ -58,14 +58,14 @@ const NavigationBar: React.FC = () => {
                             </a>
                         </Link>
                     ))}
-                </div>
+                </nav>
                 <button aria-label='Menü öffnen' onClick={() => setMobileMenuOpen(true)} className='block md:hidden'>
                     <svg xmlns='http://www.w3.org/2000/svg' className='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
                         <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M4 6h16M4 12h16M4 18h16' />
                     </svg>
                 </button>
             </div>
-        </div>
+        </header>
     );
 };
 
