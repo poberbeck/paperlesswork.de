@@ -5,7 +5,7 @@ import { NextSeo } from 'next-seo';
 import axios, { AxiosResponse } from 'axios';
 import { GetStaticProps } from 'next';
 import { COCKPIT_URL, COCKPIT_API_KEY } from '../constants';
-import { CockpitSimplePage } from '../types';
+import { CockpitSimplePage } from '@types';
 
 const PrivacyPage: React.FC<CockpitSimplePage> = ({ seoTitle, content }) => {
     return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FeaturedApp } from '../types';
+import { FeaturedApp } from '@types';
 import Link from 'next/link';
 import { COCKPIT_ASSETS_URL } from '../constants';
 import SubTitle from './SubTitle';

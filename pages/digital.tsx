@@ -7,7 +7,7 @@ import ContactForm from '@components/ContactForm';
 import Footer from '@components/Footer';
 import NavigationBar from '@components/NavigationBar';
 import { COCKPIT_API_KEY, COCKPIT_ASSETS_URL, COCKPIT_URL } from '../constants';
-import { CockpitAboutMeComponent, CockpitDigitalWorkPage, CockpitFeaturedAppsCollection, CockpitFeaturedAppsComponent } from '../types';
+import { CockpitAboutMeComponent, CockpitDigitalWorkPage, CockpitFeaturedAppsCollection, CockpitFeaturedAppsComponent } from '@types';
 import FeaturedApps from '@components/FeaturedApps';
 import SubTitle from '@components/SubTitle';
 import Title from '@components/Title';

@@ -7,7 +7,7 @@ import { NextSeo } from 'next-seo';
 import { GetStaticProps } from 'next';
 import axios, { AxiosResponse } from 'axios';
 import { COCKPIT_API_KEY, COCKPIT_URL } from '../constants';
-import { CockpitHomePage } from '../types';
+import { CockpitHomePage } from '@types';
 import SozialIcons from '@components/SozialIcons';
 
 const HomePage: React.FC<CockpitHomePage> = (props) => {

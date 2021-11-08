@@ -5,7 +5,7 @@ import LinkButton from '@components/LinkButton';
 import { GetStaticProps } from 'next';
 import axios, { AxiosResponse } from 'axios';
 import { COCKPIT_API_KEY, COCKPIT_ASSETS_URL, COCKPIT_URL } from '../constants';
-import { CockpitFreelancingPage, CockpitQualitiesCollection, CockpitSkillsCollection } from '../types';
+import { CockpitFreelancingPage, CockpitQualitiesCollection, CockpitSkillsCollection } from '@types';
 import SkillCard from '@components/SkillCard';
 import { NextSeo } from 'next-seo';
 import ReactMarkdown from 'react-markdown';
