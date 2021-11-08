@@ -3,7 +3,7 @@
         "baseUrl": ".",
         "paths": {
             "@components/*": ["components/*"],
-            "@teypes": ["types.ts"]
+            "@types": ["types.ts"]
         },
         "target": "es5",
         "lib": ["dom", "dom.iterable", "esnext"],
