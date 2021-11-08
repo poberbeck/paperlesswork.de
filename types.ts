@@ -29,6 +29,7 @@ export interface CockpitFreelancingPage {
     leadingSub: string;
     ctaLabel: string;
     ctaLink: string;
+    heroImage: CockpitImage;
     sectionOneHeading: string;
     sectionTwoHeading: string;
     _mby: string;
