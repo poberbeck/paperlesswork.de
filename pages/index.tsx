@@ -1,14 +1,14 @@
 import React from 'react';
-import NavigationBar from '../components/NavigationBar';
-import DigitalInfoBar from '../components/DigitalInfoBar';
-import LinkButton from '../components/LinkButton';
-import Footer from '../components/Footer';
+import NavigationBar from '@components/NavigationBar';
+import DigitalInfoBar from '@components/DigitalInfoBar';
+import LinkButton from '@components/LinkButton';
+import Footer from '@components/Footer';
 import { NextSeo } from 'next-seo';
 import { GetStaticProps } from 'next';
 import axios, { AxiosResponse } from 'axios';
 import { COCKPIT_API_KEY, COCKPIT_URL } from '../constants';
 import { CockpitHomePage } from '../types';
-import SozialIcons from '../components/SozialIcons';
+import SozialIcons from '@components/SozialIcons';
 
 const HomePage: React.FC<CockpitHomePage> = (props) => {
     const { seoTitle, leading, leadingSub, ctaPrimaryText, ctaPrimaryLink, ctaSeconderyText, ctaSeconderyLink, infoBannerText, infoBannerLink } = props;

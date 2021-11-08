@@ -1,10 +1,10 @@
 import React from 'react';
-import ContactForm from '../components/ContactForm';
-import Footer from '../components/Footer';
-import NavigationBar from '../components/NavigationBar';
+import ContactForm from '@components/ContactForm';
+import Footer from '@components/Footer';
+import NavigationBar from '@components/NavigationBar';
 import { NextSeo } from 'next-seo';
-import SubTitle from '../components/SubTitle';
-import Title from '../components/Title';
+import SubTitle from '@components/SubTitle';
+import Title from '@components/Title';
 
 const contact = () => {
     return (

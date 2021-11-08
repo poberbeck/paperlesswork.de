@@ -1,6 +1,6 @@
 import React from 'react';
-import Footer from '../components/Footer';
-import NavigationBar from '../components/NavigationBar';
+import Footer from '@components/Footer';
+import NavigationBar from '@components/NavigationBar';
 import { NextSeo } from 'next-seo';
 import axios, { AxiosResponse } from 'axios';
 import { GetStaticProps } from 'next';
