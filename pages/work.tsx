@@ -43,7 +43,7 @@ const WorkPage: React.FC<Props> = (props) => {
                         <img src='/images/dreamer.svg' alt='Dreamer Grafik' />
                     </div>
                 </section>
-                <section className='py-12 space-y-8'>
+                <section className='py-24 space-y-8'>
                     <h2 className='font-bold text-4xl md:text-6xl text-center'>Meine Skills</h2>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
                         {cockpitSkillsEntriesResult.entries.map((item) => (
@@ -51,7 +51,7 @@ const WorkPage: React.FC<Props> = (props) => {
                         ))}
                     </div>
                 </section>
-                <section className='py-12 space-y-8 max-w-5xl mx-auto'>
+                <section className='py-24 space-y-8 max-w-5xl mx-auto'>
                     <h2 className='font-bold text-4xl md:text-6xl text-center'>Meine Qulitäten</h2>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
                         <div className='bg-gradient-to-br from-indigo-700 to-pink-700 shadow-md rounded-xl p-5 space-y-5'>
