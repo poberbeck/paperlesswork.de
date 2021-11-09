@@ -1,6 +1,12 @@
 {
     "spellright.language": ["de", "en"],
-    "spellright.documentTypes": ["markdown", "latex", "plaintext", "asm-collection", "typescriptreact"],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext",
+        "asm-collection",
+        "typescriptreact"
+    ],
     "spellright.parserByClass": {
         "asm-collection": {
             "parser": "plain"

@@ -8,7 +8,8 @@ const SEO: DefaultSeoProps = {
     additionalMetaTags: [
         {
             property: 'keywords',
-            content: 'EDV, Pascal Oberbeck, Digital, iPad, Sehbehindert, Freelancer, German, Deutsch',
+            content:
+                'EDV, Pascal Oberbeck, Digital, iPad, Sehbehindert, Freelancer, German, Deutsch',
         },
     ],
     defaultOpenGraphImageHeight: 627,

@@ -5,7 +5,11 @@ interface Props {
 }
 
 const Title: React.FC<Props> = ({ children, className = '' }) => {
-    return <h2 className={'font-bold text-4xl md:text-5xl ' + className}>{children}</h2>;
+    return (
+        <h2 className={'font-bold text-4xl md:text-5xl ' + className}>
+            {children}
+        </h2>
+    );
 };
 
 export default Title;

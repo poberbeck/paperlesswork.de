@@ -15,13 +15,15 @@ const SkillCard: React.FC<Props> = (props) => {
     const LocalIcon = Icons[skillIcon];
 
     return (
-        <div className='flex items-start justify-start space-x-4 rounded-lg p-4 shadow-md '>
-            <div className='w-auto bg-white rounded-full shadow-md p-4'>
+        <div className="flex items-start justify-start space-x-4 rounded-lg p-4 shadow-md ">
+            <div className="w-auto bg-white rounded-full shadow-md p-4">
                 <LocalIcon size={35} />
             </div>
             <div>
-                <p className='whitespace-nowrap text-xl font-bold'>{skillName}</p>
-                <p className='text-gray-800 text-sm'>{skillDescription}</p>
+                <p className="whitespace-nowrap text-xl font-bold">
+                    {skillName}
+                </p>
+                <p className="text-gray-800 text-sm">{skillDescription}</p>
             </div>
         </div>
     );

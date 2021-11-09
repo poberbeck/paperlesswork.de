@@ -11,23 +11,44 @@ import { CockpitHomePage } from '@types';
 import SozialIcons from '@components/SozialIcons';
 
 const HomePage: React.FC<CockpitHomePage> = (props) => {
-    const { seoTitle, leading, leadingSub, ctaPrimaryText, ctaPrimaryLink, ctaSeconderyText, ctaSeconderyLink, infoBannerText, infoBannerLink } = props;
+    const {
+        seoTitle,
+        leading,
+        leadingSub,
+        ctaPrimaryText,
+        ctaPrimaryLink,
+        ctaSeconderyText,
+        ctaSeconderyLink,
+        infoBannerText,
+        infoBannerLink,
+    } = props;
     return (
         <div>
             <NextSeo title={seoTitle} />
-            <main className='min-h-screen bg-gray-50 flex flex-col'>
+            <main className="min-h-screen bg-gray-50 flex flex-col">
                 <NavigationBar />
-                <DigitalInfoBar content={infoBannerText} link={infoBannerLink} />
-                <div className='flex px-4 flex-1 justify-center items-center mb-8'>
-                    <div className='max-w-2xl flex flex-col items-center space-y-8'>
-                        <h1 className='font-bold text-4xl md:text-8xl text-center'>{leading}</h1>
-                        <p className='text-center text-gray-800'>{leadingSub}</p>
+                <DigitalInfoBar
+                    content={infoBannerText}
+                    link={infoBannerLink}
+                />
+                <div className="flex px-4 flex-1 justify-center items-center mb-8">
+                    <div className="max-w-2xl flex flex-col items-center space-y-8">
+                        <h1 className="font-bold text-4xl md:text-8xl text-center">
+                            {leading}
+                        </h1>
+                        <p className="text-center text-gray-800">
+                            {leadingSub}
+                        </p>
 
-                        <LinkButton className='mx-5' href={ctaPrimaryLink} type='primary'>
+                        <LinkButton
+                            className="mx-5"
+                            href={ctaPrimaryLink}
+                            type="primary"
+                        >
                             {ctaPrimaryText}
                         </LinkButton>
 
-                        <LinkButton className='mx-5' href={ctaSeconderyLink}>
+                        <LinkButton className="mx-5" href={ctaSeconderyLink}>
                             {ctaSeconderyText}
                         </LinkButton>
 
@@ -43,7 +64,9 @@ const HomePage: React.FC<CockpitHomePage> = (props) => {
 export default HomePage;
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-    const cockpitResult: AxiosResponse<CockpitHomePage> = await axios.get(COCKPIT_URL + '/api/singletons/get/homePage?token=' + COCKPIT_API_KEY);
+    const cockpitResult: AxiosResponse<CockpitHomePage> = await axios.get(
+        COCKPIT_URL + '/api/singletons/get/homePage?token=' + COCKPIT_API_KEY
+    );
 
     return {
         props: {
