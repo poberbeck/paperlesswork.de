@@ -12,7 +12,10 @@ const LegalPage: React.FC<CockpitSimplePage> = ({ seoTitle, content }) => {
         <div>
             <NextSeo title={seoTitle} />
             <NavigationBar />
-            <div className='container mx-auto prose p-4' dangerouslySetInnerHTML={{ __html: content }}></div>
+            <div
+                className="container mx-auto prose p-4"
+                dangerouslySetInnerHTML={{ __html: content }}
+            ></div>
             <Footer />
         </div>
     );
@@ -21,7 +24,9 @@ const LegalPage: React.FC<CockpitSimplePage> = ({ seoTitle, content }) => {
 export default LegalPage;
 
 export const getStaticProps: GetStaticProps = async () => {
-    const cockpitResult: AxiosResponse<CockpitSimplePage> = await axios.get(COCKPIT_URL + '/api/singletons/get/legalPage?token=' + COCKPIT_API_KEY);
+    const cockpitResult: AxiosResponse<CockpitSimplePage> = await axios.get(
+        COCKPIT_URL + '/api/singletons/get/legalPage?token=' + COCKPIT_API_KEY
+    );
     return {
         props: { ...cockpitResult.data },
     };
