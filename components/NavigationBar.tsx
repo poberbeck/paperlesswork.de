@@ -15,7 +15,7 @@ const NavigationBar: React.FC = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
-        <header className="relative container mx-auto mb-8">
+        <nav className="relative container mx-auto mb-8">
             <Transition
                 as={Fragment}
                 show={mobileMenuOpen}
@@ -30,6 +30,7 @@ const NavigationBar: React.FC = () => {
                     <div className="flex justify-between">
                         <p className="font-bold text-lg">Menü</p>
                         <button
+                            title="Menü schließen"
                             aria-label="Menü schließen"
                             onClick={() => setMobileMenuOpen(false)}
                         >
@@ -49,23 +50,25 @@ const NavigationBar: React.FC = () => {
                             </svg>
                         </button>
                     </div>
-                    <nav className="mt-4 flex flex-col space-y-4">
+                    <ul className="mt-4 flex flex-col space-y-4">
                         {menueItems.map((item, key) => (
-                            <Link key={key + item.link} href={item.link}>
-                                <a className="flex flex-col justify-start items-start">
-                                    <p
-                                        className={
-                                            router.pathname === item.link
-                                                ? 'font-bold text-indigo-700'
-                                                : ''
-                                        }
-                                    >
-                                        {item.name}
-                                    </p>
-                                </a>
-                            </Link>
+                            <li key={key + item.link}>
+                                <Link href={item.link}>
+                                    <a className="flex flex-col justify-start items-start">
+                                        <p
+                                            className={
+                                                router.pathname === item.link
+                                                    ? 'font-bold text-indigo-700'
+                                                    : ''
+                                            }
+                                        >
+                                            {item.name}
+                                        </p>
+                                    </a>
+                                </Link>
+                            </li>
                         ))}
-                    </nav>
+                    </ul>
                 </div>
             </Transition>
             <div className="relative flex justify-between items-center p-6">
@@ -76,21 +79,24 @@ const NavigationBar: React.FC = () => {
                         alt="Paperless Work Logo"
                     />
                 </Link>
-                <nav className="hidden md:flex divide-x">
+                <ul className="hidden md:flex divide-x">
                     {menueItems.map((item, key) => (
-                        <Link key={key + item.link} href={item.link}>
-                            <a className="flex flex-col justify-center items-center px-3">
-                                <p>{item.name}</p>
-                                {router.pathname === item.link ? (
-                                    <div className="h-[4px] bg-indigo-700 rounded-full w-2/3"></div>
-                                ) : (
-                                    <div className="h-[4px] w-2/3"></div>
-                                )}
-                            </a>
-                        </Link>
+                        <li key={key + item.link}>
+                            <Link href={item.link}>
+                                <a className="flex flex-col justify-center items-center px-3">
+                                    <p>{item.name}</p>
+                                    {router.pathname === item.link ? (
+                                        <div className="h-[4px] bg-indigo-700 rounded-full w-2/3"></div>
+                                    ) : (
+                                        <div className="h-[4px] w-2/3"></div>
+                                    )}
+                                </a>
+                            </Link>
+                        </li>
                     ))}
-                </nav>
+                </ul>
                 <button
+                    title="Menü öffnen"
                     aria-label="Menü öffnen"
                     onClick={() => setMobileMenuOpen(true)}
                     className="block md:hidden"
@@ -111,7 +117,7 @@ const NavigationBar: React.FC = () => {
                     </svg>
                 </button>
             </div>
-        </header>
+        </nav>
     );
 };
 
