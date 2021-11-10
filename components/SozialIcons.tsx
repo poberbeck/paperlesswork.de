@@ -3,8 +3,8 @@ import Link from 'next/link';
 
 const SozialIcons = () => {
     return (
-        <div>
-            <div className="flex divide-x justify-center items-center">
+        <ul className="flex divide-x justify-center items-center">
+            <li>
                 <Link href="https://www.instagram.com/pasce03/">
                     <a className="p-4">
                         <svg
@@ -19,7 +19,8 @@ const SozialIcons = () => {
                         </svg>
                     </a>
                 </Link>
-
+            </li>
+            <li>
                 <Link href="https://twitter.com/PascalOberbeck">
                     <a className="p-4">
                         <svg
@@ -33,7 +34,8 @@ const SozialIcons = () => {
                         </svg>
                     </a>
                 </Link>
-
+            </li>
+            <li>
                 <Link href="https://github.com/poberbeck">
                     <a className="p-4">
                         <svg
@@ -47,6 +49,8 @@ const SozialIcons = () => {
                         </svg>
                     </a>
                 </Link>
+            </li>
+            <li>
                 <Link href="https://y.at/⚡%EF%B8%8F🔥🚀☄%EF%B8%8F">
                     <a className="px-4 hidden md:block">
                         <p className="py-2 px-4 bg-gray-800 text-white rounded-full shadow-md">
@@ -58,8 +62,8 @@ const SozialIcons = () => {
                         </p>
                     </a>
                 </Link>
-            </div>
-        </div>
+            </li>
+        </ul>
     );
 };
 
