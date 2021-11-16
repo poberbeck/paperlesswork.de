@@ -7,7 +7,7 @@ interface Props
         HTMLAnchorElement
     > {
     href: string;
-    children: React.ReactChild;
+    children: React.ReactChild | React.ReactChild[];
 }
 
 const LessLink: React.FC<Props> = (props) => {
