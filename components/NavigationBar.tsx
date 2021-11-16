@@ -2,7 +2,6 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import LessLink from '@components/LessLink';
 import { useRouter } from 'next/router';
-import { isBrowser, useDeviceSelectors } from 'react-device-detect';
 
 const menueItems = [
     { name: 'Home', link: '/' },
