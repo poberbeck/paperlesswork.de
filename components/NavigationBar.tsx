@@ -1,7 +1,8 @@
 import React, { Fragment, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Transition } from '@headlessui/react';
+import { Transition, Menu } from '@headlessui/react';
+import LessLink from '@components/LessLink';
 
 const menueItems = [
     { name: 'Home', link: '/' },
@@ -12,13 +13,11 @@ const menueItems = [
 
 const NavigationBar: React.FC = () => {
     const router = useRouter();
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
-        <nav className="relative container mx-auto mb-8">
+        <Menu as="nav" className="relative container mx-auto mb-8">
             <Transition
                 as={Fragment}
-                show={mobileMenuOpen}
                 enter="transform duration-200 transition ease-in-out"
                 enterFrom="opacity-0 translate-y-[-100%]"
                 enterTo="opacity-100 translate-y-0"
@@ -29,11 +28,7 @@ const NavigationBar: React.FC = () => {
                 <div className="absolute z-50 top-2 right-2 left-2 bg-white rounded-2xl shadow-md p-4">
                     <div className="flex justify-between">
                         <p className="font-bold text-lg">Menü</p>
-                        <button
-                            title="Menü schließen"
-                            aria-label="Menü schließen"
-                            onClick={() => setMobileMenuOpen(false)}
-                        >
+                        <Menu.Button>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="h-6 w-6"
@@ -48,39 +43,41 @@ const NavigationBar: React.FC = () => {
                                     d="M6 18L18 6M6 6l12 12"
                                 />
                             </svg>
-                        </button>
+                        </Menu.Button>
                     </div>
-                    <ul className="mt-4 flex flex-col space-y-4">
+                    <Menu.Items
+                        as="ul"
+                        className="focus:outline-none mt-4 flex flex-col space-y-4"
+                    >
                         {menueItems.map((item, key) => (
-                            <li key={key + item.link}>
-                                <Link href={item.link}>
-                                    <a className="flex flex-col justify-start items-start">
-                                        <p
-                                            className={
-                                                router.pathname === item.link
-                                                    ? 'font-bold text-indigo-700'
-                                                    : ''
-                                            }
-                                        >
-                                            {item.name}
-                                        </p>
-                                    </a>
-                                </Link>
-                            </li>
+                            <Menu.Item as="li" key={key + item.link}>
+                                {({ active }) => (
+                                    <LessLink
+                                        className={`flex flex-col justify-start items-start ${
+                                            router.pathname === item.link
+                                                ? 'font-bold text-indigo-700'
+                                                : active
+                                                ? 'text-indigo-700'
+                                                : ''
+                                        }`}
+                                        href={item.link}
+                                    >
+                                        <p>{item.name}</p>
+                                    </LessLink>
+                                )}
+                            </Menu.Item>
                         ))}
-                    </ul>
+                    </Menu.Items>
                 </div>
             </Transition>
             <div className="relative flex justify-between items-center p-6">
-                <Link passHref href="/">
-                    <a>
-                        <img
-                            className="h-16 w-16"
-                            src="/images/plwo_logo.svg"
-                            alt="Paperless Work Logo"
-                        />
-                    </a>
-                </Link>
+                <LessLink href="/">
+                    <img
+                        className="h-16 w-16"
+                        src="/images/plwo_logo.svg"
+                        alt="Paperless Work Logo"
+                    />
+                </LessLink>
                 <ul className="hidden md:flex divide-x">
                     {menueItems.map((item, key) => (
                         <li key={key + item.link}>
@@ -97,12 +94,7 @@ const NavigationBar: React.FC = () => {
                         </li>
                     ))}
                 </ul>
-                <button
-                    title="Menü öffnen"
-                    aria-label="Menü öffnen"
-                    onClick={() => setMobileMenuOpen(true)}
-                    className="block md:hidden"
-                >
+                <Menu.Button tabIndex={1} className="block md:hidden">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6"
@@ -117,9 +109,9 @@ const NavigationBar: React.FC = () => {
                             d="M4 6h16M4 12h16M4 18h16"
                         />
                     </svg>
-                </button>
+                </Menu.Button>
             </div>
-        </nav>
+        </Menu>
     );
 };
 
