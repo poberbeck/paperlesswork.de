@@ -73,11 +73,13 @@ const NavigationBar: React.FC = () => {
             </Transition>
             <div className="relative flex justify-between items-center p-6">
                 <Link passHref href="/">
-                    <img
-                        className="h-16 w-16"
-                        src="/images/plwo_logo.svg"
-                        alt="Paperless Work Logo"
-                    />
+                    <a>
+                        <img
+                            className="h-16 w-16"
+                            src="/images/plwo_logo.svg"
+                            alt="Paperless Work Logo"
+                        />
+                    </a>
                 </Link>
                 <ul className="hidden md:flex divide-x">
                     {menueItems.map((item, key) => (
