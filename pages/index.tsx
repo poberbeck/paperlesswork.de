@@ -32,8 +32,8 @@ const HomePage: React.FC<CockpitHomePage> = (props) => {
                     link={infoBannerLink}
                 />
                 <div className="flex px-4 flex-1 justify-center items-center mb-8">
-                    <div className="max-w-2xl flex flex-col items-center space-y-8">
-                        <h1 className="font-bold text-4xl md:text-8xl text-center">
+                    <div className="max-w-3xl flex flex-col items-center space-y-8">
+                        <h1 className="font-black text-4xl md:text-8xl text-center">
                             {leading}
                         </h1>
                         <p className="text-center text-gray-800">
