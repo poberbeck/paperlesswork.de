@@ -14,7 +14,7 @@ const LinkButton: React.FC<Props> = (props) => {
     return (
         <Link href={href}>
             <a
-                className={`px-8 py-4 font-bold rounded-xl shadow-md ${
+                className={`px-8 py-4 text-center font-bold rounded-xl shadow-md ${
                     type === 'primary'
                         ? 'bg-indigo-700 text-white'
                         : 'bg-white text-gray-800'
