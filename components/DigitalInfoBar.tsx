@@ -9,11 +9,9 @@ interface Props {
 const DigitalInfoBar: React.FC<Props> = (props) => {
     const { content, link } = props;
     return (
-        <div className="relative container mx-auto mb-8 px-4">
-            <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-tr from-indigo-700 to-pink-700 blur-lg opacity-75"></div>
-
-            <div className="relative bg-gradient-to-tr from-indigo-700 to-pink-700 p-1 rounded-2xl shadow-lg flex flex-col md:flex-row space-y-3 md:space-y-0 justify-between items-center">
-                <div className="relative flex items-center space-x-4 text-white">
+        <div className="container mx-auto mb-8 px-4">
+            <div className="bg-gradient-to-tr from-indigo-700 to-pink-700 p-1 rounded-2xl shadow-2xl flex flex-col md:flex-row space-y-3 md:space-y-0 justify-between items-center">
+                <div className="flex items-center space-x-4 text-white">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-10 w-10 md:h-6 md:w-6 ml-4"
