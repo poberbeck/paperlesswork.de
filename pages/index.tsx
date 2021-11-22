@@ -9,6 +9,7 @@ import axios, { AxiosResponse } from 'axios';
 import { COCKPIT_API_KEY, COCKPIT_URL } from '../constants';
 import { CockpitHomePage } from '@types';
 import SozialIcons from '@components/SozialIcons';
+import ReactMarkdown from 'react-markdown';
 
 const HomePage: React.FC<CockpitHomePage> = (props) => {
     const {
@@ -34,7 +35,17 @@ const HomePage: React.FC<CockpitHomePage> = (props) => {
                 <div className="flex px-4 flex-1 justify-center items-center mb-8">
                     <div className="max-w-3xl flex flex-col items-center space-y-8">
                         <h1 className="font-black text-4xl md:text-8xl text-center">
-                            {leading}
+                            <ReactMarkdown
+                                components={{
+                                    strong: ({ children }) => (
+                                        <span className="text-indigo-700">
+                                            {children}
+                                        </span>
+                                    ),
+                                }}
+                            >
+                                {leading}
+                            </ReactMarkdown>
                         </h1>
                         <p className="text-center text-gray-800">
                             {leadingSub}

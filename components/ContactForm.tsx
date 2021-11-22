@@ -15,7 +15,7 @@ const ContactForm = () => {
             <input
                 type="hidden"
                 name="redirect"
-                value="https://web3forms.com/success"
+                value="https://paperlesswork.de/success"
             />
 
             <label className="px-2 text-sm" htmlFor="name">
@@ -82,9 +82,9 @@ const ContactForm = () => {
                 </button>
             </div>
             <small className="text-xs text-gray-400 mt-4">
-                Durch das klicken auf &#34;Senden&#34; stimmen Sie der digitalen
-                verarbeitung Ihrer persönlichen Daten zu. Sie können dem jedoch
-                jederzeit wiedersprechen.
+                Durch das Klicken auf &#34;Senden&#34; stimmen Sie der digitalen
+                Verarbeitung Ihrer persönlichen Daten zu. Sie können dem jedoch
+                jederzeit widersprechen.
             </small>
         </form>
     );
