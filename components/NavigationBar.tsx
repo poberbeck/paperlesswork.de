@@ -31,7 +31,7 @@ const NavigationBar = () => {
     return (
         <Menu as={Fragment}>
             {({ open }) => (
-                <nav className="relative container mx-auto mt-4 mb-8 px-6 flex justify-between items-center">
+                <nav className="relative container mx-auto pt-4 mb-8 px-6 flex justify-between items-center">
                     <LessLink href="/">
                         <img
                             className="h-16 w-16"
