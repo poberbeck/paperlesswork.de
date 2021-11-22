@@ -15,7 +15,7 @@ const ContactForm = () => {
             <input
                 type="hidden"
                 name="redirect"
-                value="https://web3forms.com/success"
+                value="https://paperlesswork.de/success"
             />
 
             <label className="px-2 text-sm" htmlFor="name">
