@@ -217,9 +217,9 @@ export type DateTimeFilterInput = {
 
 export type Digitalworkpage = {
   __typename?: 'Digitalworkpage';
-  AboutMe?: Maybe<ComponentPartsAboutMe>;
-  FeaturedApps?: Maybe<ComponentPartsFeaturedApps>;
+  aboutMe?: Maybe<ComponentPartsAboutMe>;
   createdAt?: Maybe<Scalars['DateTime']>;
+  featuredApps?: Maybe<ComponentPartsFeaturedApps>;
   laeding?: Maybe<Scalars['String']>;
   seo?: Maybe<ComponentSeoSeoMeta>;
   subLeading?: Maybe<Scalars['String']>;
@@ -238,8 +238,8 @@ export type DigitalworkpageEntityResponse = {
 };
 
 export type DigitalworkpageInput = {
-  AboutMe?: InputMaybe<ComponentPartsAboutMeInput>;
-  FeaturedApps?: InputMaybe<ComponentPartsFeaturedAppsInput>;
+  aboutMe?: InputMaybe<ComponentPartsAboutMeInput>;
+  featuredApps?: InputMaybe<ComponentPartsFeaturedAppsInput>;
   laeding?: InputMaybe<Scalars['String']>;
   seo?: InputMaybe<ComponentSeoSeoMetaInput>;
   subLeading?: InputMaybe<Scalars['String']>;
@@ -1089,6 +1089,21 @@ export type HomepageQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type HomepageQuery = { __typename?: 'Query', homepage?: { __typename?: 'HomepageEntityResponse', data?: { __typename?: 'HomepageEntity', attributes?: { __typename?: 'Homepage', leading?: string | null | undefined, subLeading?: string | null | undefined, seo?: { __typename?: 'ComponentSeoSeoMeta', title?: string | null | undefined } | null | undefined, primaryCta?: { __typename?: 'ComponentButtonLink', label?: string | null | undefined, link?: string | null | undefined } | null | undefined, secondaryCta?: { __typename?: 'ComponentButtonLink', label?: string | null | undefined, link?: string | null | undefined } | null | undefined, infoBanner?: { __typename?: 'ComponentButtonLink', link?: string | null | undefined, label?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined };
 
+export type LegalpageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type LegalpageQuery = { __typename?: 'Query', legalpage?: { __typename?: 'LegalpageEntityResponse', data?: { __typename?: 'LegalpageEntity', attributes?: { __typename?: 'Legalpage', content?: string | null | undefined, seo?: { __typename?: 'ComponentSeoSeoMeta', title?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined };
+
+export type PrivacypageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type PrivacypageQuery = { __typename?: 'Query', privacypage?: { __typename?: 'PrivacypageEntityResponse', data?: { __typename?: 'PrivacypageEntity', attributes?: { __typename?: 'Privacypage', content?: string | null | undefined, seo?: { __typename?: 'ComponentSeoSeoMeta', title?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined };
+
+export type DigitalworkpageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type DigitalworkpageQuery = { __typename?: 'Query', digitalworkpage?: { __typename?: 'DigitalworkpageEntityResponse', data?: { __typename?: 'DigitalworkpageEntity', attributes?: { __typename?: 'Digitalworkpage', laeding?: string | null | undefined, subLeading?: string | null | undefined, seo?: { __typename?: 'ComponentSeoSeoMeta', title?: string | null | undefined } | null | undefined, aboutMe?: { __typename?: 'ComponentPartsAboutMe', title?: string | null | undefined, biography?: string | null | undefined, me?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', height?: number | null | undefined, width?: number | null | undefined, url: string } | null | undefined } | null | undefined } | null | undefined, certificat?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', height?: number | null | undefined, width?: number | null | undefined, url: string } | null | undefined } | null | undefined } | null | undefined } | null | undefined, featuredApps?: { __typename?: 'ComponentPartsFeaturedApps', title?: string | null | undefined, subTitle?: string | null | undefined, source?: string | null | undefined, apps?: Array<{ __typename?: 'ComponentPartsApp', id: string, name?: string | null | undefined, description?: string | null | undefined, author?: string | null | undefined, appIcon?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', height?: number | null | undefined, width?: number | null | undefined, url: string } | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined };
+
 
 
 export type ResolverTypeWrapper<T> = Promise<T> | T;
@@ -1420,9 +1435,9 @@ export interface DateTimeScalarConfig extends GraphQLScalarTypeConfig<ResolversT
 }
 
 export type DigitalworkpageResolvers<ContextType = any, ParentType extends ResolversParentTypes['Digitalworkpage'] = ResolversParentTypes['Digitalworkpage']> = {
-  AboutMe?: Resolver<Maybe<ResolversTypes['ComponentPartsAboutMe']>, ParentType, ContextType>;
-  FeaturedApps?: Resolver<Maybe<ResolversTypes['ComponentPartsFeaturedApps']>, ParentType, ContextType>;
+  aboutMe?: Resolver<Maybe<ResolversTypes['ComponentPartsAboutMe']>, ParentType, ContextType>;
   createdAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  featuredApps?: Resolver<Maybe<ResolversTypes['ComponentPartsFeaturedApps']>, ParentType, ContextType>;
   laeding?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   seo?: Resolver<Maybe<ResolversTypes['ComponentSeoSeoMeta']>, ParentType, ContextType>;
   subLeading?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
@@ -1905,3 +1920,169 @@ export function useHomepageLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<H
 export type HomepageQueryHookResult = ReturnType<typeof useHomepageQuery>;
 export type HomepageLazyQueryHookResult = ReturnType<typeof useHomepageLazyQuery>;
 export type HomepageQueryResult = Apollo.QueryResult<HomepageQuery, HomepageQueryVariables>;
+export const LegalpageDocument = gql`
+    query Legalpage {
+  legalpage {
+    data {
+      attributes {
+        seo {
+          title
+        }
+        content
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useLegalpageQuery__
+ *
+ * To run a query within a React component, call `useLegalpageQuery` and pass it any options that fit your needs.
+ * When your component renders, `useLegalpageQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useLegalpageQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useLegalpageQuery(baseOptions?: Apollo.QueryHookOptions<LegalpageQuery, LegalpageQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<LegalpageQuery, LegalpageQueryVariables>(LegalpageDocument, options);
+      }
+export function useLegalpageLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<LegalpageQuery, LegalpageQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<LegalpageQuery, LegalpageQueryVariables>(LegalpageDocument, options);
+        }
+export type LegalpageQueryHookResult = ReturnType<typeof useLegalpageQuery>;
+export type LegalpageLazyQueryHookResult = ReturnType<typeof useLegalpageLazyQuery>;
+export type LegalpageQueryResult = Apollo.QueryResult<LegalpageQuery, LegalpageQueryVariables>;
+export const PrivacypageDocument = gql`
+    query Privacypage {
+  privacypage {
+    data {
+      attributes {
+        seo {
+          title
+        }
+        content
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __usePrivacypageQuery__
+ *
+ * To run a query within a React component, call `usePrivacypageQuery` and pass it any options that fit your needs.
+ * When your component renders, `usePrivacypageQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = usePrivacypageQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function usePrivacypageQuery(baseOptions?: Apollo.QueryHookOptions<PrivacypageQuery, PrivacypageQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<PrivacypageQuery, PrivacypageQueryVariables>(PrivacypageDocument, options);
+      }
+export function usePrivacypageLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PrivacypageQuery, PrivacypageQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<PrivacypageQuery, PrivacypageQueryVariables>(PrivacypageDocument, options);
+        }
+export type PrivacypageQueryHookResult = ReturnType<typeof usePrivacypageQuery>;
+export type PrivacypageLazyQueryHookResult = ReturnType<typeof usePrivacypageLazyQuery>;
+export type PrivacypageQueryResult = Apollo.QueryResult<PrivacypageQuery, PrivacypageQueryVariables>;
+export const DigitalworkpageDocument = gql`
+    query Digitalworkpage {
+  digitalworkpage {
+    data {
+      attributes {
+        seo {
+          title
+        }
+        laeding
+        subLeading
+        aboutMe {
+          title
+          biography
+          me {
+            data {
+              attributes {
+                height
+                width
+                url
+              }
+            }
+          }
+          certificat {
+            data {
+              attributes {
+                height
+                width
+                url
+              }
+            }
+          }
+        }
+        featuredApps {
+          title
+          subTitle
+          source
+          apps {
+            id
+            name
+            description
+            author
+            appIcon {
+              data {
+                attributes {
+                  height
+                  width
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useDigitalworkpageQuery__
+ *
+ * To run a query within a React component, call `useDigitalworkpageQuery` and pass it any options that fit your needs.
+ * When your component renders, `useDigitalworkpageQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useDigitalworkpageQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useDigitalworkpageQuery(baseOptions?: Apollo.QueryHookOptions<DigitalworkpageQuery, DigitalworkpageQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<DigitalworkpageQuery, DigitalworkpageQueryVariables>(DigitalworkpageDocument, options);
+      }
+export function useDigitalworkpageLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<DigitalworkpageQuery, DigitalworkpageQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<DigitalworkpageQuery, DigitalworkpageQueryVariables>(DigitalworkpageDocument, options);
+        }
+export type DigitalworkpageQueryHookResult = ReturnType<typeof useDigitalworkpageQuery>;
+export type DigitalworkpageLazyQueryHookResult = ReturnType<typeof useDigitalworkpageLazyQuery>;
+export type DigitalworkpageQueryResult = Apollo.QueryResult<DigitalworkpageQuery, DigitalworkpageQueryVariables>;
