@@ -3,6 +3,7 @@
         "baseUrl": ".",
         "paths": {
             "@components/*": ["components/*"],
+            "@lib/*": ["lib/*"],
             "@types": ["types.ts"]
         },
         "target": "es5",

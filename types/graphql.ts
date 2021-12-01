@@ -83,32 +83,38 @@ export type ComponentPartsAboutMeInput = {
   title?: InputMaybe<Scalars['String']>;
 };
 
-export type ComponentPartsFeaturedApp = {
-  __typename?: 'ComponentPartsFeaturedApp';
+export type ComponentPartsApp = {
+  __typename?: 'ComponentPartsApp';
+  appIcon?: Maybe<UploadFileEntityResponse>;
+  appstoreUrl?: Maybe<Scalars['String']>;
+  author?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
-  icon?: Maybe<UploadFileEntityResponse>;
   id: Scalars['ID'];
   name?: Maybe<Scalars['String']>;
 };
 
-export type ComponentPartsFeaturedAppFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<ComponentPartsFeaturedAppFiltersInput>>>;
+export type ComponentPartsAppFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentPartsAppFiltersInput>>>;
+  appstoreUrl?: InputMaybe<StringFilterInput>;
+  author?: InputMaybe<StringFilterInput>;
   description?: InputMaybe<StringFilterInput>;
   name?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<ComponentPartsFeaturedAppFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<ComponentPartsFeaturedAppFiltersInput>>>;
+  not?: InputMaybe<ComponentPartsAppFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentPartsAppFiltersInput>>>;
 };
 
-export type ComponentPartsFeaturedAppInput = {
+export type ComponentPartsAppInput = {
+  appIcon?: InputMaybe<Scalars['ID']>;
+  appstoreUrl?: InputMaybe<Scalars['String']>;
+  author?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['String']>;
-  icon?: InputMaybe<Scalars['ID']>;
   id?: InputMaybe<Scalars['ID']>;
   name?: InputMaybe<Scalars['String']>;
 };
 
 export type ComponentPartsFeaturedApps = {
   __typename?: 'ComponentPartsFeaturedApps';
-  apps?: Maybe<Array<Maybe<ComponentPartsFeaturedApp>>>;
+  apps?: Maybe<Array<Maybe<ComponentPartsApp>>>;
   id: Scalars['ID'];
   source?: Maybe<Scalars['String']>;
   subTitle?: Maybe<Scalars['String']>;
@@ -117,13 +123,13 @@ export type ComponentPartsFeaturedApps = {
 
 
 export type ComponentPartsFeaturedAppsAppsArgs = {
-  filters?: InputMaybe<ComponentPartsFeaturedAppFiltersInput>;
+  filters?: InputMaybe<ComponentPartsAppFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 export type ComponentPartsFeaturedAppsInput = {
-  apps?: InputMaybe<Array<InputMaybe<ComponentPartsFeaturedAppInput>>>;
+  apps?: InputMaybe<Array<InputMaybe<ComponentPartsAppInput>>>;
   id?: InputMaybe<Scalars['ID']>;
   source?: InputMaybe<Scalars['String']>;
   subTitle?: InputMaybe<Scalars['String']>;
@@ -326,7 +332,7 @@ export type FreelancingpageInput = {
   thirdTitle?: InputMaybe<Scalars['String']>;
 };
 
-export type GenericMorph = ComponentButtonLink | ComponentPartsAboutMe | ComponentPartsFeaturedApp | ComponentPartsFeaturedApps | ComponentPartsQuality | ComponentPartsSkill | ComponentSeoSeoMeta | Digitalworkpage | Freelancingpage | Homepage | I18NLocale | Legalpage | Privacypage | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = ComponentButtonLink | ComponentPartsAboutMe | ComponentPartsApp | ComponentPartsFeaturedApps | ComponentPartsQuality | ComponentPartsSkill | ComponentSeoSeoMeta | Digitalworkpage | Freelancingpage | Homepage | I18NLocale | Legalpage | Privacypage | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type Homepage = {
   __typename?: 'Homepage';
@@ -1167,9 +1173,9 @@ export type ResolversTypes = {
   ComponentButtonLinkInput: ComponentButtonLinkInput;
   ComponentPartsAboutMe: ResolverTypeWrapper<ComponentPartsAboutMe>;
   ComponentPartsAboutMeInput: ComponentPartsAboutMeInput;
-  ComponentPartsFeaturedApp: ResolverTypeWrapper<ComponentPartsFeaturedApp>;
-  ComponentPartsFeaturedAppFiltersInput: ComponentPartsFeaturedAppFiltersInput;
-  ComponentPartsFeaturedAppInput: ComponentPartsFeaturedAppInput;
+  ComponentPartsApp: ResolverTypeWrapper<ComponentPartsApp>;
+  ComponentPartsAppFiltersInput: ComponentPartsAppFiltersInput;
+  ComponentPartsAppInput: ComponentPartsAppInput;
   ComponentPartsFeaturedApps: ResolverTypeWrapper<ComponentPartsFeaturedApps>;
   ComponentPartsFeaturedAppsInput: ComponentPartsFeaturedAppsInput;
   ComponentPartsQuality: ResolverTypeWrapper<ComponentPartsQuality>;
@@ -1193,7 +1199,7 @@ export type ResolversTypes = {
   FreelancingpageEntity: ResolverTypeWrapper<FreelancingpageEntity>;
   FreelancingpageEntityResponse: ResolverTypeWrapper<FreelancingpageEntityResponse>;
   FreelancingpageInput: FreelancingpageInput;
-  GenericMorph: ResolversTypes['ComponentButtonLink'] | ResolversTypes['ComponentPartsAboutMe'] | ResolversTypes['ComponentPartsFeaturedApp'] | ResolversTypes['ComponentPartsFeaturedApps'] | ResolversTypes['ComponentPartsQuality'] | ResolversTypes['ComponentPartsSkill'] | ResolversTypes['ComponentSeoSeoMeta'] | ResolversTypes['Digitalworkpage'] | ResolversTypes['Freelancingpage'] | ResolversTypes['Homepage'] | ResolversTypes['I18NLocale'] | ResolversTypes['Legalpage'] | ResolversTypes['Privacypage'] | ResolversTypes['UploadFile'] | ResolversTypes['UsersPermissionsPermission'] | ResolversTypes['UsersPermissionsRole'] | ResolversTypes['UsersPermissionsUser'];
+  GenericMorph: ResolversTypes['ComponentButtonLink'] | ResolversTypes['ComponentPartsAboutMe'] | ResolversTypes['ComponentPartsApp'] | ResolversTypes['ComponentPartsFeaturedApps'] | ResolversTypes['ComponentPartsQuality'] | ResolversTypes['ComponentPartsSkill'] | ResolversTypes['ComponentSeoSeoMeta'] | ResolversTypes['Digitalworkpage'] | ResolversTypes['Freelancingpage'] | ResolversTypes['Homepage'] | ResolversTypes['I18NLocale'] | ResolversTypes['Legalpage'] | ResolversTypes['Privacypage'] | ResolversTypes['UploadFile'] | ResolversTypes['UsersPermissionsPermission'] | ResolversTypes['UsersPermissionsRole'] | ResolversTypes['UsersPermissionsUser'];
   Homepage: ResolverTypeWrapper<Homepage>;
   HomepageEntity: ResolverTypeWrapper<HomepageEntity>;
   HomepageEntityResponse: ResolverTypeWrapper<HomepageEntityResponse>;
@@ -1268,9 +1274,9 @@ export type ResolversParentTypes = {
   ComponentButtonLinkInput: ComponentButtonLinkInput;
   ComponentPartsAboutMe: ComponentPartsAboutMe;
   ComponentPartsAboutMeInput: ComponentPartsAboutMeInput;
-  ComponentPartsFeaturedApp: ComponentPartsFeaturedApp;
-  ComponentPartsFeaturedAppFiltersInput: ComponentPartsFeaturedAppFiltersInput;
-  ComponentPartsFeaturedAppInput: ComponentPartsFeaturedAppInput;
+  ComponentPartsApp: ComponentPartsApp;
+  ComponentPartsAppFiltersInput: ComponentPartsAppFiltersInput;
+  ComponentPartsAppInput: ComponentPartsAppInput;
   ComponentPartsFeaturedApps: ComponentPartsFeaturedApps;
   ComponentPartsFeaturedAppsInput: ComponentPartsFeaturedAppsInput;
   ComponentPartsQuality: ComponentPartsQuality;
@@ -1294,7 +1300,7 @@ export type ResolversParentTypes = {
   FreelancingpageEntity: FreelancingpageEntity;
   FreelancingpageEntityResponse: FreelancingpageEntityResponse;
   FreelancingpageInput: FreelancingpageInput;
-  GenericMorph: ResolversParentTypes['ComponentButtonLink'] | ResolversParentTypes['ComponentPartsAboutMe'] | ResolversParentTypes['ComponentPartsFeaturedApp'] | ResolversParentTypes['ComponentPartsFeaturedApps'] | ResolversParentTypes['ComponentPartsQuality'] | ResolversParentTypes['ComponentPartsSkill'] | ResolversParentTypes['ComponentSeoSeoMeta'] | ResolversParentTypes['Digitalworkpage'] | ResolversParentTypes['Freelancingpage'] | ResolversParentTypes['Homepage'] | ResolversParentTypes['I18NLocale'] | ResolversParentTypes['Legalpage'] | ResolversParentTypes['Privacypage'] | ResolversParentTypes['UploadFile'] | ResolversParentTypes['UsersPermissionsPermission'] | ResolversParentTypes['UsersPermissionsRole'] | ResolversParentTypes['UsersPermissionsUser'];
+  GenericMorph: ResolversParentTypes['ComponentButtonLink'] | ResolversParentTypes['ComponentPartsAboutMe'] | ResolversParentTypes['ComponentPartsApp'] | ResolversParentTypes['ComponentPartsFeaturedApps'] | ResolversParentTypes['ComponentPartsQuality'] | ResolversParentTypes['ComponentPartsSkill'] | ResolversParentTypes['ComponentSeoSeoMeta'] | ResolversParentTypes['Digitalworkpage'] | ResolversParentTypes['Freelancingpage'] | ResolversParentTypes['Homepage'] | ResolversParentTypes['I18NLocale'] | ResolversParentTypes['Legalpage'] | ResolversParentTypes['Privacypage'] | ResolversParentTypes['UploadFile'] | ResolversParentTypes['UsersPermissionsPermission'] | ResolversParentTypes['UsersPermissionsRole'] | ResolversParentTypes['UsersPermissionsUser'];
   Homepage: Homepage;
   HomepageEntity: HomepageEntity;
   HomepageEntityResponse: HomepageEntityResponse;
@@ -1376,16 +1382,18 @@ export type ComponentPartsAboutMeResolvers<ContextType = any, ParentType extends
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
-export type ComponentPartsFeaturedAppResolvers<ContextType = any, ParentType extends ResolversParentTypes['ComponentPartsFeaturedApp'] = ResolversParentTypes['ComponentPartsFeaturedApp']> = {
+export type ComponentPartsAppResolvers<ContextType = any, ParentType extends ResolversParentTypes['ComponentPartsApp'] = ResolversParentTypes['ComponentPartsApp']> = {
+  appIcon?: Resolver<Maybe<ResolversTypes['UploadFileEntityResponse']>, ParentType, ContextType>;
+  appstoreUrl?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  author?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  icon?: Resolver<Maybe<ResolversTypes['UploadFileEntityResponse']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type ComponentPartsFeaturedAppsResolvers<ContextType = any, ParentType extends ResolversParentTypes['ComponentPartsFeaturedApps'] = ResolversParentTypes['ComponentPartsFeaturedApps']> = {
-  apps?: Resolver<Maybe<Array<Maybe<ResolversTypes['ComponentPartsFeaturedApp']>>>, ParentType, ContextType, RequireFields<ComponentPartsFeaturedAppsAppsArgs, 'pagination' | 'sort'>>;
+  apps?: Resolver<Maybe<Array<Maybe<ResolversTypes['ComponentPartsApp']>>>, ParentType, ContextType, RequireFields<ComponentPartsFeaturedAppsAppsArgs, 'pagination' | 'sort'>>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   source?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   subTitle?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
@@ -1470,7 +1478,7 @@ export type FreelancingpageEntityResponseResolvers<ContextType = any, ParentType
 };
 
 export type GenericMorphResolvers<ContextType = any, ParentType extends ResolversParentTypes['GenericMorph'] = ResolversParentTypes['GenericMorph']> = {
-  __resolveType: TypeResolveFn<'ComponentButtonLink' | 'ComponentPartsAboutMe' | 'ComponentPartsFeaturedApp' | 'ComponentPartsFeaturedApps' | 'ComponentPartsQuality' | 'ComponentPartsSkill' | 'ComponentSeoSeoMeta' | 'Digitalworkpage' | 'Freelancingpage' | 'Homepage' | 'I18NLocale' | 'Legalpage' | 'Privacypage' | 'UploadFile' | 'UsersPermissionsPermission' | 'UsersPermissionsRole' | 'UsersPermissionsUser', ParentType, ContextType>;
+  __resolveType: TypeResolveFn<'ComponentButtonLink' | 'ComponentPartsAboutMe' | 'ComponentPartsApp' | 'ComponentPartsFeaturedApps' | 'ComponentPartsQuality' | 'ComponentPartsSkill' | 'ComponentSeoSeoMeta' | 'Digitalworkpage' | 'Freelancingpage' | 'Homepage' | 'I18NLocale' | 'Legalpage' | 'Privacypage' | 'UploadFile' | 'UsersPermissionsPermission' | 'UsersPermissionsRole' | 'UsersPermissionsUser', ParentType, ContextType>;
 };
 
 export type HomepageResolvers<ContextType = any, ParentType extends ResolversParentTypes['Homepage'] = ResolversParentTypes['Homepage']> = {
@@ -1794,7 +1802,7 @@ export type UsersPermissionsUserRelationResponseCollectionResolvers<ContextType 
 export type Resolvers<ContextType = any> = {
   ComponentButtonLink?: ComponentButtonLinkResolvers<ContextType>;
   ComponentPartsAboutMe?: ComponentPartsAboutMeResolvers<ContextType>;
-  ComponentPartsFeaturedApp?: ComponentPartsFeaturedAppResolvers<ContextType>;
+  ComponentPartsApp?: ComponentPartsAppResolvers<ContextType>;
   ComponentPartsFeaturedApps?: ComponentPartsFeaturedAppsResolvers<ContextType>;
   ComponentPartsQuality?: ComponentPartsQualityResolvers<ContextType>;
   ComponentPartsSkill?: ComponentPartsSkillResolvers<ContextType>;

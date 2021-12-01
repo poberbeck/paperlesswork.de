@@ -1,9 +1,9 @@
 overwrite: true
-schema: 'http://localhost:1337/graphql'
-documents: null
+schema: "http://localhost:1337/graphql"
+documents: "lib/**/*.ts"
 generates:
-    types/graphql.ts:
-        plugins:
-            - 'typescript'
-            - 'typescript-resolvers'
-            - 'typescript-document-nodes'
+  types/graphql.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
