@@ -2,19 +2,24 @@ import React from 'react';
 import Footer from '@components/Footer';
 import NavigationBar from '@components/NavigationBar';
 import { NextSeo } from 'next-seo';
-import axios, { AxiosResponse } from 'axios';
 import { GetStaticProps } from 'next';
-import { CockpitSimplePage } from '@type/cockpit';
+import {
+    Privacypage,
+    PrivacypageDocument,
+    PrivacypageQuery,
+} from '@generated/graphql';
+import client from '@lib/apollo';
+import ReactMarkdown from 'react-markdown';
 
-const PrivacyPage: React.FC<CockpitSimplePage> = ({ seoTitle, content }) => {
+const PrivacyPage: React.FC<Privacypage> = (props) => {
+    const { seo, content } = props;
     return (
         <div>
-            <NextSeo title={seoTitle} />
+            <NextSeo title={seo?.title!} />
             <NavigationBar />
-            <div
-                className="container mx-auto prose p-4"
-                dangerouslySetInnerHTML={{ __html: content }}
-            ></div>
+            <div className="container mx-auto prose p-4">
+                <ReactMarkdown>{content!}</ReactMarkdown>
+            </div>
             <Footer />
         </div>
     );
@@ -23,12 +28,11 @@ const PrivacyPage: React.FC<CockpitSimplePage> = ({ seoTitle, content }) => {
 export default PrivacyPage;
 
 export const getStaticProps: GetStaticProps = async () => {
-    const cockpitResult: AxiosResponse<CockpitSimplePage> = await axios.get(
-        process.env.COCKPIT_URL +
-            '/api/singletons/get/privacyPage?token=' +
-            process.env.COCKPIT_API_KEY
-    );
+    const { data } = await client.query<PrivacypageQuery>({
+        query: PrivacypageDocument,
+    });
+
     return {
-        props: { ...cockpitResult.data },
+        props: { ...data.privacypage?.data?.attributes },
     };
 };
