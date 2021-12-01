@@ -1,11 +1,11 @@
 import React from 'react';
-import type { FeaturedApp } from '@type/cockpit';
 import Link from 'next/link';
 import SubTitle from './SubTitle';
 import Title from './Title';
+import { ComponentPartsApp } from '@generated/graphql';
 
 interface Props {
-    apps: FeaturedApp[];
+    apps: ComponentPartsApp[];
     title: string;
     subTitle: string;
 }
@@ -18,35 +18,35 @@ const FeaturedApps: React.FC<Props> = (props) => {
             <Title className="text-center">{title}</Title>
             <SubTitle className="text-center">{subTitle}</SubTitle>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-y-8 md:gap-0 divide-x">
-                {apps.map((item: FeaturedApp) => (
+                {apps.map((item: ComponentPartsApp) => (
                     <div
                         className="flex flex-col justify-between items-center space-y-4 p-4 text-center"
-                        key={item._id}
+                        key={item.id}
                     >
                         <div className="relative">
                             <img
                                 className="rounded-2xl absolute -inset-0 filter blur-xl"
                                 src={
-                                    process.env.NEXT_PUBLIC_COCKPIT_ASSETS_URL +
-                                    item.appIcon.path
+                                    process.env.NEXT_PUBLIC_ASSETS_URL +
+                                    item.appIcon?.data?.attributes?.url!
                                 }
-                                alt={item.appName + ' Blur Background'}
+                                alt={item.name + ' Blur Background'}
                             />
                             <img
                                 className="rounded-2xl shadow-md h-28 w-28 relative"
                                 src={
-                                    process.env.NEXT_PUBLIC_COCKPIT_ASSETS_URL +
-                                    item.appIcon.path
+                                    process.env.NEXT_PUBLIC_ASSETS_URL +
+                                    item.appIcon?.data?.attributes?.url!
                                 }
-                                alt={item.appName + ' Icon'}
+                                alt={item.name + ' Icon'}
                             />
                         </div>
-                        <h3 className="font-bold text-3xl">{item.appName}</h3>
+                        <h3 className="font-bold text-3xl">{item.name}</h3>
                         <p className="text-gray-800 font-bold text-xl">
-                            {item.appCreator}
+                            {item.author}
                         </p>
-                        <p className="text-gray-800">{item.appDescription}</p>
-                        <Link href={item.appStoreLink}>
+                        <p className="text-gray-800">{item.description}</p>
+                        <Link href={item.appstoreUrl!}>
                             <a className="font-bold text-indigo-700">
                                 <p>Im App Store anzeigen</p>
                             </a>

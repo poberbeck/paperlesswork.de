@@ -14,8 +14,6 @@ const HomePage: React.FC<Homepage> = (props) => {
     const { leading, seo, subLeading, primaryCta, secondaryCta, infoBanner } =
         props;
 
-    console.log(secondaryCta);
-
     return (
         <div>
             <NextSeo title={seo?.title!} />

@@ -99,6 +99,7 @@ export const QUERY_DIGITALWORKPAGE = gql`
                             name
                             description
                             author
+                            appstoreUrl
                             appIcon {
                                 data {
                                     attributes {

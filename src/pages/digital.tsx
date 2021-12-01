@@ -15,20 +15,21 @@ import {
 import FeaturedApps from '@components/FeaturedApps';
 import SubTitle from '@components/SubTitle';
 import Title from '@components/Title';
+import {
+    ComponentPartsApp,
+    Digitalworkpage,
+    DigitalworkpageDocument,
+    DigitalworkpageQuery,
+} from '@generated/graphql';
+import client from '@lib/apollo';
 
-interface Props {
-    page: CockpitDigitalWorkPage;
-    aboutMe: CockpitAboutMeComponent;
-    featuredApps: CockpitFeaturedAppsComponent;
-    featuredAppsEntries: CockpitFeaturedAppsCollection;
-}
+const DigitalPage: React.FC<Digitalworkpage> = (props) => {
+    const { seo, laeding, subLeading, aboutMe, featuredApps } = props;
 
-const DigitalPage: React.FC<Props> = (props) => {
-    const { page, featuredApps, featuredAppsEntries, aboutMe } = props;
     return (
         <div className="bg-gray-50">
             <NextSeo
-                title={page.seoTitle}
+                title={seo?.title!}
                 openGraph={{
                     images: [
                         {
@@ -50,26 +51,28 @@ const DigitalPage: React.FC<Props> = (props) => {
                                 ),
                             }}
                         >
-                            {page.leading}
+                            {laeding!}
                         </ReactMarkdown>
                     </h1>
-                    <p className="text-gray-800 text-xl">{page.leadingSub}</p>
+                    <p className="text-gray-800 text-xl">{subLeading!}</p>
                 </div>
             </section>
 
             <section className="container mx-auto xl:py-12">
                 <div className="grid xl:grid-cols-2 bg-gray-800 text-white xl:rounded-2xl xl:shadow-md overflow-hidden">
                     <div className="px-4 py-8 xl:p-12 flex flex-col justify-center space-y-4">
-                        <h2 className="font-bold text-4xl">{aboutMe.title}</h2>
-                        <p className="leading-relaxed">{aboutMe.description}</p>
+                        <h2 className="font-bold text-4xl">
+                            {aboutMe?.title!}
+                        </h2>
+                        <p className="leading-relaxed">{aboutMe?.biography!}</p>
                         <small className="text-sm text-gray-300">
-                            {aboutMe.certifiedTitle}
+                            Zertifiziert als:
                         </small>
                         <img
                             className="w-40 rounded-lg shadow-md"
                             src={
-                                process.env.NEXT_PUBLIC_COCKPIT_ASSETS_URL +
-                                aboutMe.certifiedImage.path
+                                process.env.NEXT_PUBLIC_ASSETS_URL +
+                                aboutMe?.certificat?.data?.attributes?.url!
                             }
                             alt="Apple Teacher Signatur"
                         />
@@ -78,8 +81,8 @@ const DigitalPage: React.FC<Props> = (props) => {
                         <img
                             className="object-cover object-center h-full max-h-[880px] w-full"
                             src={
-                                process.env.NEXT_PUBLIC_COCKPIT_ASSETS_URL +
-                                aboutMe.image.path
+                                process.env.NEXT_PUBLIC_ASSETS_URL +
+                                aboutMe?.me?.data?.attributes?.url!
                             }
                             alt="Pascal Oberbeck"
                         />
@@ -87,9 +90,9 @@ const DigitalPage: React.FC<Props> = (props) => {
                 </div>
             </section>
             <FeaturedApps
-                apps={featuredAppsEntries.entries}
-                title={featuredApps.title}
-                subTitle={featuredApps.subTitle}
+                apps={featuredApps?.apps! as ComponentPartsApp[]}
+                title={featuredApps?.title!}
+                subTitle={featuredApps?.subTitle!}
             />
             <section className="flex flex-col justify-center items-center space-y-4 py-8 px-4">
                 <Title className="text-center">Kontakt aufnehmen</Title>
@@ -119,37 +122,13 @@ const DigitalPage: React.FC<Props> = (props) => {
 export default DigitalPage;
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-    const cockpitPageResult: AxiosResponse<CockpitDigitalWorkPage> =
-        await axios.get(
-            process.env.COCKPIT_URL +
-                '/api/singletons/get/digitalWorkPage?token=' +
-                process.env.COCKPIT_API_KEY
-        );
-    const cockpitAboutMeResult: AxiosResponse<CockpitAboutMeComponent> =
-        await axios.get(
-            process.env.COCKPIT_URL +
-                '/api/singletons/get/aboutMe?token=' +
-                process.env.COCKPIT_API_KEY
-        );
-    const cockpitFeaturedAppsResult: AxiosResponse<CockpitFeaturedAppsCollection> =
-        await axios.get(
-            process.env.COCKPIT_URL +
-                '/api/singletons/get/featuredApps?token=' +
-                process.env.COCKPIT_API_KEY
-        );
-    const cockpitFeaturedAppsEntriesResult: AxiosResponse<CockpitFeaturedAppsCollection> =
-        await axios.get(
-            process.env.COCKPIT_URL +
-                '/api/collections/get/featuredApps?token=' +
-                process.env.COCKPIT_API_KEY
-        );
+    const { data } = await client.query<DigitalworkpageQuery>({
+        query: DigitalworkpageDocument,
+    });
 
     return {
         props: {
-            page: cockpitPageResult.data,
-            aboutMe: cockpitAboutMeResult.data,
-            featuredApps: cockpitFeaturedAppsResult.data,
-            featuredAppsEntries: cockpitFeaturedAppsEntriesResult.data,
+            ...data.digitalworkpage?.data?.attributes,
         },
     };
 };
