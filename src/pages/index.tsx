@@ -6,10 +6,12 @@ import Footer from '@components/Footer';
 import { NextSeo } from 'next-seo';
 import { GetStaticProps } from 'next';
 import axios, { AxiosResponse } from 'axios';
-import { COCKPIT_API_KEY, COCKPIT_URL } from '../constants';
-import { CockpitHomePage } from '@types';
+import { CockpitHomePage } from '@type/cockpit';
 import SozialIcons from '@components/SozialIcons';
 import ReactMarkdown from 'react-markdown';
+import client from '@lib/apollo';
+import { HomepageQuery } from '@generated/graphql';
+import { QUERY_HOMEPAGE } from '@lib/graphql/queries';
 
 const HomePage: React.FC<CockpitHomePage> = (props) => {
     const {
@@ -76,8 +78,16 @@ export default HomePage;
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
     const cockpitResult: AxiosResponse<CockpitHomePage> = await axios.get(
-        COCKPIT_URL + '/api/singletons/get/homePage?token=' + COCKPIT_API_KEY
+        process.env.COCKPIT_URL +
+            '/api/singletons/get/homePage?token=' +
+            process.env.COCKPIT_API_KEY
     );
+
+    const { data } = await client.query<HomepageQuery>({
+        query: QUERY_HOMEPAGE,
+    });
+
+    console.log(data.homepage?.data?.attributes?.leading);
 
     return {
         props: {
