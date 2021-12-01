@@ -11,16 +11,16 @@ export const QUERY_HOMEPAGE = gql`
                         title
                     }
                     primaryCta {
-                        Label
+                        label
                         link
                     }
                     secondaryCta {
-                        Label
+                        label
                         link
                     }
                     infoBanner {
                         link
-                        Label
+                        label
                     }
                 }
             }

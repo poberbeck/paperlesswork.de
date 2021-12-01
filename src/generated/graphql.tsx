@@ -49,22 +49,14 @@ export type BooleanFilterInput = {
 
 export type ComponentButtonLink = {
   __typename?: 'ComponentButtonLink';
-  Label?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
+  label?: Maybe<Scalars['String']>;
   link?: Maybe<Scalars['String']>;
 };
 
-export type ComponentButtonLinkFiltersInput = {
-  Label?: InputMaybe<StringFilterInput>;
-  and?: InputMaybe<Array<InputMaybe<ComponentButtonLinkFiltersInput>>>;
-  link?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<ComponentButtonLinkFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<ComponentButtonLinkFiltersInput>>>;
-};
-
 export type ComponentButtonLinkInput = {
-  Label?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['ID']>;
+  label?: InputMaybe<Scalars['String']>;
   link?: InputMaybe<Scalars['String']>;
 };
 
@@ -342,17 +334,10 @@ export type Homepage = {
   infoBanner?: Maybe<ComponentButtonLink>;
   leading?: Maybe<Scalars['String']>;
   primaryCta?: Maybe<ComponentButtonLink>;
-  secondaryCta?: Maybe<Array<Maybe<ComponentButtonLink>>>;
+  secondaryCta?: Maybe<ComponentButtonLink>;
   seo?: Maybe<ComponentSeoSeoMeta>;
   subLeading?: Maybe<Scalars['String']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
-};
-
-
-export type HomepageSecondaryCtaArgs = {
-  filters?: InputMaybe<ComponentButtonLinkFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 export type HomepageEntity = {
@@ -370,7 +355,7 @@ export type HomepageInput = {
   infoBanner?: InputMaybe<ComponentButtonLinkInput>;
   leading?: InputMaybe<Scalars['String']>;
   primaryCta?: InputMaybe<ComponentButtonLinkInput>;
-  secondaryCta?: InputMaybe<Array<InputMaybe<ComponentButtonLinkInput>>>;
+  secondaryCta?: InputMaybe<ComponentButtonLinkInput>;
   seo?: InputMaybe<ComponentSeoSeoMetaInput>;
   subLeading?: InputMaybe<Scalars['String']>;
 };
@@ -1102,7 +1087,7 @@ export type UsersPermissionsUserRelationResponseCollection = {
 export type HomepageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type HomepageQuery = { __typename?: 'Query', homepage?: { __typename?: 'HomepageEntityResponse', data?: { __typename?: 'HomepageEntity', attributes?: { __typename?: 'Homepage', leading?: string | null | undefined, subLeading?: string | null | undefined, seo?: { __typename?: 'ComponentSeoSeoMeta', title?: string | null | undefined } | null | undefined, primaryCta?: { __typename?: 'ComponentButtonLink', Label?: string | null | undefined, link?: string | null | undefined } | null | undefined, secondaryCta?: Array<{ __typename?: 'ComponentButtonLink', Label?: string | null | undefined, link?: string | null | undefined } | null | undefined> | null | undefined, infoBanner?: { __typename?: 'ComponentButtonLink', link?: string | null | undefined, Label?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined };
+export type HomepageQuery = { __typename?: 'Query', homepage?: { __typename?: 'HomepageEntityResponse', data?: { __typename?: 'HomepageEntity', attributes?: { __typename?: 'Homepage', leading?: string | null | undefined, subLeading?: string | null | undefined, seo?: { __typename?: 'ComponentSeoSeoMeta', title?: string | null | undefined } | null | undefined, primaryCta?: { __typename?: 'ComponentButtonLink', label?: string | null | undefined, link?: string | null | undefined } | null | undefined, secondaryCta?: { __typename?: 'ComponentButtonLink', label?: string | null | undefined, link?: string | null | undefined } | null | undefined, infoBanner?: { __typename?: 'ComponentButtonLink', link?: string | null | undefined, label?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined };
 
 
 
@@ -1176,7 +1161,6 @@ export type ResolversTypes = {
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
   BooleanFilterInput: BooleanFilterInput;
   ComponentButtonLink: ResolverTypeWrapper<ComponentButtonLink>;
-  ComponentButtonLinkFiltersInput: ComponentButtonLinkFiltersInput;
   ComponentButtonLinkInput: ComponentButtonLinkInput;
   ComponentPartsAboutMe: ResolverTypeWrapper<ComponentPartsAboutMe>;
   ComponentPartsAboutMeInput: ComponentPartsAboutMeInput;
@@ -1277,7 +1261,6 @@ export type ResolversParentTypes = {
   Boolean: Scalars['Boolean'];
   BooleanFilterInput: BooleanFilterInput;
   ComponentButtonLink: ComponentButtonLink;
-  ComponentButtonLinkFiltersInput: ComponentButtonLinkFiltersInput;
   ComponentButtonLinkInput: ComponentButtonLinkInput;
   ComponentPartsAboutMe: ComponentPartsAboutMe;
   ComponentPartsAboutMeInput: ComponentPartsAboutMeInput;
@@ -1374,8 +1357,8 @@ export type ResolversParentTypes = {
 };
 
 export type ComponentButtonLinkResolvers<ContextType = any, ParentType extends ResolversParentTypes['ComponentButtonLink'] = ResolversParentTypes['ComponentButtonLink']> = {
-  Label?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  label?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   link?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
@@ -1493,7 +1476,7 @@ export type HomepageResolvers<ContextType = any, ParentType extends ResolversPar
   infoBanner?: Resolver<Maybe<ResolversTypes['ComponentButtonLink']>, ParentType, ContextType>;
   leading?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   primaryCta?: Resolver<Maybe<ResolversTypes['ComponentButtonLink']>, ParentType, ContextType>;
-  secondaryCta?: Resolver<Maybe<Array<Maybe<ResolversTypes['ComponentButtonLink']>>>, ParentType, ContextType, RequireFields<HomepageSecondaryCtaArgs, 'pagination' | 'sort'>>;
+  secondaryCta?: Resolver<Maybe<ResolversTypes['ComponentButtonLink']>, ParentType, ContextType>;
   seo?: Resolver<Maybe<ResolversTypes['ComponentSeoSeoMeta']>, ParentType, ContextType>;
   subLeading?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   updatedAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
@@ -1879,16 +1862,16 @@ export const HomepageDocument = gql`
           title
         }
         primaryCta {
-          Label
+          label
           link
         }
         secondaryCta {
-          Label
+          label
           link
         }
         infoBanner {
           link
-          Label
+          label
         }
       }
     }
