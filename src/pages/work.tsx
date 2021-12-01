@@ -4,12 +4,11 @@ import NavigationBar from '@components/NavigationBar';
 import LinkButton from '@components/LinkButton';
 import { GetStaticProps } from 'next';
 import axios, { AxiosResponse } from 'axios';
-import { COCKPIT_API_KEY, COCKPIT_ASSETS_URL, COCKPIT_URL } from '../constants';
 import {
     CockpitFreelancingPage,
     CockpitQualitiesCollection,
     CockpitSkillsCollection,
-} from '@types';
+} from '@type/cockpit';
 import SkillCard from '@components/SkillCard';
 import { NextSeo } from 'next-seo';
 import ReactMarkdown from 'react-markdown';
@@ -63,7 +62,7 @@ const WorkPage: React.FC<Props> = (props) => {
                     <div className="p-4 flex justify-center items-center">
                         <img
                             src={
-                                COCKPIT_ASSETS_URL +
+                                process.env.NEXT_PUBLIC_COCKPIT_ASSETS_URL +
                                 cockpitFreelancingPageResult.heroImage.path
                             }
                             alt="Dreamer Grafik"
@@ -96,7 +95,11 @@ const WorkPage: React.FC<Props> = (props) => {
                                     primay={key === 0}
                                     key={item._id}
                                     description={item.description}
-                                    image={COCKPIT_ASSETS_URL + item.image.path}
+                                    image={
+                                        process.env
+                                            .NEXT_PUBLIC_COCKPIT_ASSETS_URL +
+                                        item.image.path
+                                    }
                                     title={item.title}
                                 />
                             )
@@ -114,19 +117,21 @@ export default WorkPage;
 export const getStaticProps: GetStaticProps = async () => {
     const cockpitFreelancingPageResult: AxiosResponse<CockpitFreelancingPage> =
         await axios.get(
-            COCKPIT_URL +
+            process.env.COCKPIT_URL +
                 '/api/singletons/get/freelancingPage?token=' +
-                COCKPIT_API_KEY
+                process.env.COCKPIT_API_KEY
         );
     const cockpitSkillsEntriesResult: AxiosResponse<CockpitSkillsCollection> =
         await axios.get(
-            COCKPIT_URL + '/api/collections/get/skills?token=' + COCKPIT_API_KEY
+            process.env.COCKPIT_URL +
+                '/api/collections/get/skills?token=' +
+                process.env.COCKPIT_API_KEY
         );
     const cockpitQualitiesEntriesResult: AxiosResponse<CockpitQualitiesCollection> =
         await axios.get(
-            COCKPIT_URL +
+            process.env.COCKPIT_URL +
                 '/api/collections/get/qualities?token=' +
-                COCKPIT_API_KEY
+                process.env.COCKPIT_API_KEY
         );
 
     return {

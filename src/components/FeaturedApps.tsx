@@ -1,7 +1,6 @@
 import React from 'react';
-import { FeaturedApp } from '@types';
+import type { FeaturedApp } from '@type/cockpit';
 import Link from 'next/link';
-import { COCKPIT_ASSETS_URL } from '../constants';
 import SubTitle from './SubTitle';
 import Title from './Title';
 
@@ -27,12 +26,18 @@ const FeaturedApps: React.FC<Props> = (props) => {
                         <div className="relative">
                             <img
                                 className="rounded-2xl absolute -inset-0 filter blur-xl"
-                                src={COCKPIT_ASSETS_URL + item.appIcon.path}
+                                src={
+                                    process.env.NEXT_PUBLIC_COCKPIT_ASSETS_URL +
+                                    item.appIcon.path
+                                }
                                 alt={item.appName + ' Blur Background'}
                             />
                             <img
                                 className="rounded-2xl shadow-md h-28 w-28 relative"
-                                src={COCKPIT_ASSETS_URL + item.appIcon.path}
+                                src={
+                                    process.env.NEXT_PUBLIC_COCKPIT_ASSETS_URL +
+                                    item.appIcon.path
+                                }
                                 alt={item.appName + ' Icon'}
                             />
                         </div>

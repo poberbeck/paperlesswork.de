@@ -6,13 +6,12 @@ import ReactMarkdown from 'react-markdown';
 import ContactForm from '@components/ContactForm';
 import Footer from '@components/Footer';
 import NavigationBar from '@components/NavigationBar';
-import { COCKPIT_API_KEY, COCKPIT_ASSETS_URL, COCKPIT_URL } from '../constants';
 import {
     CockpitAboutMeComponent,
     CockpitDigitalWorkPage,
     CockpitFeaturedAppsCollection,
     CockpitFeaturedAppsComponent,
-} from '@types';
+} from '@type/cockpit';
 import FeaturedApps from '@components/FeaturedApps';
 import SubTitle from '@components/SubTitle';
 import Title from '@components/Title';
@@ -69,7 +68,8 @@ const DigitalPage: React.FC<Props> = (props) => {
                         <img
                             className="w-40 rounded-lg shadow-md"
                             src={
-                                COCKPIT_ASSETS_URL + aboutMe.certifiedImage.path
+                                process.env.NEXT_PUBLIC_COCKPIT_ASSETS_URL +
+                                aboutMe.certifiedImage.path
                             }
                             alt="Apple Teacher Signatur"
                         />
@@ -77,7 +77,10 @@ const DigitalPage: React.FC<Props> = (props) => {
                     <div>
                         <img
                             className="object-cover object-center h-full max-h-[880px] w-full"
-                            src={COCKPIT_ASSETS_URL + aboutMe.image.path}
+                            src={
+                                process.env.NEXT_PUBLIC_COCKPIT_ASSETS_URL +
+                                aboutMe.image.path
+                            }
                             alt="Pascal Oberbeck"
                         />
                     </div>
@@ -118,25 +121,27 @@ export default DigitalPage;
 export const getStaticProps: GetStaticProps = async (ctx) => {
     const cockpitPageResult: AxiosResponse<CockpitDigitalWorkPage> =
         await axios.get(
-            COCKPIT_URL +
+            process.env.COCKPIT_URL +
                 '/api/singletons/get/digitalWorkPage?token=' +
-                COCKPIT_API_KEY
+                process.env.COCKPIT_API_KEY
         );
     const cockpitAboutMeResult: AxiosResponse<CockpitAboutMeComponent> =
         await axios.get(
-            COCKPIT_URL + '/api/singletons/get/aboutMe?token=' + COCKPIT_API_KEY
+            process.env.COCKPIT_URL +
+                '/api/singletons/get/aboutMe?token=' +
+                process.env.COCKPIT_API_KEY
         );
     const cockpitFeaturedAppsResult: AxiosResponse<CockpitFeaturedAppsCollection> =
         await axios.get(
-            COCKPIT_URL +
+            process.env.COCKPIT_URL +
                 '/api/singletons/get/featuredApps?token=' +
-                COCKPIT_API_KEY
+                process.env.COCKPIT_API_KEY
         );
     const cockpitFeaturedAppsEntriesResult: AxiosResponse<CockpitFeaturedAppsCollection> =
         await axios.get(
-            COCKPIT_URL +
+            process.env.COCKPIT_URL +
                 '/api/collections/get/featuredApps?token=' +
-                COCKPIT_API_KEY
+                process.env.COCKPIT_API_KEY
         );
 
     return {

@@ -1,5 +1,6 @@
 import { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
-import gql from 'graphql-tag';
+import { gql } from '@apollo/client';
+import * as Apollo from '@apollo/client';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -7,6 +8,7 @@ export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: 
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 export type RequireFields<T, K extends keyof T> = { [X in Exclude<keyof T, K>]?: T[X] } & { [P in K]-?: NonNullable<T[P]> };
+const defaultOptions =  {}
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -1097,6 +1099,11 @@ export type UsersPermissionsUserRelationResponseCollection = {
   data: Array<UsersPermissionsUserEntity>;
 };
 
+export type HomepageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type HomepageQuery = { __typename?: 'Query', homepage?: { __typename?: 'HomepageEntityResponse', data?: { __typename?: 'HomepageEntity', attributes?: { __typename?: 'Homepage', leading?: string | null | undefined, subLeading?: string | null | undefined, seo?: { __typename?: 'ComponentSeoSeoMeta', title?: string | null | undefined } | null | undefined, primaryCta?: { __typename?: 'ComponentButtonLink', Label?: string | null | undefined, link?: string | null | undefined } | null | undefined, secondaryCta?: Array<{ __typename?: 'ComponentButtonLink', Label?: string | null | undefined, link?: string | null | undefined } | null | undefined> | null | undefined, infoBanner?: { __typename?: 'ComponentButtonLink', link?: string | null | undefined, Label?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined };
+
 
 
 export type ResolverTypeWrapper<T> = Promise<T> | T;
@@ -1859,3 +1866,59 @@ export type Resolvers<ContextType = any> = {
   UsersPermissionsUserRelationResponseCollection?: UsersPermissionsUserRelationResponseCollectionResolvers<ContextType>;
 };
 
+
+
+export const HomepageDocument = gql`
+    query Homepage {
+  homepage {
+    data {
+      attributes {
+        leading
+        subLeading
+        seo {
+          title
+        }
+        primaryCta {
+          Label
+          link
+        }
+        secondaryCta {
+          Label
+          link
+        }
+        infoBanner {
+          link
+          Label
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useHomepageQuery__
+ *
+ * To run a query within a React component, call `useHomepageQuery` and pass it any options that fit your needs.
+ * When your component renders, `useHomepageQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useHomepageQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useHomepageQuery(baseOptions?: Apollo.QueryHookOptions<HomepageQuery, HomepageQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<HomepageQuery, HomepageQueryVariables>(HomepageDocument, options);
+      }
+export function useHomepageLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<HomepageQuery, HomepageQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<HomepageQuery, HomepageQueryVariables>(HomepageDocument, options);
+        }
+export type HomepageQueryHookResult = ReturnType<typeof useHomepageQuery>;
+export type HomepageLazyQueryHookResult = ReturnType<typeof useHomepageLazyQuery>;
+export type HomepageQueryResult = Apollo.QueryResult<HomepageQuery, HomepageQueryVariables>;

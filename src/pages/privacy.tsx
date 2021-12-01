@@ -4,8 +4,7 @@ import NavigationBar from '@components/NavigationBar';
 import { NextSeo } from 'next-seo';
 import axios, { AxiosResponse } from 'axios';
 import { GetStaticProps } from 'next';
-import { COCKPIT_URL, COCKPIT_API_KEY } from '../constants';
-import { CockpitSimplePage } from '@types';
+import { CockpitSimplePage } from '@type/cockpit';
 
 const PrivacyPage: React.FC<CockpitSimplePage> = ({ seoTitle, content }) => {
     return (
@@ -25,7 +24,9 @@ export default PrivacyPage;
 
 export const getStaticProps: GetStaticProps = async () => {
     const cockpitResult: AxiosResponse<CockpitSimplePage> = await axios.get(
-        COCKPIT_URL + '/api/singletons/get/privacyPage?token=' + COCKPIT_API_KEY
+        process.env.COCKPIT_URL +
+            '/api/singletons/get/privacyPage?token=' +
+            process.env.COCKPIT_API_KEY
     );
     return {
         props: { ...cockpitResult.data },
