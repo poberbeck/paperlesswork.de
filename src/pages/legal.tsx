@@ -3,18 +3,24 @@ import Footer from '@components/Footer';
 import NavigationBar from '@components/NavigationBar';
 import { NextSeo } from 'next-seo';
 import { GetStaticProps } from 'next';
-import axios, { AxiosResponse } from 'axios';
-import { CockpitSimplePage } from '@type/cockpit';
+import client from '@lib/apollo';
+import {
+    LegalpageDocument,
+    LegalpageQuery,
+    Legalpage,
+} from '@generated/graphql';
+import ReactMarkdown from 'react-markdown';
 
-const LegalPage: React.FC<CockpitSimplePage> = ({ seoTitle, content }) => {
+const LegalPage: React.FC<Legalpage> = (props) => {
+    const { seo, content } = props;
+
     return (
         <div>
-            <NextSeo title={seoTitle} />
+            <NextSeo title={seo?.title!} />
             <NavigationBar />
-            <div
-                className="container mx-auto prose p-4"
-                dangerouslySetInnerHTML={{ __html: content }}
-            ></div>
+            <div className="container mx-auto prose p-4">
+                <ReactMarkdown>{content!}</ReactMarkdown>
+            </div>
             <Footer />
         </div>
     );
@@ -23,12 +29,11 @@ const LegalPage: React.FC<CockpitSimplePage> = ({ seoTitle, content }) => {
 export default LegalPage;
 
 export const getStaticProps: GetStaticProps = async () => {
-    const cockpitResult: AxiosResponse<CockpitSimplePage> = await axios.get(
-        process.env.COCKPIT_URL +
-            '/api/singletons/get/legalPage?token=' +
-            process.env.COCKPIT_API_KEY
-    );
+    const { data } = await client.query<LegalpageQuery>({
+        query: LegalpageDocument,
+    });
+
     return {
-        props: { ...cockpitResult.data },
+        props: { ...data.legalpage?.data?.attributes },
     };
 };
