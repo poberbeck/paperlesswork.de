@@ -6,12 +6,6 @@ import ReactMarkdown from 'react-markdown';
 import ContactForm from '@components/ContactForm';
 import Footer from '@components/Footer';
 import NavigationBar from '@components/NavigationBar';
-import {
-    CockpitAboutMeComponent,
-    CockpitDigitalWorkPage,
-    CockpitFeaturedAppsCollection,
-    CockpitFeaturedAppsComponent,
-} from '@type/cockpit';
 import FeaturedApps from '@components/FeaturedApps';
 import SubTitle from '@components/SubTitle';
 import Title from '@components/Title';
