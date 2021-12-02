@@ -2,6 +2,8 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import LessLink from '@components/LessLink';
 import { useRouter } from 'next/router';
+import LogoSrc from '../../public/images/plwo_logo.svg';
+import Image from 'next/image';
 
 const menueItems = [
     { name: 'Home', link: '/' },
@@ -33,9 +35,11 @@ const NavigationBar = () => {
             {({ open }) => (
                 <nav className="relative container mx-auto pt-4 mb-8 px-6 flex justify-between items-center">
                     <LessLink href="/">
-                        <img
-                            className="h-16 w-16"
-                            src="/images/plwo_logo.svg"
+                        <Image
+                            height={50}
+                            width={50}
+                            src={LogoSrc}
+                            priority={true}
                             alt="Paperless Work Logo"
                         />
                     </LessLink>

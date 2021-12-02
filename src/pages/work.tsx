@@ -15,6 +15,7 @@ import {
     ComponentPartsSkill,
     ComponentPartsQuality,
 } from '@generated/graphql';
+import Image from 'next/image';
 
 const WorkPage: React.FC<Freelancingpage> = (props) => {
     const {
@@ -56,12 +57,13 @@ const WorkPage: React.FC<Freelancingpage> = (props) => {
                             </LinkButton>
                         </div>
                     </div>
-                    <div className="p-4 flex justify-center items-center">
-                        <img
+                    <div className="relative p-4 flex justify-center items-center">
+                        <Image
                             src={
                                 process.env.NEXT_PUBLIC_ASSETS_URL +
                                 hero?.data?.attributes?.url!
                             }
+                            layout="fill"
                             alt="Dreamer Grafik"
                         />
                     </div>

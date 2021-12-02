@@ -3,6 +3,7 @@ import Link from 'next/link';
 import SubTitle from './SubTitle';
 import Title from './Title';
 import { ComponentPartsApp } from '@generated/graphql';
+import Image from 'next/image';
 
 interface Props {
     apps: ComponentPartsApp[];
@@ -24,20 +25,26 @@ const FeaturedApps: React.FC<Props> = (props) => {
                         key={item.id}
                     >
                         <div className="relative">
-                            <img
-                                className="rounded-2xl absolute -inset-0 filter blur-xl"
+                            <span className="rounded-2xl absolute -inset-0 filter blur-xl">
+                                <Image
+                                    src={
+                                        process.env.NEXT_PUBLIC_ASSETS_URL +
+                                        item.appIcon?.data?.attributes?.url!
+                                    }
+                                    height={112}
+                                    width={112}
+                                    alt={item.name + ' Blur Background'}
+                                />
+                            </span>
+
+                            <Image
+                                className="rounded-2xl shadow-md relative"
                                 src={
                                     process.env.NEXT_PUBLIC_ASSETS_URL +
                                     item.appIcon?.data?.attributes?.url!
                                 }
-                                alt={item.name + ' Blur Background'}
-                            />
-                            <img
-                                className="rounded-2xl shadow-md h-28 w-28 relative"
-                                src={
-                                    process.env.NEXT_PUBLIC_ASSETS_URL +
-                                    item.appIcon?.data?.attributes?.url!
-                                }
+                                height={112}
+                                width={112}
                                 alt={item.name + ' Icon'}
                             />
                         </div>

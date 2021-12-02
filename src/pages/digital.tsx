@@ -16,6 +16,7 @@ import {
     DigitalworkpageQuery,
 } from '@generated/graphql';
 import client from '@lib/apollo';
+import Image from 'next/image';
 
 const DigitalPage: React.FC<Digitalworkpage> = (props) => {
     const { seo, laeding, subLeading, aboutMe, featuredApps } = props;
@@ -62,17 +63,29 @@ const DigitalPage: React.FC<Digitalworkpage> = (props) => {
                         <small className="text-sm text-gray-300">
                             Zertifiziert als:
                         </small>
-                        <img
-                            className="w-40 rounded-lg shadow-md"
-                            src={
-                                process.env.NEXT_PUBLIC_ASSETS_URL +
-                                aboutMe?.certificat?.data?.attributes?.url!
-                            }
-                            alt="Apple Teacher Signatur"
-                        />
+                        <div className="w-40">
+                            <Image
+                                height={
+                                    aboutMe?.certificat?.data?.attributes
+                                        ?.height!
+                                }
+                                width={
+                                    aboutMe?.certificat?.data?.attributes
+                                        ?.width!
+                                }
+                                className="rounded-lg shadow-md"
+                                objectFit="contain"
+                                src={
+                                    process.env.NEXT_PUBLIC_ASSETS_URL +
+                                    aboutMe?.certificat?.data?.attributes?.url!
+                                }
+                                alt="Apple Teacher Signatur"
+                            />
+                        </div>
                     </div>
-                    <div>
-                        <img
+                    <div className="relative">
+                        <Image
+                            layout="fill"
                             className="object-cover object-center h-full max-h-[880px] w-full"
                             src={
                                 process.env.NEXT_PUBLIC_ASSETS_URL +
