@@ -276,14 +276,14 @@ export type FloatFilterInput = {
 
 export type Freelancingpage = {
   __typename?: 'Freelancingpage';
-  Qualities?: Maybe<Array<Maybe<ComponentPartsQuality>>>;
-  Skills?: Maybe<Array<Maybe<ComponentPartsSkill>>>;
   createdAt?: Maybe<Scalars['DateTime']>;
   ctaButton?: Maybe<ComponentButtonLink>;
   hero?: Maybe<UploadFileEntityResponse>;
   leading?: Maybe<Scalars['String']>;
+  qualities?: Maybe<Array<Maybe<ComponentPartsQuality>>>;
   secondTitle?: Maybe<Scalars['String']>;
   seo?: Maybe<ComponentSeoSeoMeta>;
+  skills?: Maybe<Array<Maybe<ComponentPartsSkill>>>;
   subLeading?: Maybe<Scalars['String']>;
   thirdTitle?: Maybe<Scalars['String']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
@@ -315,13 +315,13 @@ export type FreelancingpageEntityResponse = {
 };
 
 export type FreelancingpageInput = {
-  Qualities?: InputMaybe<Array<InputMaybe<ComponentPartsQualityInput>>>;
-  Skills?: InputMaybe<Array<InputMaybe<ComponentPartsSkillInput>>>;
   ctaButton?: InputMaybe<ComponentButtonLinkInput>;
   hero?: InputMaybe<Scalars['ID']>;
   leading?: InputMaybe<Scalars['String']>;
+  qualities?: InputMaybe<Array<InputMaybe<ComponentPartsQualityInput>>>;
   secondTitle?: InputMaybe<Scalars['String']>;
   seo?: InputMaybe<ComponentSeoSeoMetaInput>;
+  skills?: InputMaybe<Array<InputMaybe<ComponentPartsSkillInput>>>;
   subLeading?: InputMaybe<Scalars['String']>;
   thirdTitle?: InputMaybe<Scalars['String']>;
 };
@@ -1104,6 +1104,11 @@ export type DigitalworkpageQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type DigitalworkpageQuery = { __typename?: 'Query', digitalworkpage?: { __typename?: 'DigitalworkpageEntityResponse', data?: { __typename?: 'DigitalworkpageEntity', attributes?: { __typename?: 'Digitalworkpage', laeding?: string | null | undefined, subLeading?: string | null | undefined, seo?: { __typename?: 'ComponentSeoSeoMeta', title?: string | null | undefined } | null | undefined, aboutMe?: { __typename?: 'ComponentPartsAboutMe', title?: string | null | undefined, biography?: string | null | undefined, me?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', height?: number | null | undefined, width?: number | null | undefined, url: string } | null | undefined } | null | undefined } | null | undefined, certificat?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', height?: number | null | undefined, width?: number | null | undefined, url: string } | null | undefined } | null | undefined } | null | undefined } | null | undefined, featuredApps?: { __typename?: 'ComponentPartsFeaturedApps', title?: string | null | undefined, subTitle?: string | null | undefined, source?: string | null | undefined, apps?: Array<{ __typename?: 'ComponentPartsApp', id: string, name?: string | null | undefined, description?: string | null | undefined, author?: string | null | undefined, appstoreUrl?: string | null | undefined, appIcon?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', height?: number | null | undefined, width?: number | null | undefined, url: string } | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined };
 
+export type FreelancingpageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type FreelancingpageQuery = { __typename?: 'Query', freelancingpage?: { __typename?: 'FreelancingpageEntityResponse', data?: { __typename?: 'FreelancingpageEntity', attributes?: { __typename?: 'Freelancingpage', leading?: string | null | undefined, subLeading?: string | null | undefined, secondTitle?: string | null | undefined, thirdTitle?: string | null | undefined, seo?: { __typename?: 'ComponentSeoSeoMeta', title?: string | null | undefined } | null | undefined, hero?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', height?: number | null | undefined, width?: number | null | undefined, url: string } | null | undefined } | null | undefined } | null | undefined, ctaButton?: { __typename?: 'ComponentButtonLink', link?: string | null | undefined, label?: string | null | undefined } | null | undefined, skills?: Array<{ __typename?: 'ComponentPartsSkill', id: string, name?: string | null | undefined, description?: string | null | undefined, icon?: string | null | undefined } | null | undefined> | null | undefined, qualities?: Array<{ __typename?: 'ComponentPartsQuality', title?: string | null | undefined, description?: string | null | undefined, id: string, image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', height?: number | null | undefined, width?: number | null | undefined, url: string } | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined } | null | undefined } | null | undefined } | null | undefined };
+
 
 
 export type ResolverTypeWrapper<T> = Promise<T> | T;
@@ -1457,14 +1462,14 @@ export type DigitalworkpageEntityResponseResolvers<ContextType = any, ParentType
 };
 
 export type FreelancingpageResolvers<ContextType = any, ParentType extends ResolversParentTypes['Freelancingpage'] = ResolversParentTypes['Freelancingpage']> = {
-  Qualities?: Resolver<Maybe<Array<Maybe<ResolversTypes['ComponentPartsQuality']>>>, ParentType, ContextType, RequireFields<FreelancingpageQualitiesArgs, 'pagination' | 'sort'>>;
-  Skills?: Resolver<Maybe<Array<Maybe<ResolversTypes['ComponentPartsSkill']>>>, ParentType, ContextType, RequireFields<FreelancingpageSkillsArgs, 'pagination' | 'sort'>>;
   createdAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
   ctaButton?: Resolver<Maybe<ResolversTypes['ComponentButtonLink']>, ParentType, ContextType>;
   hero?: Resolver<Maybe<ResolversTypes['UploadFileEntityResponse']>, ParentType, ContextType>;
   leading?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  qualities?: Resolver<Maybe<Array<Maybe<ResolversTypes['ComponentPartsQuality']>>>, ParentType, ContextType, RequireFields<FreelancingpageQualitiesArgs, 'pagination' | 'sort'>>;
   secondTitle?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   seo?: Resolver<Maybe<ResolversTypes['ComponentSeoSeoMeta']>, ParentType, ContextType>;
+  skills?: Resolver<Maybe<Array<Maybe<ResolversTypes['ComponentPartsSkill']>>>, ParentType, ContextType, RequireFields<FreelancingpageSkillsArgs, 'pagination' | 'sort'>>;
   subLeading?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   thirdTitle?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   updatedAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
@@ -2087,3 +2092,80 @@ export function useDigitalworkpageLazyQuery(baseOptions?: Apollo.LazyQueryHookOp
 export type DigitalworkpageQueryHookResult = ReturnType<typeof useDigitalworkpageQuery>;
 export type DigitalworkpageLazyQueryHookResult = ReturnType<typeof useDigitalworkpageLazyQuery>;
 export type DigitalworkpageQueryResult = Apollo.QueryResult<DigitalworkpageQuery, DigitalworkpageQueryVariables>;
+export const FreelancingpageDocument = gql`
+    query Freelancingpage {
+  freelancingpage {
+    data {
+      attributes {
+        leading
+        subLeading
+        seo {
+          title
+        }
+        hero {
+          data {
+            attributes {
+              height
+              width
+              url
+            }
+          }
+        }
+        ctaButton {
+          link
+          label
+        }
+        secondTitle
+        skills {
+          id
+          name
+          description
+          icon
+        }
+        thirdTitle
+        qualities {
+          title
+          description
+          id
+          image {
+            data {
+              attributes {
+                height
+                width
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useFreelancingpageQuery__
+ *
+ * To run a query within a React component, call `useFreelancingpageQuery` and pass it any options that fit your needs.
+ * When your component renders, `useFreelancingpageQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useFreelancingpageQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useFreelancingpageQuery(baseOptions?: Apollo.QueryHookOptions<FreelancingpageQuery, FreelancingpageQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<FreelancingpageQuery, FreelancingpageQueryVariables>(FreelancingpageDocument, options);
+      }
+export function useFreelancingpageLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<FreelancingpageQuery, FreelancingpageQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<FreelancingpageQuery, FreelancingpageQueryVariables>(FreelancingpageDocument, options);
+        }
+export type FreelancingpageQueryHookResult = ReturnType<typeof useFreelancingpageQuery>;
+export type FreelancingpageLazyQueryHookResult = ReturnType<typeof useFreelancingpageLazyQuery>;
+export type FreelancingpageQueryResult = Apollo.QueryResult<FreelancingpageQuery, FreelancingpageQueryVariables>;

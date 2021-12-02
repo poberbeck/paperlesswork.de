@@ -116,3 +116,54 @@ export const QUERY_DIGITALWORKPAGE = gql`
         }
     }
 `;
+
+export const QUERY_FREELANCINGPAGE = gql`
+    query Freelancingpage {
+        freelancingpage {
+            data {
+                attributes {
+                    leading
+                    subLeading
+                    seo {
+                        title
+                    }
+                    hero {
+                        data {
+                            attributes {
+                                height
+                                width
+                                url
+                            }
+                        }
+                    }
+                    ctaButton {
+                        link
+                        label
+                    }
+                    secondTitle
+                    skills {
+                        id
+                        name
+                        description
+                        icon
+                    }
+                    thirdTitle
+                    qualities {
+                        title
+                        description
+                        id
+                        image {
+                            data {
+                                attributes {
+                                    height
+                                    width
+                                    url
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+`;
