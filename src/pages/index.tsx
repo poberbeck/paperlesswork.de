@@ -5,32 +5,23 @@ import LinkButton from '@components/LinkButton';
 import Footer from '@components/Footer';
 import { NextSeo } from 'next-seo';
 import { GetStaticProps } from 'next';
-import axios, { AxiosResponse } from 'axios';
-import { COCKPIT_API_KEY, COCKPIT_URL } from '../constants';
-import { CockpitHomePage } from '@types';
 import SozialIcons from '@components/SozialIcons';
 import ReactMarkdown from 'react-markdown';
+import client from '@lib/apollo';
+import { HomepageQuery, Homepage, HomepageDocument } from '@generated/graphql';
 
-const HomePage: React.FC<CockpitHomePage> = (props) => {
-    const {
-        seoTitle,
-        leading,
-        leadingSub,
-        ctaPrimaryText,
-        ctaPrimaryLink,
-        ctaSeconderyText,
-        ctaSeconderyLink,
-        infoBannerText,
-        infoBannerLink,
-    } = props;
+const HomePage: React.FC<Homepage> = (props) => {
+    const { leading, seo, subLeading, primaryCta, secondaryCta, infoBanner } =
+        props;
+
     return (
         <div>
-            <NextSeo title={seoTitle} />
+            <NextSeo title={seo?.title!} />
             <main className="min-h-screen bg-gray-50 flex flex-col">
                 <NavigationBar />
                 <DigitalInfoBar
-                    content={infoBannerText}
-                    link={infoBannerLink}
+                    content={infoBanner?.label!}
+                    link={infoBanner?.link!}
                 />
                 <div className="flex px-4 flex-1 justify-center items-center mb-8">
                     <div className="max-w-3xl flex flex-col items-center space-y-8">
@@ -44,23 +35,23 @@ const HomePage: React.FC<CockpitHomePage> = (props) => {
                                     ),
                                 }}
                             >
-                                {leading}
+                                {leading!}
                             </ReactMarkdown>
                         </h1>
                         <p className="text-center text-gray-800">
-                            {leadingSub}
+                            {subLeading!}
                         </p>
 
                         <LinkButton
                             className="mx-5"
-                            href={ctaPrimaryLink}
+                            href={primaryCta?.link!}
                             type="primary"
                         >
-                            {ctaPrimaryText}
+                            {primaryCta?.label!}
                         </LinkButton>
 
-                        <LinkButton className="mx-5" href={ctaSeconderyLink}>
-                            {ctaSeconderyText}
+                        <LinkButton className="mx-5" href={secondaryCta?.link!}>
+                            {secondaryCta?.label!}
                         </LinkButton>
 
                         <SozialIcons />
@@ -75,13 +66,13 @@ const HomePage: React.FC<CockpitHomePage> = (props) => {
 export default HomePage;
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-    const cockpitResult: AxiosResponse<CockpitHomePage> = await axios.get(
-        COCKPIT_URL + '/api/singletons/get/homePage?token=' + COCKPIT_API_KEY
-    );
+    const { data } = await client.query<HomepageQuery>({
+        query: HomepageDocument,
+    });
 
     return {
         props: {
-            ...cockpitResult.data,
+            ...data.homepage?.data?.attributes,
         },
     };
 };

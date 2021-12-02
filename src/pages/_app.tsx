@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app';
-import 'tailwindcss/tailwind.css';
+import '@styles/globals.css';
 import { DefaultSeo } from 'next-seo';
-import SEO from '../next-seo.config';
+import SEO from '../../next-seo.config';
 import Favicons from '@components/Favicons';
 import Tracking from '@components/Tracking';
 

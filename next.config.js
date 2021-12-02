@@ -5,4 +5,7 @@ module.exports = {
         locales: ['de'],
         defaultLocale: 'de',
     },
+    images: {
+        domains: ['hub.paperlesswork.de'],
+    },
 };

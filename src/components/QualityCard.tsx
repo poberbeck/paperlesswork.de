@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 interface Props {
     title: string;
@@ -23,7 +24,13 @@ const QualityCard: React.FC<Props> = (props) => {
             </h3>
             <p className={descriptionColorClasses}>{description}</p>
             <div className="flex justify-center items-end">
-                <img className="h-64" alt={title + ' Icon'} src={image} />
+                <Image
+                    height={256}
+                    width={256}
+                    objectFit="contain"
+                    alt={title + ' Icon'}
+                    src={image}
+                />
             </div>
         </div>
     );
