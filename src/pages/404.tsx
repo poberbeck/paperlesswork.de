@@ -15,7 +15,7 @@ const NotFound: NextPage = () => {
                     <h1 className="font-black text-4xl md:text-7xl text-center">
                         Fehler <span className="text-indigo-700">404</span>.{' '}
                         <span role="img" aria-label="Trauriger Smily">
-                            😢
+                            😢🔗
                         </span>
                     </h1>
                     <p className="text-gray-800 text-xl text-center">
