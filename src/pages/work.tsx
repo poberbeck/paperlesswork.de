@@ -35,7 +35,7 @@ const WorkPage: React.FC<Freelancingpage> = (props) => {
             <NextSeo title={seo?.title!} />
 
             <div className="min-h-screen container mx-auto px-4 md:px-12">
-                <section className="flex-1 grid md:grid-cols-2 gap-10">
+                <section className="flex-1 grid md:grid-cols-2 gap-10 py-0 md:py-40">
                     <div className="flex space-y-8 flex-col justify-center">
                         <h1 className="font-bold text-5xl md:text-7xl">
                             <ReactMarkdown
@@ -57,7 +57,7 @@ const WorkPage: React.FC<Freelancingpage> = (props) => {
                             </LinkButton>
                         </div>
                     </div>
-                    <div className="relative p-4 flex justify-center items-center">
+                    <div className="relative p-4 flex justify-center items-center h-80">
                         <Image
                             src={
                                 process.env.NEXT_PUBLIC_ASSETS_URL +
