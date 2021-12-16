@@ -35,7 +35,7 @@ const NavigationBar = () => {
             {({ open }) => (
                 <nav className="relative container mx-auto pt-4 mb-8 px-6 flex justify-between items-center">
                     <LessLink href="/">
-                        <div className="flex justify-center items-center space-x-4">
+                        <div className="flex justify-center items-center space-x-2 divide-x">
                             <Image
                                 height={50}
                                 width={50}
@@ -43,7 +43,7 @@ const NavigationBar = () => {
                                 priority={true}
                                 alt="Paperless Work Logo"
                             />
-                            <p className="font-black ">Paperless Work</p>
+                            <p className="font-black pl-2">Paperless Work</p>
                         </div>
                     </LessLink>
                     <Transition
