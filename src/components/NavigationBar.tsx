@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import LessLink from '@components/LessLink';
 import { useRouter } from 'next/router';
-import LogoSrc from '../../public/images/new_plwo_logo.svg';
+import LogoSrc from '../../public/images/plwo_logo.svg';
 import Image from 'next/image';
 
 const menueItems = [
