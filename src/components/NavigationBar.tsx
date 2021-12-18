@@ -35,13 +35,16 @@ const NavigationBar = () => {
             {({ open }) => (
                 <nav className="relative container mx-auto pt-4 mb-8 px-6 flex justify-between items-center">
                     <LessLink href="/">
-                        <Image
-                            height={50}
-                            width={50}
-                            src={LogoSrc}
-                            priority={true}
-                            alt="Paperless Work Logo"
-                        />
+                        <div className="flex justify-center items-center space-x-2 divide-x">
+                            <Image
+                                height={50}
+                                width={50}
+                                src={LogoSrc}
+                                priority={true}
+                                alt="Paperless Work Logo"
+                            />
+                            <p className="font-black pl-2">Paperless Work</p>
+                        </div>
                     </LessLink>
                     <Transition
                         show={open || isOnDesktop}
