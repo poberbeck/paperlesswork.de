@@ -9,6 +9,13 @@ export const QUERY_HOMEPAGE = gql`
                     subLeading
                     seo {
                         title
+                        ogImage {
+                            data {
+                                attributes {
+                                    url
+                                }
+                            }
+                        }
                     }
                     primaryCta {
                         label
@@ -35,6 +42,13 @@ export const QUERY_LEGALPAGE = gql`
                 attributes {
                     seo {
                         title
+                        ogImage {
+                            data {
+                                attributes {
+                                    url
+                                }
+                            }
+                        }
                     }
                     content
                 }
@@ -50,6 +64,13 @@ export const QUERY_PRIVACYPAGE = gql`
                 attributes {
                     seo {
                         title
+                        ogImage {
+                            data {
+                                attributes {
+                                    url
+                                }
+                            }
+                        }
                     }
                     content
                 }
@@ -65,6 +86,13 @@ export const QUERY_DIGITALWORKPAGE = gql`
                 attributes {
                     seo {
                         title
+                        ogImage {
+                            data {
+                                attributes {
+                                    url
+                                }
+                            }
+                        }
                     }
                     laeding
                     subLeading
@@ -126,6 +154,13 @@ export const QUERY_FREELANCINGPAGE = gql`
                     subLeading
                     seo {
                         title
+                        ogImage {
+                            data {
+                                attributes {
+                                    url
+                                }
+                            }
+                        }
                     }
                     hero {
                         data {

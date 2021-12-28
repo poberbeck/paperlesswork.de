@@ -10,13 +10,22 @@ import {
     Legalpage,
 } from '@generated/graphql';
 import ReactMarkdown from 'react-markdown';
+import getOgImageUrl from '@lib/getOgImageUrl';
 
 const LegalPage: React.FC<Legalpage> = (props) => {
     const { seo, content } = props;
 
     return (
         <div>
-            <NextSeo title={seo?.title!} />
+            <NextSeo
+                title={seo?.title!}
+                openGraph={{
+                    images: getOgImageUrl(
+                        process.env.NEXT_PUBLIC_ASSETS_URL +
+                            seo?.ogImage?.data?.attributes?.url!
+                    ),
+                }}
+            />
             <NavigationBar />
             <div className="container mx-auto prose p-4">
                 <ReactMarkdown>{content!}</ReactMarkdown>

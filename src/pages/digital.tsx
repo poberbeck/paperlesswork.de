@@ -17,6 +17,7 @@ import {
 } from '@generated/graphql';
 import client from '@lib/apollo';
 import Image from 'next/image';
+import getOgImageUrl from '@lib/getOgImageUrl';
 
 const DigitalPage: React.FC<Digitalworkpage> = (props) => {
     const { seo, laeding, subLeading, aboutMe, featuredApps } = props;
@@ -26,11 +27,10 @@ const DigitalPage: React.FC<Digitalworkpage> = (props) => {
             <NextSeo
                 title={seo?.title!}
                 openGraph={{
-                    images: [
-                        {
-                            url: 'https://paperlesswork.de/DigitalPage_Card.png',
-                        },
-                    ],
+                    images: getOgImageUrl(
+                        process.env.NEXT_PUBLIC_ASSETS_URL +
+                            seo?.ogImage?.data?.attributes?.url!
+                    ),
                 }}
             />
             <section className="min-h-screen flex flex-col digital-bg">
