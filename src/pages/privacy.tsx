@@ -10,12 +10,21 @@ import {
 } from '@generated/graphql';
 import client from '@lib/apollo';
 import ReactMarkdown from 'react-markdown';
+import getOgImageUrl from '@lib/getOgImageUrl';
 
 const PrivacyPage: React.FC<Privacypage> = (props) => {
     const { seo, content } = props;
     return (
         <div>
-            <NextSeo title={seo?.title!} />
+            <NextSeo
+                title={seo?.title!}
+                openGraph={{
+                    images: getOgImageUrl(
+                        process.env.NEXT_PUBLIC_ASSETS_URL +
+                            seo?.ogImage?.data?.attributes?.url!
+                    ),
+                }}
+            />
             <NavigationBar />
             <div className="container mx-auto prose p-4">
                 <ReactMarkdown>{content!}</ReactMarkdown>

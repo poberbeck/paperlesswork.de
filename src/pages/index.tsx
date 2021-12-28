@@ -9,6 +9,7 @@ import SozialIcons from '@components/SozialIcons';
 import ReactMarkdown from 'react-markdown';
 import client from '@lib/apollo';
 import { HomepageQuery, Homepage, HomepageDocument } from '@generated/graphql';
+import getOgImageUrl from '@lib/getOgImageUrl';
 
 const HomePage: React.FC<Homepage> = (props) => {
     const { leading, seo, subLeading, primaryCta, secondaryCta, infoBanner } =
@@ -16,7 +17,15 @@ const HomePage: React.FC<Homepage> = (props) => {
 
     return (
         <div>
-            <NextSeo title={seo?.title!} />
+            <NextSeo
+                title={seo?.title!}
+                openGraph={{
+                    images: getOgImageUrl(
+                        process.env.NEXT_PUBLIC_ASSETS_URL +
+                            seo?.ogImage?.data?.attributes?.url!
+                    ),
+                }}
+            />
             <main className="min-h-screen bg-gray-50 flex flex-col">
                 <NavigationBar />
                 <DigitalInfoBar

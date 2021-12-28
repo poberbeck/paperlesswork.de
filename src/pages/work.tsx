@@ -16,6 +16,7 @@ import {
     ComponentPartsQuality,
 } from '@generated/graphql';
 import Image from 'next/image';
+import getOgImageUrl from '@lib/getOgImageUrl';
 
 const WorkPage: React.FC<Freelancingpage> = (props) => {
     const {
@@ -32,7 +33,15 @@ const WorkPage: React.FC<Freelancingpage> = (props) => {
     return (
         <div className="bg-gray-50">
             <NavigationBar />
-            <NextSeo title={seo?.title!} />
+            <NextSeo
+                title={seo?.title!}
+                openGraph={{
+                    images: getOgImageUrl(
+                        process.env.NEXT_PUBLIC_ASSETS_URL +
+                            seo?.ogImage?.data?.attributes?.url!
+                    ),
+                }}
+            />
 
             <div className="min-h-screen container mx-auto px-4 md:px-12">
                 <section className="flex-1 grid md:grid-cols-2 gap-10 py-0 md:py-40">
