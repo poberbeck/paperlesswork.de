@@ -102,7 +102,7 @@ const WorkPage: React.FC<Freelancingpage> = (props) => {
                         {(qualities as ComponentPartsQuality[]).map(
                             (item: ComponentPartsQuality, key: number) => (
                                 <QualityCard
-                                    primay={key === 0}
+                                    primay={key === 1}
                                     key={item.id}
                                     description={item.description!}
                                     image={
