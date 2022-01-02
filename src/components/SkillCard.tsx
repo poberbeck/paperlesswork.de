@@ -15,7 +15,7 @@ const SkillCard: React.FC<Props> = (props) => {
     const LocalIcon = Icons[skillIcon];
 
     return (
-        <div className="flex items-start justify-start space-x-4 rounded-lg p-4 shadow-md ">
+        <div className="flex flex-col items-start justify-start space-y-4 rounded-lg p-4">
             <div className="w-auto bg-white rounded-full shadow-md p-4">
                 <LocalIcon size={35} />
             </div>
