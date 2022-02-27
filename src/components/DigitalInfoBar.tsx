@@ -10,11 +10,11 @@ const DigitalInfoBar: React.FC<Props> = (props) => {
     const { content, link } = props;
     return (
         <div className="container mx-auto mb-8 px-4">
-            <div className="bg-gradient-to-tr from-indigo-700 to-pink-700 p-1 rounded-2xl shadow-2xl flex flex-col md:flex-row space-y-3 md:space-y-0 justify-between items-center">
+            <div className="flex flex-col items-center justify-between space-y-3 rounded-2xl bg-gradient-to-tr from-indigo-700 to-pink-700 p-1 shadow-2xl md:flex-row md:space-y-0">
                 <div className="flex items-center space-x-4 text-white">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-10 w-10 md:h-6 md:w-6 ml-4"
+                        className="ml-4 h-10 w-10 md:h-6 md:w-6"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -29,7 +29,7 @@ const DigitalInfoBar: React.FC<Props> = (props) => {
                     <p className="font-bold">{content}</p>
                 </div>
                 <Link href={link}>
-                    <a className="flex items-center px-4 py-2 space-x-2 rounded-2xl bg-white text-pink-700">
+                    <a className="flex items-center space-x-2 rounded-2xl bg-white px-4 py-2 text-pink-700">
                         <p>Hier klicken</p>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"

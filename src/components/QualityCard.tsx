@@ -18,12 +18,12 @@ const QualityCard: React.FC<Props> = (props) => {
     const descriptionColorClasses = primay ? 'text-white' : 'text-black';
 
     return (
-        <div className={bgClasses + ' shadow-md rounded-xl p-5 space-y-5'}>
-            <h3 className={titleColorClasses + ' font-bold text-xl'}>
+        <div className={bgClasses + ' space-y-5 rounded-xl p-5 shadow-md'}>
+            <h3 className={titleColorClasses + ' text-xl font-bold'}>
                 {title}
             </h3>
             <p className={descriptionColorClasses}>{description}</p>
-            <div className="flex justify-center items-end">
+            <div className="flex items-end justify-center">
                 <Image
                     height={256}
                     width={256}

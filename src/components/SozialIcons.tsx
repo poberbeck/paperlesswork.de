@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const SozialIcons = () => {
     return (
-        <ul className="flex divide-x justify-center items-center">
+        <ul className="flex items-center justify-center divide-x">
             <li className="p-4">
                 <Link href="https://www.instagram.com/pasce03/">
                     <a>
@@ -52,8 +52,8 @@ const SozialIcons = () => {
             </li>
             <li className="p-4">
                 <Link href="https://y.at/⚡%EF%B8%8F🔥🚀☄%EF%B8%8F">
-                    <a className="px-4 hidden md:block">
-                        <p className="py-2 px-4 bg-gray-800 text-white rounded-full shadow-md">
+                    <a className="hidden px-4 md:block">
+                        <p className="rounded-full bg-gray-800 py-2 px-4 text-white shadow-md">
                             https://y.at/
                             <span aria-label="Blitz Icon">⚡️</span>
                             <span aria-label="Flammen Icon">🔥</span>

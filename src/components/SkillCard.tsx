@@ -16,14 +16,14 @@ const SkillCard: React.FC<Props> = (props) => {
 
     return (
         <div className="flex flex-col items-start justify-start space-y-4 rounded-lg p-4">
-            <div className="w-auto bg-white rounded-full shadow-md p-4">
+            <div className="w-auto rounded-full bg-white p-4 shadow-md">
                 <LocalIcon size={35} />
             </div>
             <div>
                 <p className="whitespace-nowrap text-xl font-bold">
                     {skillName}
                 </p>
-                <p className="text-gray-800 text-sm">{skillDescription}</p>
+                <p className="text-sm text-gray-800">{skillDescription}</p>
             </div>
         </div>
     );

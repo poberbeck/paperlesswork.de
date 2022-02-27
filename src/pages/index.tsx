@@ -26,15 +26,15 @@ const HomePage: React.FC<Homepage> = (props) => {
                     ),
                 }}
             />
-            <main className="min-h-screen bg-gray-50 flex flex-col">
+            <main className="flex min-h-screen flex-col bg-gray-50">
                 <NavigationBar />
                 <DigitalInfoBar
                     content={infoBanner?.label!}
                     link={infoBanner?.link!}
                 />
-                <div className="flex px-4 flex-1 justify-center items-center mb-8">
-                    <div className="max-w-3xl flex flex-col items-center space-y-8">
-                        <h1 className="font-black text-4xl md:text-8xl text-center">
+                <div className="mb-8 flex flex-1 items-center justify-center px-4">
+                    <div className="flex max-w-3xl flex-col items-center space-y-8">
+                        <h1 className="text-center text-4xl font-black md:text-8xl">
                             <ReactMarkdown
                                 components={{
                                     strong: ({ children }) => (

@@ -9,13 +9,13 @@ const Success: NextPage = () => {
     return (
         <div>
             <NextSeo title={'Danke sehr'} />
-            <main className="min-h-screen bg-gray-50 flex flex-col">
+            <main className="flex min-h-screen flex-col bg-gray-50">
                 <NavigationBar />
-                <div className="flex-1 flex justify-center items-center flex-col container mx-auto space-y-6">
-                    <h1 className="font-black text-4xl md:text-7xl text-center">
+                <div className="container mx-auto flex flex-1 flex-col items-center justify-center space-y-6">
+                    <h1 className="text-center text-4xl font-black md:text-7xl">
                         Danke für Ihre Einsendung.
                     </h1>
-                    <p className="text-gray-800 text-xl text-center">
+                    <p className="text-center text-xl text-gray-800">
                         Wir melden uns so bald wie möglich bei Ihnen.
                     </p>
                     <LinkButton type="primary" href="/">

@@ -5,7 +5,7 @@ const ContactForm = () => {
         <form
             action="https://api.web3forms.com/submit"
             method="POST"
-            className="bg-white p-6 rounded-xl shadow-lg flex flex-col w-full md:w-[500px]"
+            className="flex w-full flex-col rounded-xl bg-white p-6 shadow-lg md:w-[500px]"
         >
             <input
                 type="hidden"
@@ -23,7 +23,7 @@ const ContactForm = () => {
             </label>
             <input
                 required
-                className="w-full m-2 p-2 rounded-xl bg-gray-100"
+                className="m-2 w-full rounded-xl bg-gray-100 p-2"
                 type="text"
                 name="name"
                 placeholder="Name"
@@ -33,7 +33,7 @@ const ContactForm = () => {
             </label>
             <input
                 required
-                className="w-full m-2 p-2 rounded-xl bg-gray-100"
+                className="m-2 w-full rounded-xl bg-gray-100 p-2"
                 type="email"
                 name="email"
                 placeholder="Email"
@@ -43,7 +43,7 @@ const ContactForm = () => {
             </label>
             <input
                 required
-                className="w-full m-2 p-2 rounded-xl bg-gray-100"
+                className="m-2 w-full rounded-xl bg-gray-100 p-2"
                 type="text"
                 name="betreff"
                 placeholder="Betreff"
@@ -54,7 +54,7 @@ const ContactForm = () => {
             <textarea
                 required
                 rows={6}
-                className="w-full m-2 p-2 rounded-xl bg-gray-100"
+                className="m-2 w-full rounded-xl bg-gray-100 p-2"
                 name="nachricht"
                 placeholder="Nachricht"
             />
@@ -62,7 +62,7 @@ const ContactForm = () => {
                 <button
                     aria-label="Absenden"
                     type="submit"
-                    className="bg-indigo-700 text-white py-3 px-6 flex flex-row font-bold rounded-xl shadow-md"
+                    className="flex flex-row rounded-xl bg-indigo-700 py-3 px-6 font-bold text-white shadow-md"
                 >
                     <p className="font-bold">Senden</p>
                     <svg
@@ -81,7 +81,7 @@ const ContactForm = () => {
                     </svg>
                 </button>
             </div>
-            <small className="text-xs text-gray-400 mt-4">
+            <small className="mt-4 text-xs text-gray-400">
                 Durch das Klicken auf &#34;Senden&#34; stimmen Sie der digitalen
                 Verarbeitung Ihrer persönlichen Daten zu. Sie können dem jedoch
                 jederzeit widersprechen.

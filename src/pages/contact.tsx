@@ -10,14 +10,14 @@ const contact = () => {
     return (
         <>
             <NextSeo title="Kontakt" />
-            <section className="min-h-screen flex flex-col bg-gray-50">
+            <section className="flex min-h-screen flex-col bg-gray-50">
                 <NavigationBar />
-                <div className="container mx-auto px-4 flex-1 flex flex-col items-center space-y-4 mb-8">
+                <div className="container mx-auto mb-8 flex flex-1 flex-col items-center space-y-4 px-4">
                     <Title className="text-center">Kontakt aufnehmen</Title>
                     <SubTitle className="text-center">
                         Kontaktieren Sie mich unkompliziert und unverbindlich
                         via Email unter{' '}
-                        <span className="p-2 bg-indigo-700 rounded-lg text-white font-bold m-2">
+                        <span className="m-2 rounded-lg bg-indigo-700 p-2 font-bold text-white">
                             pascal.oberbeck(at)paperlesswork.de
                         </span>{' '}
                         oder via Kontaktformular.

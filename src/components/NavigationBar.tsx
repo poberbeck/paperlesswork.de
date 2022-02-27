@@ -33,9 +33,9 @@ const NavigationBar = () => {
     return (
         <Menu as={Fragment}>
             {({ open }) => (
-                <nav className="relative container mx-auto pt-4 mb-8 px-6 flex justify-between items-center">
+                <nav className="container relative mx-auto mb-8 flex items-center justify-between px-6 pt-4">
                     <LessLink href="/">
-                        <div className="flex justify-center items-center space-x-2 divide-x">
+                        <div className="flex items-center justify-center space-x-2 divide-x">
                             <Image
                                 height={50}
                                 width={50}
@@ -43,7 +43,7 @@ const NavigationBar = () => {
                                 priority={true}
                                 alt="Paperless Work Logo"
                             />
-                            <p className="font-black pl-2">Paperless Work</p>
+                            <p className="pl-2 font-black">Paperless Work</p>
                         </div>
                     </LessLink>
                     <Transition
@@ -60,10 +60,10 @@ const NavigationBar = () => {
                         <Menu.Items
                             static
                             as="ul"
-                            className="focus:outline-none absolute z-50 top-2 right-4 left-4 bg-white rounded-2xl shadow-md p-4 space-y-4 block md:top-0 md:p-0 md:space-y-0 md:relative md:flex md:shadow-none md:bg-transparent"
+                            className="absolute top-2 right-4 left-4 z-50 block space-y-4 rounded-2xl bg-white p-4 shadow-md focus:outline-none md:relative md:top-0 md:flex md:space-y-0 md:bg-transparent md:p-0 md:shadow-none"
                         >
-                            <div className="flex md:hidden justify-between">
-                                <p className="font-bold text-lg">Menü</p>
+                            <div className="flex justify-between md:hidden">
+                                <p className="text-lg font-bold">Menü</p>
                                 <Menu.Button as="button">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +89,7 @@ const NavigationBar = () => {
                                 >
                                     {({ active }) => (
                                         <LessLink
-                                            className={`flex flex-col justify-start md:items-center items-start px-0 md:px-4 ${
+                                            className={`flex flex-col items-start justify-start px-0 md:items-center md:px-4 ${
                                                 router.pathname === item.link
                                                     ? 'font-bold text-indigo-700'
                                                     : active
@@ -104,7 +104,7 @@ const NavigationBar = () => {
                                                     router.pathname ===
                                                         item.link &&
                                                     'md:bg-indigo-700 md:shadow-md'
-                                                } rounded-full w-2/3`}
+                                                } w-2/3 rounded-full`}
                                             ></div>
                                         </LessLink>
                                     )}
