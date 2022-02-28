@@ -7,7 +7,12 @@ import {
 } from 'react-icons/si';
 
 interface Props {
-    skillIcon: 'SiFlutter' | 'SiNextdotjs' | 'SiReact' | 'SiAffinitydesigner';
+    skillIcon:
+        | 'SiFlutter'
+        | 'SiNextdotjs'
+        | 'SiReact'
+        | 'SiAffinitydesigner'
+        | string;
     skillName: string;
     skillDescription: string;
 }
