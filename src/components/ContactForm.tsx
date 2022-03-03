@@ -7,7 +7,7 @@ const ContactForm = () => {
     const [message, setMessage] = useState('');
     const [name, setName] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const [isModalOpen, setIsModalOpen] = useState(true);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const [hasError, sethasError] = useState(false);
 
     const onSubmit = useCallback(
