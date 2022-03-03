@@ -14,7 +14,7 @@ const LinkButton: React.FC<Props> = (props) => {
     return (
         <LessLink
             href={href}
-            className={`px-8 py-4 text-center font-bold rounded-xl shadow-md ${
+            className={`rounded-xl px-8 py-4 text-center font-bold shadow-md ${
                 type === 'primary'
                     ? 'bg-indigo-700 text-white'
                     : 'bg-white text-gray-800'

@@ -43,10 +43,10 @@ const WorkPage: React.FC<Freelancingpage> = (props) => {
                 }}
             />
 
-            <div className="min-h-screen container mx-auto px-4 md:px-12">
-                <section className="flex-1 grid md:grid-cols-2 gap-10 py-0 md:py-40">
-                    <div className="flex space-y-8 flex-col justify-center">
-                        <h1 className="font-bold text-5xl md:text-7xl">
+            <div className="container mx-auto min-h-screen px-4 md:px-12">
+                <section className="grid flex-1 gap-10 py-0 md:grid-cols-2 md:py-40">
+                    <div className="flex flex-col justify-center space-y-8">
+                        <h1 className="text-5xl font-bold md:text-7xl">
                             <ReactMarkdown
                                 components={{
                                     strong: (strong) => (
@@ -59,14 +59,14 @@ const WorkPage: React.FC<Freelancingpage> = (props) => {
                                 {leading!}
                             </ReactMarkdown>
                         </h1>
-                        <p className="text-gray-800 text-xl">{subLeading!}</p>
+                        <p className="text-xl text-gray-800">{subLeading!}</p>
                         <div>
                             <LinkButton type="primary" href={ctaButton?.link!}>
                                 {ctaButton?.label!}
                             </LinkButton>
                         </div>
                     </div>
-                    <div className="relative p-4 flex justify-center items-center h-80">
+                    <div className="relative flex h-80 items-center justify-center p-4">
                         <Image
                             src={
                                 process.env.NEXT_PUBLIC_ASSETS_URL +
@@ -77,11 +77,11 @@ const WorkPage: React.FC<Freelancingpage> = (props) => {
                         />
                     </div>
                 </section>
-                <section className="py-32 md:py-24 space-y-8">
-                    <h2 className="font-bold text-4xl md:text-6xl text-center">
+                <section className="space-y-8 py-32 md:py-24">
+                    <h2 className="text-center text-4xl font-bold md:text-6xl">
                         {secondTitle!}
                     </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
                         {(skills as ComponentPartsSkill[]).map(
                             (item: ComponentPartsSkill) => (
                                 <SkillCard
@@ -94,11 +94,11 @@ const WorkPage: React.FC<Freelancingpage> = (props) => {
                         )}
                     </div>
                 </section>
-                <section className="py-32 md:py-24 space-y-8 max-w-5xl mx-auto">
-                    <h2 className="font-bold text-4xl md:text-6xl text-center">
+                <section className="mx-auto max-w-5xl space-y-8 py-32 md:py-24">
+                    <h2 className="text-center text-4xl font-bold md:text-6xl">
                         {thirdTitle!}
                     </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
                         {(qualities as ComponentPartsQuality[]).map(
                             (item: ComponentPartsQuality, key: number) => (
                                 <QualityCard

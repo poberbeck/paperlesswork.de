@@ -33,10 +33,10 @@ const DigitalPage: React.FC<Digitalworkpage> = (props) => {
                     ),
                 }}
             />
-            <section className="min-h-screen flex flex-col digital-bg">
+            <section className="digital-bg flex min-h-screen flex-col">
                 <NavigationBar />
-                <div className="flex-1 max-w-5xl mx-auto px-4 md:px-12 flex flex-col items-center justify-center space-y-4">
-                    <h1 className="font-bold text-4xl md:text-6xl xl:text-7xl">
+                <div className="mx-auto flex max-w-5xl flex-1 flex-col items-center justify-center space-y-4 px-4 md:px-12">
+                    <h1 className="text-4xl font-bold md:text-6xl xl:text-7xl">
                         <ReactMarkdown
                             components={{
                                 strong: (strong) => (
@@ -49,14 +49,14 @@ const DigitalPage: React.FC<Digitalworkpage> = (props) => {
                             {laeding!}
                         </ReactMarkdown>
                     </h1>
-                    <p className="text-gray-800 text-xl">{subLeading!}</p>
+                    <p className="text-xl text-gray-800">{subLeading!}</p>
                 </div>
             </section>
 
             <section className="container mx-auto xl:py-12">
-                <div className="grid xl:grid-cols-2 bg-gray-800 text-white xl:rounded-2xl xl:shadow-md overflow-hidden">
-                    <div className="px-4 py-8 xl:p-12 flex flex-col justify-center space-y-4">
-                        <h2 className="font-bold text-4xl">
+                <div className="grid overflow-hidden bg-gray-800 text-white xl:grid-cols-2 xl:rounded-2xl xl:shadow-md">
+                    <div className="flex flex-col justify-center space-y-4 px-4 py-8 xl:p-12">
+                        <h2 className="text-4xl font-bold">
                             {aboutMe?.title!}
                         </h2>
                         <p className="leading-relaxed">{aboutMe?.biography!}</p>
@@ -86,7 +86,7 @@ const DigitalPage: React.FC<Digitalworkpage> = (props) => {
                     <div className="relative">
                         <Image
                             layout="fill"
-                            className="object-cover object-center h-full max-h-[880px] w-full"
+                            className="h-full max-h-[880px] w-full object-cover object-center"
                             src={
                                 process.env.NEXT_PUBLIC_ASSETS_URL +
                                 aboutMe?.me?.data?.attributes?.url!
@@ -101,12 +101,12 @@ const DigitalPage: React.FC<Digitalworkpage> = (props) => {
                 title={featuredApps?.title!}
                 subTitle={featuredApps?.subTitle!}
             />
-            <section className="flex flex-col justify-center items-center space-y-4 py-8 px-4">
+            <section className="flex flex-col items-center justify-center space-y-4 py-8 px-4">
                 <Title className="text-center">Kontakt aufnehmen</Title>
                 <SubTitle className="text-center">
                     Kontaktieren Sie mich unkompliziert und unverbindlich via
                     Email unter{' '}
-                    <span className="p-2 bg-indigo-700 rounded-lg text-white font-bold m-2">
+                    <span className="m-2 rounded-lg bg-indigo-700 p-2 font-bold text-white">
                         pascal.oberbeck(at)paperlesswork.de
                     </span>{' '}
                     oder via Kontaktformular.

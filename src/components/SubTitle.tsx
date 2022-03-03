@@ -6,7 +6,7 @@ interface Props {
 
 const SubTitle: React.FC<Props> = ({ children, className = '' }) => {
     return (
-        <p className={'text-gray-800 text-lg leading-loose ' + className}>
+        <p className={'text-lg leading-loose text-gray-800 ' + className}>
             {children}
         </p>
     );

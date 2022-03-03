@@ -26,7 +26,7 @@ const PrivacyPage: React.FC<Privacypage> = (props) => {
                 }}
             />
             <NavigationBar />
-            <div className="container mx-auto prose p-4">
+            <div className="container prose mx-auto p-4">
                 <ReactMarkdown>{content!}</ReactMarkdown>
             </div>
             <Footer />
