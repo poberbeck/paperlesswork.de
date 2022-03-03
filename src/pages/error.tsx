@@ -5,7 +5,7 @@ import NavigationBar from '@components/NavigationBar';
 import Footer from '@components/Footer';
 import LinkButton from '@components/LinkButton';
 
-const Error: NextPage = () => {
+const ErrorPage: NextPage = () => {
     return (
         <div>
             <NextSeo title={'Fehler'} />
@@ -29,4 +29,4 @@ const Error: NextPage = () => {
     );
 };
 
-export default Success;
+export default ErrorPage;
