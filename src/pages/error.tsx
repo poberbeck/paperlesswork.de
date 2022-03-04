@@ -9,13 +9,13 @@ const ErrorPage: NextPage = () => {
     return (
         <div>
             <NextSeo title={'Fehler'} />
-            <main className="min-h-screen bg-gray-50 flex flex-col">
+            <main className="flex min-h-screen flex-col bg-gray-50">
                 <NavigationBar />
-                <div className="flex-1 flex justify-center items-center flex-col container mx-auto space-y-6">
-                    <h1 className="font-black text-4xl md:text-7xl text-center">
+                <div className="container mx-auto flex flex-1 flex-col items-center justify-center space-y-6">
+                    <h1 className="text-center text-4xl font-black md:text-7xl">
                         Das hätte nicht passieren dürfen.
                     </h1>
-                    <p className="text-gray-800 text-xl text-center">
+                    <p className="text-center text-xl text-gray-800">
                         Es scheint einen Fehler gegeben zu haben. Bitte
                         versuchen Sie es später noch einmal.
                     </p>
