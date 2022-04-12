@@ -10,6 +10,20 @@ import ReactMarkdown from 'react-markdown';
 import client from '@lib/apollo';
 import { HomepageQuery, Homepage, HomepageDocument } from '@generated/graphql';
 import getOgImageUrl from '@lib/getOgImageUrl';
+import { motion } from 'framer-motion';
+
+const container = {
+    show: {
+        transition: {
+            staggerChildren: 0.4,
+        },
+    },
+};
+
+const item = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1 },
+};
 
 const HomePage: React.FC<Homepage> = (props) => {
     const { leading, seo, subLeading, primaryCta, secondaryCta, infoBanner } =
@@ -26,15 +40,25 @@ const HomePage: React.FC<Homepage> = (props) => {
                     ),
                 }}
             />
-            <main className="flex min-h-screen flex-col bg-gray-50">
+            <motion.main
+                variants={container}
+                initial="hidden"
+                animate="show"
+                className="flex min-h-screen flex-col bg-gray-50"
+            >
                 <NavigationBar />
-                <DigitalInfoBar
-                    content={infoBanner?.label!}
-                    link={infoBanner?.link!}
-                />
+                <motion.div variants={item}>
+                    <DigitalInfoBar
+                        content={infoBanner?.label!}
+                        link={infoBanner?.link!}
+                    />
+                </motion.div>
                 <div className="mb-8 flex flex-1 items-center justify-center px-4">
                     <div className="flex max-w-3xl flex-col items-center space-y-8">
-                        <h1 className="text-center text-4xl font-black md:text-8xl">
+                        <motion.h1
+                            variants={item}
+                            className="text-center text-4xl font-black md:text-8xl"
+                        >
                             <ReactMarkdown
                                 components={{
                                     strong: ({ children }) => (
@@ -46,27 +70,36 @@ const HomePage: React.FC<Homepage> = (props) => {
                             >
                                 {leading!}
                             </ReactMarkdown>
-                        </h1>
-                        <p className="text-center text-gray-800">
-                            {subLeading!}
-                        </p>
-
-                        <LinkButton
-                            className="mx-5"
-                            href={primaryCta?.link!}
-                            type="primary"
+                        </motion.h1>
+                        <motion.p
+                            variants={item}
+                            className="text-center text-gray-800"
                         >
-                            {primaryCta?.label!}
-                        </LinkButton>
-
-                        <LinkButton className="mx-5" href={secondaryCta?.link!}>
-                            {secondaryCta?.label!}
-                        </LinkButton>
-
-                        <SozialIcons />
+                            {subLeading!}
+                        </motion.p>
+                        <motion.div variants={item}>
+                            <LinkButton
+                                className="mx-5"
+                                href={primaryCta?.link!}
+                                type="primary"
+                            >
+                                {primaryCta?.label!}
+                            </LinkButton>
+                        </motion.div>
+                        <motion.div variants={item}>
+                            <LinkButton
+                                className="mx-5"
+                                href={secondaryCta?.link!}
+                            >
+                                {secondaryCta?.label!}
+                            </LinkButton>
+                        </motion.div>
+                        <motion.div variants={item}>
+                            <SozialIcons />
+                        </motion.div>
                     </div>
                 </div>
-            </main>
+            </motion.main>
             <Footer />
         </div>
     );
