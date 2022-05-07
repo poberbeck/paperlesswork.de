@@ -4,7 +4,7 @@ import DigitalInfoBar from '@components/DigitalInfoBar';
 import LinkButton from '@components/LinkButton';
 import Footer from '@components/Footer';
 import { NextSeo } from 'next-seo';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import SozialIcons from '@components/SozialIcons';
 import ReactMarkdown from 'react-markdown';
 import client from '@lib/apollo';
@@ -107,7 +107,7 @@ const HomePage: React.FC<Homepage> = (props) => {
 
 export default HomePage;
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
     const { data } = await client.query<HomepageQuery>({
         query: HomepageDocument,
     });
