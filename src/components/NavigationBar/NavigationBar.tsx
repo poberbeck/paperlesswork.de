@@ -27,7 +27,6 @@ const NavigationBar = () => {
                                     height={50}
                                     width={50}
                                     src={LogoSrc}
-                                    priority={true}
                                     alt="Paperless Work Logo"
                                 />
                                 <p className="pl-2 font-black">
