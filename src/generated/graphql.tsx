@@ -1372,10 +1372,10 @@ export type FreelancingpageQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type FreelancingpageQuery = { __typename?: 'Query', freelancingpage?: { __typename?: 'FreelancingpageEntityResponse', data?: { __typename?: 'FreelancingpageEntity', attributes?: { __typename?: 'Freelancingpage', leading?: string | null, subLeading?: string | null, secondTitle?: string | null, thirdTitle?: string | null, seo?: { __typename?: 'ComponentSeoSeoMeta', title?: string | null, ogImage?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null, hero?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', height?: number | null, width?: number | null, url: string } | null } | null } | null, ctaButton?: { __typename?: 'ComponentButtonLink', link?: string | null, label?: string | null } | null, skills?: Array<{ __typename?: 'ComponentPartsSkill', id: string, name?: string | null, description?: string | null, icon?: string | null } | null> | null, qualities?: Array<{ __typename?: 'ComponentPartsQuality', title?: string | null, description?: string | null, id: string, image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', height?: number | null, width?: number | null, url: string } | null } | null } | null } | null> | null } | null } | null } | null };
 
-export type PostsQueryVariables = Exact<{ [key: string]: never; }>;
+export type AllPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type PostsQuery = { __typename?: 'Query', posts?: { __typename?: 'PostEntityResponseCollection', data: Array<{ __typename?: 'PostEntity', attributes?: { __typename?: 'Post', slug: string, title: string, publishedAt?: any | null, hero?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, placeholder?: string | null } | null } | null } | null } | null }> } | null };
+export type AllPostsQuery = { __typename?: 'Query', posts?: { __typename?: 'PostEntityResponseCollection', data: Array<{ __typename?: 'PostEntity', id?: string | null, attributes?: { __typename?: 'Post', slug: string, title: string, publishedAt?: any | null, hero?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, placeholder?: string | null } | null } | null } | null } | null }> } | null };
 
 
 
@@ -2623,10 +2623,11 @@ export function useFreelancingpageLazyQuery(baseOptions?: Apollo.LazyQueryHookOp
 export type FreelancingpageQueryHookResult = ReturnType<typeof useFreelancingpageQuery>;
 export type FreelancingpageLazyQueryHookResult = ReturnType<typeof useFreelancingpageLazyQuery>;
 export type FreelancingpageQueryResult = Apollo.QueryResult<FreelancingpageQuery, FreelancingpageQueryVariables>;
-export const PostsDocument = gql`
-    query Posts {
+export const AllPostsDocument = gql`
+    query AllPosts {
   posts {
     data {
+      id
       attributes {
         slug
         title
@@ -2646,28 +2647,28 @@ export const PostsDocument = gql`
     `;
 
 /**
- * __usePostsQuery__
+ * __useAllPostsQuery__
  *
- * To run a query within a React component, call `usePostsQuery` and pass it any options that fit your needs.
- * When your component renders, `usePostsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useAllPostsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAllPostsQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = usePostsQuery({
+ * const { data, loading, error } = useAllPostsQuery({
  *   variables: {
  *   },
  * });
  */
-export function usePostsQuery(baseOptions?: Apollo.QueryHookOptions<PostsQuery, PostsQueryVariables>) {
+export function useAllPostsQuery(baseOptions?: Apollo.QueryHookOptions<AllPostsQuery, AllPostsQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<PostsQuery, PostsQueryVariables>(PostsDocument, options);
+        return Apollo.useQuery<AllPostsQuery, AllPostsQueryVariables>(AllPostsDocument, options);
       }
-export function usePostsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PostsQuery, PostsQueryVariables>) {
+export function useAllPostsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AllPostsQuery, AllPostsQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<PostsQuery, PostsQueryVariables>(PostsDocument, options);
+          return Apollo.useLazyQuery<AllPostsQuery, AllPostsQueryVariables>(AllPostsDocument, options);
         }
-export type PostsQueryHookResult = ReturnType<typeof usePostsQuery>;
-export type PostsLazyQueryHookResult = ReturnType<typeof usePostsLazyQuery>;
-export type PostsQueryResult = Apollo.QueryResult<PostsQuery, PostsQueryVariables>;
+export type AllPostsQueryHookResult = ReturnType<typeof useAllPostsQuery>;
+export type AllPostsLazyQueryHookResult = ReturnType<typeof useAllPostsLazyQuery>;
+export type AllPostsQueryResult = Apollo.QueryResult<AllPostsQuery, AllPostsQueryVariables>;

@@ -19,8 +19,8 @@ const NavigationBar = () => {
     return (
         <Menu as={Fragment}>
             {({ open }) => (
-                <div className=" mb-8 bg-gray-50 bg-opacity-60 py-3 backdrop-blur-md">
-                    <nav className="container relative mx-auto flex items-center justify-between px-6">
+                <header className="relative z-50 mb-8 bg-gray-50 bg-opacity-60 py-3 backdrop-blur-md">
+                    <nav className="container mx-auto flex items-center justify-between px-6">
                         <LessLink href="/">
                             <div className="flex items-center justify-center space-x-2 divide-x">
                                 <Image
@@ -77,7 +77,7 @@ const NavigationBar = () => {
                             </svg>
                         </Menu.Button>
                     </nav>
-                </div>
+                </header>
             )}
         </Menu>
     );

@@ -26,7 +26,7 @@ const MobileNavigationBar: React.FC<Props> = ({ open }) => {
             <Menu.Items
                 static
                 as="ul"
-                className="absolute top-2 right-4 left-4 z-50 block space-y-4 rounded-2xl bg-white p-4 shadow-md focus:outline-none "
+                className="absolute top-2 right-4 left-4 block space-y-4 rounded-2xl bg-white p-4 shadow-md focus:outline-none"
             >
                 <div className="flex justify-between">
                     <p className="text-lg font-bold">Menü</p>

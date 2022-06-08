@@ -203,24 +203,25 @@ export const QUERY_FREELANCINGPAGE = gql`
     }
 `;
 
-export const QUERY_POSTS = gql`
-    query Posts {
-    posts {
-        data {
-            attributes {
-                slug 
-                title
-                publishedAt
-                hero {
-                data {
-                    attributes {
-                    url
-                    placeholder
+export const QUERY_ALL_POSTS = gql`
+    query AllPosts {
+        posts {
+            data {
+                id
+                attributes {
+                    slug
+                    title
+                    publishedAt
+                    hero {
+                        data {
+                            attributes {
+                                url
+                                placeholder
+                            }
+                        }
                     }
-                }
                 }
             }
         }
     }
-}
-`
+`;

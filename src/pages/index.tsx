@@ -30,7 +30,7 @@ const HomePage: React.FC<Homepage> = (props) => {
         props;
 
     return (
-        <div>
+        <>
             <NextSeo
                 title={seo?.title!}
                 openGraph={{
@@ -40,13 +40,13 @@ const HomePage: React.FC<Homepage> = (props) => {
                     ),
                 }}
             />
+            <NavigationBar />
             <motion.main
                 variants={container}
                 initial="hidden"
                 animate="show"
                 className="flex min-h-screen flex-col bg-gray-50"
             >
-                <NavigationBar />
                 <motion.div variants={item}>
                     <DigitalInfoBar
                         content={infoBanner?.label!}
@@ -101,7 +101,7 @@ const HomePage: React.FC<Homepage> = (props) => {
                 </div>
             </motion.main>
             <Footer />
-        </div>
+        </>
     );
 };
 
