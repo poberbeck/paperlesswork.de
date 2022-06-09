@@ -77,23 +77,18 @@ const HomePage: React.FC<Homepage> = (props) => {
                         >
                             {subLeading!}
                         </motion.p>
-                        <motion.div variants={item}>
-                            <LinkButton
-                                className="mx-5"
-                                href={primaryCta?.link!}
-                                type="primary"
-                            >
+
+                        <motion.div className="py-2" variants={item}>
+                            <LinkButton href={primaryCta?.link!} type="primary">
                                 {primaryCta?.label!}
                             </LinkButton>
                         </motion.div>
-                        <motion.div variants={item}>
-                            <LinkButton
-                                className="mx-5"
-                                href={secondaryCta?.link!}
-                            >
+                        <motion.div className="py-2" variants={item}>
+                            <LinkButton href={secondaryCta?.link!}>
                                 {secondaryCta?.label!}
                             </LinkButton>
                         </motion.div>
+
                         <motion.div variants={item}>
                             <SozialIcons />
                         </motion.div>

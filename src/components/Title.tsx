@@ -2,6 +2,7 @@ import React from 'react';
 
 interface Props {
     className?: string;
+    children: string;
 }
 
 const Title: React.FC<Props> = ({ children, className = '' }) => {
