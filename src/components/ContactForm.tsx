@@ -1,6 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react';
 import axios from 'axios';
-import React, { Fragment, useCallback, useState } from 'react';
+import { FormEvent, Fragment, useCallback, useState } from 'react';
 
 const ContactForm = () => {
     const [email, setEmail] = useState('');
@@ -11,7 +11,7 @@ const ContactForm = () => {
     const [hasError, sethasError] = useState(false);
 
     const onSubmit = useCallback(
-        async (e) => {
+        async (e:FormEvent) => {
             e.preventDefault();
             setIsLoading(true);
             try {
