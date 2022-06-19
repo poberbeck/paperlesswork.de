@@ -14,6 +14,7 @@ interface Props {
     post: Post;
 }
 
+// TODO: Add SEO
 const PostPage: NextPage<Props> = (props) => {
     const { post } = props;
 
