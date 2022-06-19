@@ -39,7 +39,7 @@ const BlogPostListItem: React.FC<Props> = (props) => {
                         <p className="text-sm text-gray-500">
                             {format(
                                 new Date(post.attributes?.publishedAt),
-                                'DD.MM.YYYY'
+                                'dd.MM.yyyy'
                             )}
                         </p>
                     </div>

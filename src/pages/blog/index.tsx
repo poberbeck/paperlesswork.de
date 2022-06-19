@@ -1,7 +1,6 @@
 import Footer from '@components/Footer';
 import NavigationBar from '@components/NavigationBar';
 import {
-    Post,
     AllPostsQuery,
     AllPostsDocument,
     PostEntity,
@@ -9,9 +8,6 @@ import {
 import client from '@lib/apollo';
 import { GetServerSideProps, NextPage } from 'next';
 import { NextSeo } from 'next-seo';
-import Image from 'next/image';
-import { format } from 'date-fns';
-import Link from 'next/link';
 import BlogPostListItem from '@components/BlogPostListItem';
 
 interface Props {
