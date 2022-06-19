@@ -3,8 +3,8 @@ import Link from 'next/link';
 
 const Footer: React.FC = () => {
     return (
-        <div className="bg-gray-50 text-gray-400">
-            <footer className="container mx-auto flex flex-col space-y-4 p-5">
+        <footer className="bg-gray-50 text-gray-400">
+            <div className="container mx-auto flex flex-col space-y-4 p-5">
                 <div className="h-px w-full rounded-full bg-gray-200"></div>
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                     <ul>
@@ -64,8 +64,8 @@ const Footer: React.FC = () => {
                     {`Copyright © ${new Date().getFullYear()} Paperless Work |
                     Pascal Oberbeck`}
                 </small>
-            </footer>
-        </div>
+            </div>
+        </footer>
     );
 };
 

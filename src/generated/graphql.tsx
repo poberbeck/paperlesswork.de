@@ -7,8 +7,8 @@ export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K]
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
-export type RequireFields<T, K extends keyof T> = { [X in Exclude<keyof T, K>]?: T[X] } & { [P in K]-?: NonNullable<T[P]> };
-const defaultOptions =  {}
+export type RequireFields<T, K extends keyof T> = Omit<T, K> & { [P in K]-?: NonNullable<T[P]> };
+const defaultOptions = {} as const;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -192,6 +192,53 @@ export type ComponentSeoSeoMetaInput = {
   title?: InputMaybe<Scalars['String']>;
 };
 
+export type ContactForm = {
+  __typename?: 'ContactForm';
+  confirmed?: Maybe<Scalars['Boolean']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  email: Scalars['String'];
+  message: Scalars['String'];
+  name: Scalars['String'];
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type ContactFormEntity = {
+  __typename?: 'ContactFormEntity';
+  attributes?: Maybe<ContactForm>;
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type ContactFormEntityResponse = {
+  __typename?: 'ContactFormEntityResponse';
+  data?: Maybe<ContactFormEntity>;
+};
+
+export type ContactFormEntityResponseCollection = {
+  __typename?: 'ContactFormEntityResponseCollection';
+  data: Array<ContactFormEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type ContactFormFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ContactFormFiltersInput>>>;
+  confirmed?: InputMaybe<BooleanFilterInput>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  email?: InputMaybe<StringFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  message?: InputMaybe<StringFilterInput>;
+  name?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ContactFormFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ContactFormFiltersInput>>>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type ContactFormInput = {
+  confirmed?: InputMaybe<Scalars['Boolean']>;
+  email?: InputMaybe<Scalars['String']>;
+  message?: InputMaybe<Scalars['String']>;
+  name?: InputMaybe<Scalars['String']>;
+};
+
 export type DateTimeFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   between?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
@@ -243,6 +290,65 @@ export type DigitalworkpageInput = {
   laeding?: InputMaybe<Scalars['String']>;
   seo?: InputMaybe<ComponentSeoSeoMetaInput>;
   subLeading?: InputMaybe<Scalars['String']>;
+};
+
+export type EmailDesignerEmailTemplate = {
+  __typename?: 'EmailDesignerEmailTemplate';
+  bodyHtml?: Maybe<Scalars['String']>;
+  bodyText?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  design?: Maybe<Scalars['JSON']>;
+  enabled?: Maybe<Scalars['Boolean']>;
+  name?: Maybe<Scalars['String']>;
+  subject?: Maybe<Scalars['String']>;
+  tags?: Maybe<Scalars['JSON']>;
+  templateReferenceId?: Maybe<Scalars['Int']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type EmailDesignerEmailTemplateEntity = {
+  __typename?: 'EmailDesignerEmailTemplateEntity';
+  attributes?: Maybe<EmailDesignerEmailTemplate>;
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type EmailDesignerEmailTemplateEntityResponse = {
+  __typename?: 'EmailDesignerEmailTemplateEntityResponse';
+  data?: Maybe<EmailDesignerEmailTemplateEntity>;
+};
+
+export type EmailDesignerEmailTemplateEntityResponseCollection = {
+  __typename?: 'EmailDesignerEmailTemplateEntityResponseCollection';
+  data: Array<EmailDesignerEmailTemplateEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type EmailDesignerEmailTemplateFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<EmailDesignerEmailTemplateFiltersInput>>>;
+  bodyHtml?: InputMaybe<StringFilterInput>;
+  bodyText?: InputMaybe<StringFilterInput>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  design?: InputMaybe<JsonFilterInput>;
+  enabled?: InputMaybe<BooleanFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  name?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<EmailDesignerEmailTemplateFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<EmailDesignerEmailTemplateFiltersInput>>>;
+  subject?: InputMaybe<StringFilterInput>;
+  tags?: InputMaybe<JsonFilterInput>;
+  templateReferenceId?: InputMaybe<IntFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type EmailDesignerEmailTemplateInput = {
+  bodyHtml?: InputMaybe<Scalars['String']>;
+  bodyText?: InputMaybe<Scalars['String']>;
+  design?: InputMaybe<Scalars['JSON']>;
+  enabled?: InputMaybe<Scalars['Boolean']>;
+  name?: InputMaybe<Scalars['String']>;
+  subject?: InputMaybe<Scalars['String']>;
+  tags?: InputMaybe<Scalars['JSON']>;
+  templateReferenceId?: InputMaybe<Scalars['Int']>;
 };
 
 export type FileInfoInput = {
@@ -326,7 +432,7 @@ export type FreelancingpageInput = {
   thirdTitle?: InputMaybe<Scalars['String']>;
 };
 
-export type GenericMorph = ComponentButtonLink | ComponentPartsAboutMe | ComponentPartsApp | ComponentPartsFeaturedApps | ComponentPartsQuality | ComponentPartsSkill | ComponentSeoSeoMeta | Digitalworkpage | Freelancingpage | Homepage | I18NLocale | Legalpage | Privacypage | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = ComponentButtonLink | ComponentPartsAboutMe | ComponentPartsApp | ComponentPartsFeaturedApps | ComponentPartsQuality | ComponentPartsSkill | ComponentSeoSeoMeta | ContactForm | Digitalworkpage | EmailDesignerEmailTemplate | Freelancingpage | Homepage | I18NLocale | Legalpage | Post | Privacypage | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type Homepage = {
   __typename?: 'Homepage';
@@ -491,20 +597,26 @@ export type LegalpageInput = {
 
 export type Mutation = {
   __typename?: 'Mutation';
+  createContactForm?: Maybe<ContactFormEntityResponse>;
+  createEmailDesignerEmailTemplate?: Maybe<EmailDesignerEmailTemplateEntityResponse>;
+  createPost?: Maybe<PostEntityResponse>;
   createUploadFile?: Maybe<UploadFileEntityResponse>;
   /** Create a new role */
   createUsersPermissionsRole?: Maybe<UsersPermissionsCreateRolePayload>;
   /** Create a new user */
   createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
+  deleteContactForm?: Maybe<ContactFormEntityResponse>;
   deleteDigitalworkpage?: Maybe<DigitalworkpageEntityResponse>;
+  deleteEmailDesignerEmailTemplate?: Maybe<EmailDesignerEmailTemplateEntityResponse>;
   deleteFreelancingpage?: Maybe<FreelancingpageEntityResponse>;
   deleteHomepage?: Maybe<HomepageEntityResponse>;
   deleteLegalpage?: Maybe<LegalpageEntityResponse>;
+  deletePost?: Maybe<PostEntityResponse>;
   deletePrivacypage?: Maybe<PrivacypageEntityResponse>;
   deleteUploadFile?: Maybe<UploadFileEntityResponse>;
   /** Delete an existing role */
   deleteUsersPermissionsRole?: Maybe<UsersPermissionsDeleteRolePayload>;
-  /** Update an existing user */
+  /** Delete an existing user */
   deleteUsersPermissionsUser: UsersPermissionsUserEntityResponse;
   /** Confirm an email users email address */
   emailConfirmation?: Maybe<UsersPermissionsLoginPayload>;
@@ -517,11 +629,14 @@ export type Mutation = {
   removeFile?: Maybe<UploadFileEntityResponse>;
   /** Reset user password. Confirm with a code (resetToken from forgotPassword) */
   resetPassword?: Maybe<UsersPermissionsLoginPayload>;
+  updateContactForm?: Maybe<ContactFormEntityResponse>;
   updateDigitalworkpage?: Maybe<DigitalworkpageEntityResponse>;
+  updateEmailDesignerEmailTemplate?: Maybe<EmailDesignerEmailTemplateEntityResponse>;
   updateFileInfo: UploadFileEntityResponse;
   updateFreelancingpage?: Maybe<FreelancingpageEntityResponse>;
   updateHomepage?: Maybe<HomepageEntityResponse>;
   updateLegalpage?: Maybe<LegalpageEntityResponse>;
+  updatePost?: Maybe<PostEntityResponse>;
   updatePrivacypage?: Maybe<PrivacypageEntityResponse>;
   updateUploadFile?: Maybe<UploadFileEntityResponse>;
   /** Update an existing role */
@@ -529,6 +644,21 @@ export type Mutation = {
   /** Update an existing user */
   updateUsersPermissionsUser: UsersPermissionsUserEntityResponse;
   upload: UploadFileEntityResponse;
+};
+
+
+export type MutationCreateContactFormArgs = {
+  data: ContactFormInput;
+};
+
+
+export type MutationCreateEmailDesignerEmailTemplateArgs = {
+  data: EmailDesignerEmailTemplateInput;
+};
+
+
+export type MutationCreatePostArgs = {
+  data: PostInput;
 };
 
 
@@ -544,6 +674,21 @@ export type MutationCreateUsersPermissionsRoleArgs = {
 
 export type MutationCreateUsersPermissionsUserArgs = {
   data: UsersPermissionsUserInput;
+};
+
+
+export type MutationDeleteContactFormArgs = {
+  id: Scalars['ID'];
+};
+
+
+export type MutationDeleteEmailDesignerEmailTemplateArgs = {
+  id: Scalars['ID'];
+};
+
+
+export type MutationDeletePostArgs = {
+  id: Scalars['ID'];
 };
 
 
@@ -602,8 +747,20 @@ export type MutationResetPasswordArgs = {
 };
 
 
+export type MutationUpdateContactFormArgs = {
+  data: ContactFormInput;
+  id: Scalars['ID'];
+};
+
+
 export type MutationUpdateDigitalworkpageArgs = {
   data: DigitalworkpageInput;
+};
+
+
+export type MutationUpdateEmailDesignerEmailTemplateArgs = {
+  data: EmailDesignerEmailTemplateInput;
+  id: Scalars['ID'];
 };
 
 
@@ -625,6 +782,12 @@ export type MutationUpdateHomepageArgs = {
 
 export type MutationUpdateLegalpageArgs = {
   data: LegalpageInput;
+};
+
+
+export type MutationUpdatePostArgs = {
+  data: PostInput;
+  id: Scalars['ID'];
 };
 
 
@@ -674,6 +837,55 @@ export type PaginationArg = {
   start?: InputMaybe<Scalars['Int']>;
 };
 
+export type Post = {
+  __typename?: 'Post';
+  content: Scalars['String'];
+  createdAt?: Maybe<Scalars['DateTime']>;
+  hero?: Maybe<UploadFileEntityResponse>;
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  slug: Scalars['String'];
+  title: Scalars['String'];
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type PostEntity = {
+  __typename?: 'PostEntity';
+  attributes?: Maybe<Post>;
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type PostEntityResponse = {
+  __typename?: 'PostEntityResponse';
+  data?: Maybe<PostEntity>;
+};
+
+export type PostEntityResponseCollection = {
+  __typename?: 'PostEntityResponseCollection';
+  data: Array<PostEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type PostFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<PostFiltersInput>>>;
+  content?: InputMaybe<StringFilterInput>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  not?: InputMaybe<PostFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<PostFiltersInput>>>;
+  publishedAt?: InputMaybe<DateTimeFilterInput>;
+  slug?: InputMaybe<StringFilterInput>;
+  title?: InputMaybe<StringFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type PostInput = {
+  content?: InputMaybe<Scalars['String']>;
+  hero?: InputMaybe<Scalars['ID']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+  slug?: InputMaybe<Scalars['String']>;
+  title?: InputMaybe<Scalars['String']>;
+};
+
 export type Privacypage = {
   __typename?: 'Privacypage';
   content?: Maybe<Scalars['String']>;
@@ -698,15 +910,26 @@ export type PrivacypageInput = {
   seo?: InputMaybe<ComponentSeoSeoMetaInput>;
 };
 
+export enum PublicationState {
+  Live = 'LIVE',
+  Preview = 'PREVIEW'
+}
+
 export type Query = {
   __typename?: 'Query';
+  contactForm?: Maybe<ContactFormEntityResponse>;
+  contactForms?: Maybe<ContactFormEntityResponseCollection>;
   digitalworkpage?: Maybe<DigitalworkpageEntityResponse>;
+  emailDesignerEmailTemplate?: Maybe<EmailDesignerEmailTemplateEntityResponse>;
+  emailDesignerEmailTemplates?: Maybe<EmailDesignerEmailTemplateEntityResponseCollection>;
   freelancingpage?: Maybe<FreelancingpageEntityResponse>;
   homepage?: Maybe<HomepageEntityResponse>;
   i18NLocale?: Maybe<I18NLocaleEntityResponse>;
   i18NLocales?: Maybe<I18NLocaleEntityResponseCollection>;
   legalpage?: Maybe<LegalpageEntityResponse>;
   me?: Maybe<UsersPermissionsMe>;
+  post?: Maybe<PostEntityResponse>;
+  posts?: Maybe<PostEntityResponseCollection>;
   privacypage?: Maybe<PrivacypageEntityResponse>;
   uploadFile?: Maybe<UploadFileEntityResponse>;
   uploadFiles?: Maybe<UploadFileEntityResponseCollection>;
@@ -714,6 +937,30 @@ export type Query = {
   usersPermissionsRoles?: Maybe<UsersPermissionsRoleEntityResponseCollection>;
   usersPermissionsUser?: Maybe<UsersPermissionsUserEntityResponse>;
   usersPermissionsUsers?: Maybe<UsersPermissionsUserEntityResponseCollection>;
+};
+
+
+export type QueryContactFormArgs = {
+  id?: InputMaybe<Scalars['ID']>;
+};
+
+
+export type QueryContactFormsArgs = {
+  filters?: InputMaybe<ContactFormFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type QueryEmailDesignerEmailTemplateArgs = {
+  id?: InputMaybe<Scalars['ID']>;
+};
+
+
+export type QueryEmailDesignerEmailTemplatesArgs = {
+  filters?: InputMaybe<EmailDesignerEmailTemplateFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
@@ -725,6 +972,19 @@ export type QueryI18NLocaleArgs = {
 export type QueryI18NLocalesArgs = {
   filters?: InputMaybe<I18NLocaleFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type QueryPostArgs = {
+  id?: InputMaybe<Scalars['ID']>;
+};
+
+
+export type QueryPostsArgs = {
+  filters?: InputMaybe<PostFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
@@ -803,6 +1063,7 @@ export type UploadFile = {
   height?: Maybe<Scalars['Int']>;
   mime: Scalars['String'];
   name: Scalars['String'];
+  placeholder?: Maybe<Scalars['String']>;
   previewUrl?: Maybe<Scalars['String']>;
   provider: Scalars['String'];
   provider_metadata?: Maybe<Scalars['JSON']>;
@@ -844,6 +1105,7 @@ export type UploadFileFiltersInput = {
   name?: InputMaybe<StringFilterInput>;
   not?: InputMaybe<UploadFileFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<UploadFileFiltersInput>>>;
+  placeholder?: InputMaybe<StringFilterInput>;
   previewUrl?: InputMaybe<StringFilterInput>;
   provider?: InputMaybe<StringFilterInput>;
   provider_metadata?: InputMaybe<JsonFilterInput>;
@@ -862,6 +1124,7 @@ export type UploadFileInput = {
   height?: InputMaybe<Scalars['Int']>;
   mime?: InputMaybe<Scalars['String']>;
   name?: InputMaybe<Scalars['String']>;
+  placeholder?: InputMaybe<Scalars['String']>;
   previewUrl?: InputMaybe<Scalars['String']>;
   provider?: InputMaybe<Scalars['String']>;
   provider_metadata?: InputMaybe<Scalars['JSON']>;
@@ -1087,27 +1350,39 @@ export type UsersPermissionsUserRelationResponseCollection = {
 export type HomepageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type HomepageQuery = { __typename?: 'Query', homepage?: { __typename?: 'HomepageEntityResponse', data?: { __typename?: 'HomepageEntity', attributes?: { __typename?: 'Homepage', leading?: string | null | undefined, subLeading?: string | null | undefined, seo?: { __typename?: 'ComponentSeoSeoMeta', title?: string | null | undefined, ogImage?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null | undefined } | null | undefined } | null | undefined } | null | undefined, primaryCta?: { __typename?: 'ComponentButtonLink', label?: string | null | undefined, link?: string | null | undefined } | null | undefined, secondaryCta?: { __typename?: 'ComponentButtonLink', label?: string | null | undefined, link?: string | null | undefined } | null | undefined, infoBanner?: { __typename?: 'ComponentButtonLink', link?: string | null | undefined, label?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined };
+export type HomepageQuery = { __typename?: 'Query', homepage?: { __typename?: 'HomepageEntityResponse', data?: { __typename?: 'HomepageEntity', attributes?: { __typename?: 'Homepage', leading?: string | null, subLeading?: string | null, seo?: { __typename?: 'ComponentSeoSeoMeta', title?: string | null, ogImage?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null, primaryCta?: { __typename?: 'ComponentButtonLink', label?: string | null, link?: string | null } | null, secondaryCta?: { __typename?: 'ComponentButtonLink', label?: string | null, link?: string | null } | null, infoBanner?: { __typename?: 'ComponentButtonLink', link?: string | null, label?: string | null } | null } | null } | null } | null };
 
 export type LegalpageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type LegalpageQuery = { __typename?: 'Query', legalpage?: { __typename?: 'LegalpageEntityResponse', data?: { __typename?: 'LegalpageEntity', attributes?: { __typename?: 'Legalpage', content?: string | null | undefined, seo?: { __typename?: 'ComponentSeoSeoMeta', title?: string | null | undefined, ogImage?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined };
+export type LegalpageQuery = { __typename?: 'Query', legalpage?: { __typename?: 'LegalpageEntityResponse', data?: { __typename?: 'LegalpageEntity', attributes?: { __typename?: 'Legalpage', content?: string | null, seo?: { __typename?: 'ComponentSeoSeoMeta', title?: string | null, ogImage?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null } | null } | null } | null };
 
 export type PrivacypageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type PrivacypageQuery = { __typename?: 'Query', privacypage?: { __typename?: 'PrivacypageEntityResponse', data?: { __typename?: 'PrivacypageEntity', attributes?: { __typename?: 'Privacypage', content?: string | null | undefined, seo?: { __typename?: 'ComponentSeoSeoMeta', title?: string | null | undefined, ogImage?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined };
+export type PrivacypageQuery = { __typename?: 'Query', privacypage?: { __typename?: 'PrivacypageEntityResponse', data?: { __typename?: 'PrivacypageEntity', attributes?: { __typename?: 'Privacypage', content?: string | null, seo?: { __typename?: 'ComponentSeoSeoMeta', title?: string | null, ogImage?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null } | null } | null } | null };
 
 export type DigitalworkpageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type DigitalworkpageQuery = { __typename?: 'Query', digitalworkpage?: { __typename?: 'DigitalworkpageEntityResponse', data?: { __typename?: 'DigitalworkpageEntity', attributes?: { __typename?: 'Digitalworkpage', laeding?: string | null | undefined, subLeading?: string | null | undefined, seo?: { __typename?: 'ComponentSeoSeoMeta', title?: string | null | undefined, ogImage?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null | undefined } | null | undefined } | null | undefined } | null | undefined, aboutMe?: { __typename?: 'ComponentPartsAboutMe', title?: string | null | undefined, biography?: string | null | undefined, me?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', height?: number | null | undefined, width?: number | null | undefined, url: string } | null | undefined } | null | undefined } | null | undefined, certificat?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', height?: number | null | undefined, width?: number | null | undefined, url: string } | null | undefined } | null | undefined } | null | undefined } | null | undefined, featuredApps?: { __typename?: 'ComponentPartsFeaturedApps', title?: string | null | undefined, subTitle?: string | null | undefined, source?: string | null | undefined, apps?: Array<{ __typename?: 'ComponentPartsApp', id: string, name?: string | null | undefined, description?: string | null | undefined, author?: string | null | undefined, appstoreUrl?: string | null | undefined, appIcon?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', height?: number | null | undefined, width?: number | null | undefined, url: string } | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined };
+export type DigitalworkpageQuery = { __typename?: 'Query', digitalworkpage?: { __typename?: 'DigitalworkpageEntityResponse', data?: { __typename?: 'DigitalworkpageEntity', attributes?: { __typename?: 'Digitalworkpage', laeding?: string | null, subLeading?: string | null, seo?: { __typename?: 'ComponentSeoSeoMeta', title?: string | null, ogImage?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null, aboutMe?: { __typename?: 'ComponentPartsAboutMe', title?: string | null, biography?: string | null, me?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', height?: number | null, width?: number | null, url: string } | null } | null } | null, certificat?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', height?: number | null, width?: number | null, url: string } | null } | null } | null } | null, featuredApps?: { __typename?: 'ComponentPartsFeaturedApps', title?: string | null, subTitle?: string | null, source?: string | null, apps?: Array<{ __typename?: 'ComponentPartsApp', id: string, name?: string | null, description?: string | null, author?: string | null, appstoreUrl?: string | null, appIcon?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', height?: number | null, width?: number | null, url: string } | null } | null } | null } | null> | null } | null } | null } | null } | null };
 
 export type FreelancingpageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type FreelancingpageQuery = { __typename?: 'Query', freelancingpage?: { __typename?: 'FreelancingpageEntityResponse', data?: { __typename?: 'FreelancingpageEntity', attributes?: { __typename?: 'Freelancingpage', leading?: string | null | undefined, subLeading?: string | null | undefined, secondTitle?: string | null | undefined, thirdTitle?: string | null | undefined, seo?: { __typename?: 'ComponentSeoSeoMeta', title?: string | null | undefined, ogImage?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null | undefined } | null | undefined } | null | undefined } | null | undefined, hero?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', height?: number | null | undefined, width?: number | null | undefined, url: string } | null | undefined } | null | undefined } | null | undefined, ctaButton?: { __typename?: 'ComponentButtonLink', link?: string | null | undefined, label?: string | null | undefined } | null | undefined, skills?: Array<{ __typename?: 'ComponentPartsSkill', id: string, name?: string | null | undefined, description?: string | null | undefined, icon?: string | null | undefined } | null | undefined> | null | undefined, qualities?: Array<{ __typename?: 'ComponentPartsQuality', title?: string | null | undefined, description?: string | null | undefined, id: string, image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', height?: number | null | undefined, width?: number | null | undefined, url: string } | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined } | null | undefined } | null | undefined } | null | undefined };
+export type FreelancingpageQuery = { __typename?: 'Query', freelancingpage?: { __typename?: 'FreelancingpageEntityResponse', data?: { __typename?: 'FreelancingpageEntity', attributes?: { __typename?: 'Freelancingpage', leading?: string | null, subLeading?: string | null, secondTitle?: string | null, thirdTitle?: string | null, seo?: { __typename?: 'ComponentSeoSeoMeta', title?: string | null, ogImage?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null, hero?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', height?: number | null, width?: number | null, url: string } | null } | null } | null, ctaButton?: { __typename?: 'ComponentButtonLink', link?: string | null, label?: string | null } | null, skills?: Array<{ __typename?: 'ComponentPartsSkill', id: string, name?: string | null, description?: string | null, icon?: string | null } | null> | null, qualities?: Array<{ __typename?: 'ComponentPartsQuality', title?: string | null, description?: string | null, id: string, image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', height?: number | null, width?: number | null, url: string } | null } | null } | null } | null> | null } | null } | null } | null };
+
+export type AllPostsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AllPostsQuery = { __typename?: 'Query', posts?: { __typename?: 'PostEntityResponseCollection', data: Array<{ __typename?: 'PostEntity', id?: string | null, attributes?: { __typename?: 'Post', slug: string, title: string, publishedAt?: any | null, hero?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, placeholder?: string | null } | null } | null } | null } | null }> } | null };
+
+export type PostBySlugQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+export type PostBySlugQuery = { __typename?: 'Query', posts?: { __typename?: 'PostEntityResponseCollection', data: Array<{ __typename?: 'PostEntity', attributes?: { __typename?: 'Post', title: string, content: string, publishedAt?: any | null, hero?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, placeholder?: string | null } | null } | null } | null } | null }> } | null };
 
 
 
@@ -1197,12 +1472,24 @@ export type ResolversTypes = {
   ComponentPartsSkillInput: ComponentPartsSkillInput;
   ComponentSeoSeoMeta: ResolverTypeWrapper<ComponentSeoSeoMeta>;
   ComponentSeoSeoMetaInput: ComponentSeoSeoMetaInput;
+  ContactForm: ResolverTypeWrapper<ContactForm>;
+  ContactFormEntity: ResolverTypeWrapper<ContactFormEntity>;
+  ContactFormEntityResponse: ResolverTypeWrapper<ContactFormEntityResponse>;
+  ContactFormEntityResponseCollection: ResolverTypeWrapper<ContactFormEntityResponseCollection>;
+  ContactFormFiltersInput: ContactFormFiltersInput;
+  ContactFormInput: ContactFormInput;
   DateTime: ResolverTypeWrapper<Scalars['DateTime']>;
   DateTimeFilterInput: DateTimeFilterInput;
   Digitalworkpage: ResolverTypeWrapper<Digitalworkpage>;
   DigitalworkpageEntity: ResolverTypeWrapper<DigitalworkpageEntity>;
   DigitalworkpageEntityResponse: ResolverTypeWrapper<DigitalworkpageEntityResponse>;
   DigitalworkpageInput: DigitalworkpageInput;
+  EmailDesignerEmailTemplate: ResolverTypeWrapper<EmailDesignerEmailTemplate>;
+  EmailDesignerEmailTemplateEntity: ResolverTypeWrapper<EmailDesignerEmailTemplateEntity>;
+  EmailDesignerEmailTemplateEntityResponse: ResolverTypeWrapper<EmailDesignerEmailTemplateEntityResponse>;
+  EmailDesignerEmailTemplateEntityResponseCollection: ResolverTypeWrapper<EmailDesignerEmailTemplateEntityResponseCollection>;
+  EmailDesignerEmailTemplateFiltersInput: EmailDesignerEmailTemplateFiltersInput;
+  EmailDesignerEmailTemplateInput: EmailDesignerEmailTemplateInput;
   FileInfoInput: FileInfoInput;
   Float: ResolverTypeWrapper<Scalars['Float']>;
   FloatFilterInput: FloatFilterInput;
@@ -1210,7 +1497,7 @@ export type ResolversTypes = {
   FreelancingpageEntity: ResolverTypeWrapper<FreelancingpageEntity>;
   FreelancingpageEntityResponse: ResolverTypeWrapper<FreelancingpageEntityResponse>;
   FreelancingpageInput: FreelancingpageInput;
-  GenericMorph: ResolversTypes['ComponentButtonLink'] | ResolversTypes['ComponentPartsAboutMe'] | ResolversTypes['ComponentPartsApp'] | ResolversTypes['ComponentPartsFeaturedApps'] | ResolversTypes['ComponentPartsQuality'] | ResolversTypes['ComponentPartsSkill'] | ResolversTypes['ComponentSeoSeoMeta'] | ResolversTypes['Digitalworkpage'] | ResolversTypes['Freelancingpage'] | ResolversTypes['Homepage'] | ResolversTypes['I18NLocale'] | ResolversTypes['Legalpage'] | ResolversTypes['Privacypage'] | ResolversTypes['UploadFile'] | ResolversTypes['UsersPermissionsPermission'] | ResolversTypes['UsersPermissionsRole'] | ResolversTypes['UsersPermissionsUser'];
+  GenericMorph: ResolversTypes['ComponentButtonLink'] | ResolversTypes['ComponentPartsAboutMe'] | ResolversTypes['ComponentPartsApp'] | ResolversTypes['ComponentPartsFeaturedApps'] | ResolversTypes['ComponentPartsQuality'] | ResolversTypes['ComponentPartsSkill'] | ResolversTypes['ComponentSeoSeoMeta'] | ResolversTypes['ContactForm'] | ResolversTypes['Digitalworkpage'] | ResolversTypes['EmailDesignerEmailTemplate'] | ResolversTypes['Freelancingpage'] | ResolversTypes['Homepage'] | ResolversTypes['I18NLocale'] | ResolversTypes['Legalpage'] | ResolversTypes['Post'] | ResolversTypes['Privacypage'] | ResolversTypes['UploadFile'] | ResolversTypes['UsersPermissionsPermission'] | ResolversTypes['UsersPermissionsRole'] | ResolversTypes['UsersPermissionsUser'];
   Homepage: ResolverTypeWrapper<Homepage>;
   HomepageEntity: ResolverTypeWrapper<HomepageEntity>;
   HomepageEntityResponse: ResolverTypeWrapper<HomepageEntityResponse>;
@@ -1233,10 +1520,17 @@ export type ResolversTypes = {
   Mutation: ResolverTypeWrapper<{}>;
   Pagination: ResolverTypeWrapper<Pagination>;
   PaginationArg: PaginationArg;
+  Post: ResolverTypeWrapper<Post>;
+  PostEntity: ResolverTypeWrapper<PostEntity>;
+  PostEntityResponse: ResolverTypeWrapper<PostEntityResponse>;
+  PostEntityResponseCollection: ResolverTypeWrapper<PostEntityResponseCollection>;
+  PostFiltersInput: PostFiltersInput;
+  PostInput: PostInput;
   Privacypage: ResolverTypeWrapper<Privacypage>;
   PrivacypageEntity: ResolverTypeWrapper<PrivacypageEntity>;
   PrivacypageEntityResponse: ResolverTypeWrapper<PrivacypageEntityResponse>;
   PrivacypageInput: PrivacypageInput;
+  PublicationState: PublicationState;
   Query: ResolverTypeWrapper<{}>;
   ResponseCollectionMeta: ResolverTypeWrapper<ResponseCollectionMeta>;
   String: ResolverTypeWrapper<Scalars['String']>;
@@ -1297,12 +1591,24 @@ export type ResolversParentTypes = {
   ComponentPartsSkillInput: ComponentPartsSkillInput;
   ComponentSeoSeoMeta: ComponentSeoSeoMeta;
   ComponentSeoSeoMetaInput: ComponentSeoSeoMetaInput;
+  ContactForm: ContactForm;
+  ContactFormEntity: ContactFormEntity;
+  ContactFormEntityResponse: ContactFormEntityResponse;
+  ContactFormEntityResponseCollection: ContactFormEntityResponseCollection;
+  ContactFormFiltersInput: ContactFormFiltersInput;
+  ContactFormInput: ContactFormInput;
   DateTime: Scalars['DateTime'];
   DateTimeFilterInput: DateTimeFilterInput;
   Digitalworkpage: Digitalworkpage;
   DigitalworkpageEntity: DigitalworkpageEntity;
   DigitalworkpageEntityResponse: DigitalworkpageEntityResponse;
   DigitalworkpageInput: DigitalworkpageInput;
+  EmailDesignerEmailTemplate: EmailDesignerEmailTemplate;
+  EmailDesignerEmailTemplateEntity: EmailDesignerEmailTemplateEntity;
+  EmailDesignerEmailTemplateEntityResponse: EmailDesignerEmailTemplateEntityResponse;
+  EmailDesignerEmailTemplateEntityResponseCollection: EmailDesignerEmailTemplateEntityResponseCollection;
+  EmailDesignerEmailTemplateFiltersInput: EmailDesignerEmailTemplateFiltersInput;
+  EmailDesignerEmailTemplateInput: EmailDesignerEmailTemplateInput;
   FileInfoInput: FileInfoInput;
   Float: Scalars['Float'];
   FloatFilterInput: FloatFilterInput;
@@ -1310,7 +1616,7 @@ export type ResolversParentTypes = {
   FreelancingpageEntity: FreelancingpageEntity;
   FreelancingpageEntityResponse: FreelancingpageEntityResponse;
   FreelancingpageInput: FreelancingpageInput;
-  GenericMorph: ResolversParentTypes['ComponentButtonLink'] | ResolversParentTypes['ComponentPartsAboutMe'] | ResolversParentTypes['ComponentPartsApp'] | ResolversParentTypes['ComponentPartsFeaturedApps'] | ResolversParentTypes['ComponentPartsQuality'] | ResolversParentTypes['ComponentPartsSkill'] | ResolversParentTypes['ComponentSeoSeoMeta'] | ResolversParentTypes['Digitalworkpage'] | ResolversParentTypes['Freelancingpage'] | ResolversParentTypes['Homepage'] | ResolversParentTypes['I18NLocale'] | ResolversParentTypes['Legalpage'] | ResolversParentTypes['Privacypage'] | ResolversParentTypes['UploadFile'] | ResolversParentTypes['UsersPermissionsPermission'] | ResolversParentTypes['UsersPermissionsRole'] | ResolversParentTypes['UsersPermissionsUser'];
+  GenericMorph: ResolversParentTypes['ComponentButtonLink'] | ResolversParentTypes['ComponentPartsAboutMe'] | ResolversParentTypes['ComponentPartsApp'] | ResolversParentTypes['ComponentPartsFeaturedApps'] | ResolversParentTypes['ComponentPartsQuality'] | ResolversParentTypes['ComponentPartsSkill'] | ResolversParentTypes['ComponentSeoSeoMeta'] | ResolversParentTypes['ContactForm'] | ResolversParentTypes['Digitalworkpage'] | ResolversParentTypes['EmailDesignerEmailTemplate'] | ResolversParentTypes['Freelancingpage'] | ResolversParentTypes['Homepage'] | ResolversParentTypes['I18NLocale'] | ResolversParentTypes['Legalpage'] | ResolversParentTypes['Post'] | ResolversParentTypes['Privacypage'] | ResolversParentTypes['UploadFile'] | ResolversParentTypes['UsersPermissionsPermission'] | ResolversParentTypes['UsersPermissionsRole'] | ResolversParentTypes['UsersPermissionsUser'];
   Homepage: Homepage;
   HomepageEntity: HomepageEntity;
   HomepageEntityResponse: HomepageEntityResponse;
@@ -1333,6 +1639,12 @@ export type ResolversParentTypes = {
   Mutation: {};
   Pagination: Pagination;
   PaginationArg: PaginationArg;
+  Post: Post;
+  PostEntity: PostEntity;
+  PostEntityResponse: PostEntityResponse;
+  PostEntityResponseCollection: PostEntityResponseCollection;
+  PostFiltersInput: PostFiltersInput;
+  PostInput: PostInput;
   Privacypage: Privacypage;
   PrivacypageEntity: PrivacypageEntity;
   PrivacypageEntityResponse: PrivacypageEntityResponse;
@@ -1435,6 +1747,33 @@ export type ComponentSeoSeoMetaResolvers<ContextType = any, ParentType extends R
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
+export type ContactFormResolvers<ContextType = any, ParentType extends ResolversParentTypes['ContactForm'] = ResolversParentTypes['ContactForm']> = {
+  confirmed?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
+  createdAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  message?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type ContactFormEntityResolvers<ContextType = any, ParentType extends ResolversParentTypes['ContactFormEntity'] = ResolversParentTypes['ContactFormEntity']> = {
+  attributes?: Resolver<Maybe<ResolversTypes['ContactForm']>, ParentType, ContextType>;
+  id?: Resolver<Maybe<ResolversTypes['ID']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type ContactFormEntityResponseResolvers<ContextType = any, ParentType extends ResolversParentTypes['ContactFormEntityResponse'] = ResolversParentTypes['ContactFormEntityResponse']> = {
+  data?: Resolver<Maybe<ResolversTypes['ContactFormEntity']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type ContactFormEntityResponseCollectionResolvers<ContextType = any, ParentType extends ResolversParentTypes['ContactFormEntityResponseCollection'] = ResolversParentTypes['ContactFormEntityResponseCollection']> = {
+  data?: Resolver<Array<ResolversTypes['ContactFormEntity']>, ParentType, ContextType>;
+  meta?: Resolver<ResolversTypes['ResponseCollectionMeta'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export interface DateTimeScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['DateTime'], any> {
   name: 'DateTime';
 }
@@ -1458,6 +1797,37 @@ export type DigitalworkpageEntityResolvers<ContextType = any, ParentType extends
 
 export type DigitalworkpageEntityResponseResolvers<ContextType = any, ParentType extends ResolversParentTypes['DigitalworkpageEntityResponse'] = ResolversParentTypes['DigitalworkpageEntityResponse']> = {
   data?: Resolver<Maybe<ResolversTypes['DigitalworkpageEntity']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type EmailDesignerEmailTemplateResolvers<ContextType = any, ParentType extends ResolversParentTypes['EmailDesignerEmailTemplate'] = ResolversParentTypes['EmailDesignerEmailTemplate']> = {
+  bodyHtml?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  bodyText?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  design?: Resolver<Maybe<ResolversTypes['JSON']>, ParentType, ContextType>;
+  enabled?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  subject?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  tags?: Resolver<Maybe<ResolversTypes['JSON']>, ParentType, ContextType>;
+  templateReferenceId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type EmailDesignerEmailTemplateEntityResolvers<ContextType = any, ParentType extends ResolversParentTypes['EmailDesignerEmailTemplateEntity'] = ResolversParentTypes['EmailDesignerEmailTemplateEntity']> = {
+  attributes?: Resolver<Maybe<ResolversTypes['EmailDesignerEmailTemplate']>, ParentType, ContextType>;
+  id?: Resolver<Maybe<ResolversTypes['ID']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type EmailDesignerEmailTemplateEntityResponseResolvers<ContextType = any, ParentType extends ResolversParentTypes['EmailDesignerEmailTemplateEntityResponse'] = ResolversParentTypes['EmailDesignerEmailTemplateEntityResponse']> = {
+  data?: Resolver<Maybe<ResolversTypes['EmailDesignerEmailTemplateEntity']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type EmailDesignerEmailTemplateEntityResponseCollectionResolvers<ContextType = any, ParentType extends ResolversParentTypes['EmailDesignerEmailTemplateEntityResponseCollection'] = ResolversParentTypes['EmailDesignerEmailTemplateEntityResponseCollection']> = {
+  data?: Resolver<Array<ResolversTypes['EmailDesignerEmailTemplateEntity']>, ParentType, ContextType>;
+  meta?: Resolver<ResolversTypes['ResponseCollectionMeta'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -1488,7 +1858,7 @@ export type FreelancingpageEntityResponseResolvers<ContextType = any, ParentType
 };
 
 export type GenericMorphResolvers<ContextType = any, ParentType extends ResolversParentTypes['GenericMorph'] = ResolversParentTypes['GenericMorph']> = {
-  __resolveType: TypeResolveFn<'ComponentButtonLink' | 'ComponentPartsAboutMe' | 'ComponentPartsApp' | 'ComponentPartsFeaturedApps' | 'ComponentPartsQuality' | 'ComponentPartsSkill' | 'ComponentSeoSeoMeta' | 'Digitalworkpage' | 'Freelancingpage' | 'Homepage' | 'I18NLocale' | 'Legalpage' | 'Privacypage' | 'UploadFile' | 'UsersPermissionsPermission' | 'UsersPermissionsRole' | 'UsersPermissionsUser', ParentType, ContextType>;
+  __resolveType: TypeResolveFn<'ComponentButtonLink' | 'ComponentPartsAboutMe' | 'ComponentPartsApp' | 'ComponentPartsFeaturedApps' | 'ComponentPartsQuality' | 'ComponentPartsSkill' | 'ComponentSeoSeoMeta' | 'ContactForm' | 'Digitalworkpage' | 'EmailDesignerEmailTemplate' | 'Freelancingpage' | 'Homepage' | 'I18NLocale' | 'Legalpage' | 'Post' | 'Privacypage' | 'UploadFile' | 'UsersPermissionsPermission' | 'UsersPermissionsRole' | 'UsersPermissionsUser', ParentType, ContextType>;
 };
 
 export type HomepageResolvers<ContextType = any, ParentType extends ResolversParentTypes['Homepage'] = ResolversParentTypes['Homepage']> = {
@@ -1563,13 +1933,19 @@ export type LegalpageEntityResponseResolvers<ContextType = any, ParentType exten
 };
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
+  createContactForm?: Resolver<Maybe<ResolversTypes['ContactFormEntityResponse']>, ParentType, ContextType, RequireFields<MutationCreateContactFormArgs, 'data'>>;
+  createEmailDesignerEmailTemplate?: Resolver<Maybe<ResolversTypes['EmailDesignerEmailTemplateEntityResponse']>, ParentType, ContextType, RequireFields<MutationCreateEmailDesignerEmailTemplateArgs, 'data'>>;
+  createPost?: Resolver<Maybe<ResolversTypes['PostEntityResponse']>, ParentType, ContextType, RequireFields<MutationCreatePostArgs, 'data'>>;
   createUploadFile?: Resolver<Maybe<ResolversTypes['UploadFileEntityResponse']>, ParentType, ContextType, RequireFields<MutationCreateUploadFileArgs, 'data'>>;
   createUsersPermissionsRole?: Resolver<Maybe<ResolversTypes['UsersPermissionsCreateRolePayload']>, ParentType, ContextType, RequireFields<MutationCreateUsersPermissionsRoleArgs, 'data'>>;
   createUsersPermissionsUser?: Resolver<ResolversTypes['UsersPermissionsUserEntityResponse'], ParentType, ContextType, RequireFields<MutationCreateUsersPermissionsUserArgs, 'data'>>;
+  deleteContactForm?: Resolver<Maybe<ResolversTypes['ContactFormEntityResponse']>, ParentType, ContextType, RequireFields<MutationDeleteContactFormArgs, 'id'>>;
   deleteDigitalworkpage?: Resolver<Maybe<ResolversTypes['DigitalworkpageEntityResponse']>, ParentType, ContextType>;
+  deleteEmailDesignerEmailTemplate?: Resolver<Maybe<ResolversTypes['EmailDesignerEmailTemplateEntityResponse']>, ParentType, ContextType, RequireFields<MutationDeleteEmailDesignerEmailTemplateArgs, 'id'>>;
   deleteFreelancingpage?: Resolver<Maybe<ResolversTypes['FreelancingpageEntityResponse']>, ParentType, ContextType>;
   deleteHomepage?: Resolver<Maybe<ResolversTypes['HomepageEntityResponse']>, ParentType, ContextType>;
   deleteLegalpage?: Resolver<Maybe<ResolversTypes['LegalpageEntityResponse']>, ParentType, ContextType>;
+  deletePost?: Resolver<Maybe<ResolversTypes['PostEntityResponse']>, ParentType, ContextType, RequireFields<MutationDeletePostArgs, 'id'>>;
   deletePrivacypage?: Resolver<Maybe<ResolversTypes['PrivacypageEntityResponse']>, ParentType, ContextType>;
   deleteUploadFile?: Resolver<Maybe<ResolversTypes['UploadFileEntityResponse']>, ParentType, ContextType, RequireFields<MutationDeleteUploadFileArgs, 'id'>>;
   deleteUsersPermissionsRole?: Resolver<Maybe<ResolversTypes['UsersPermissionsDeleteRolePayload']>, ParentType, ContextType, RequireFields<MutationDeleteUsersPermissionsRoleArgs, 'id'>>;
@@ -1581,11 +1957,14 @@ export type MutationResolvers<ContextType = any, ParentType extends ResolversPar
   register?: Resolver<ResolversTypes['UsersPermissionsLoginPayload'], ParentType, ContextType, RequireFields<MutationRegisterArgs, 'input'>>;
   removeFile?: Resolver<Maybe<ResolversTypes['UploadFileEntityResponse']>, ParentType, ContextType, RequireFields<MutationRemoveFileArgs, 'id'>>;
   resetPassword?: Resolver<Maybe<ResolversTypes['UsersPermissionsLoginPayload']>, ParentType, ContextType, RequireFields<MutationResetPasswordArgs, 'code' | 'password' | 'passwordConfirmation'>>;
+  updateContactForm?: Resolver<Maybe<ResolversTypes['ContactFormEntityResponse']>, ParentType, ContextType, RequireFields<MutationUpdateContactFormArgs, 'data' | 'id'>>;
   updateDigitalworkpage?: Resolver<Maybe<ResolversTypes['DigitalworkpageEntityResponse']>, ParentType, ContextType, RequireFields<MutationUpdateDigitalworkpageArgs, 'data'>>;
+  updateEmailDesignerEmailTemplate?: Resolver<Maybe<ResolversTypes['EmailDesignerEmailTemplateEntityResponse']>, ParentType, ContextType, RequireFields<MutationUpdateEmailDesignerEmailTemplateArgs, 'data' | 'id'>>;
   updateFileInfo?: Resolver<ResolversTypes['UploadFileEntityResponse'], ParentType, ContextType, RequireFields<MutationUpdateFileInfoArgs, 'id'>>;
   updateFreelancingpage?: Resolver<Maybe<ResolversTypes['FreelancingpageEntityResponse']>, ParentType, ContextType, RequireFields<MutationUpdateFreelancingpageArgs, 'data'>>;
   updateHomepage?: Resolver<Maybe<ResolversTypes['HomepageEntityResponse']>, ParentType, ContextType, RequireFields<MutationUpdateHomepageArgs, 'data'>>;
   updateLegalpage?: Resolver<Maybe<ResolversTypes['LegalpageEntityResponse']>, ParentType, ContextType, RequireFields<MutationUpdateLegalpageArgs, 'data'>>;
+  updatePost?: Resolver<Maybe<ResolversTypes['PostEntityResponse']>, ParentType, ContextType, RequireFields<MutationUpdatePostArgs, 'data' | 'id'>>;
   updatePrivacypage?: Resolver<Maybe<ResolversTypes['PrivacypageEntityResponse']>, ParentType, ContextType, RequireFields<MutationUpdatePrivacypageArgs, 'data'>>;
   updateUploadFile?: Resolver<Maybe<ResolversTypes['UploadFileEntityResponse']>, ParentType, ContextType, RequireFields<MutationUpdateUploadFileArgs, 'data' | 'id'>>;
   updateUsersPermissionsRole?: Resolver<Maybe<ResolversTypes['UsersPermissionsUpdateRolePayload']>, ParentType, ContextType, RequireFields<MutationUpdateUsersPermissionsRoleArgs, 'data' | 'id'>>;
@@ -1598,6 +1977,34 @@ export type PaginationResolvers<ContextType = any, ParentType extends ResolversP
   pageCount?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   pageSize?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   total?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type PostResolvers<ContextType = any, ParentType extends ResolversParentTypes['Post'] = ResolversParentTypes['Post']> = {
+  content?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  createdAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  hero?: Resolver<Maybe<ResolversTypes['UploadFileEntityResponse']>, ParentType, ContextType>;
+  publishedAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type PostEntityResolvers<ContextType = any, ParentType extends ResolversParentTypes['PostEntity'] = ResolversParentTypes['PostEntity']> = {
+  attributes?: Resolver<Maybe<ResolversTypes['Post']>, ParentType, ContextType>;
+  id?: Resolver<Maybe<ResolversTypes['ID']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type PostEntityResponseResolvers<ContextType = any, ParentType extends ResolversParentTypes['PostEntityResponse'] = ResolversParentTypes['PostEntityResponse']> = {
+  data?: Resolver<Maybe<ResolversTypes['PostEntity']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type PostEntityResponseCollectionResolvers<ContextType = any, ParentType extends ResolversParentTypes['PostEntityResponseCollection'] = ResolversParentTypes['PostEntityResponseCollection']> = {
+  data?: Resolver<Array<ResolversTypes['PostEntity']>, ParentType, ContextType>;
+  meta?: Resolver<ResolversTypes['ResponseCollectionMeta'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -1621,19 +2028,25 @@ export type PrivacypageEntityResponseResolvers<ContextType = any, ParentType ext
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
+  contactForm?: Resolver<Maybe<ResolversTypes['ContactFormEntityResponse']>, ParentType, ContextType, Partial<QueryContactFormArgs>>;
+  contactForms?: Resolver<Maybe<ResolversTypes['ContactFormEntityResponseCollection']>, ParentType, ContextType, RequireFields<QueryContactFormsArgs, 'pagination' | 'sort'>>;
   digitalworkpage?: Resolver<Maybe<ResolversTypes['DigitalworkpageEntityResponse']>, ParentType, ContextType>;
+  emailDesignerEmailTemplate?: Resolver<Maybe<ResolversTypes['EmailDesignerEmailTemplateEntityResponse']>, ParentType, ContextType, Partial<QueryEmailDesignerEmailTemplateArgs>>;
+  emailDesignerEmailTemplates?: Resolver<Maybe<ResolversTypes['EmailDesignerEmailTemplateEntityResponseCollection']>, ParentType, ContextType, RequireFields<QueryEmailDesignerEmailTemplatesArgs, 'pagination' | 'sort'>>;
   freelancingpage?: Resolver<Maybe<ResolversTypes['FreelancingpageEntityResponse']>, ParentType, ContextType>;
   homepage?: Resolver<Maybe<ResolversTypes['HomepageEntityResponse']>, ParentType, ContextType>;
-  i18NLocale?: Resolver<Maybe<ResolversTypes['I18NLocaleEntityResponse']>, ParentType, ContextType, RequireFields<QueryI18NLocaleArgs, never>>;
+  i18NLocale?: Resolver<Maybe<ResolversTypes['I18NLocaleEntityResponse']>, ParentType, ContextType, Partial<QueryI18NLocaleArgs>>;
   i18NLocales?: Resolver<Maybe<ResolversTypes['I18NLocaleEntityResponseCollection']>, ParentType, ContextType, RequireFields<QueryI18NLocalesArgs, 'pagination' | 'sort'>>;
   legalpage?: Resolver<Maybe<ResolversTypes['LegalpageEntityResponse']>, ParentType, ContextType>;
   me?: Resolver<Maybe<ResolversTypes['UsersPermissionsMe']>, ParentType, ContextType>;
+  post?: Resolver<Maybe<ResolversTypes['PostEntityResponse']>, ParentType, ContextType, Partial<QueryPostArgs>>;
+  posts?: Resolver<Maybe<ResolversTypes['PostEntityResponseCollection']>, ParentType, ContextType, RequireFields<QueryPostsArgs, 'pagination' | 'publicationState' | 'sort'>>;
   privacypage?: Resolver<Maybe<ResolversTypes['PrivacypageEntityResponse']>, ParentType, ContextType>;
-  uploadFile?: Resolver<Maybe<ResolversTypes['UploadFileEntityResponse']>, ParentType, ContextType, RequireFields<QueryUploadFileArgs, never>>;
+  uploadFile?: Resolver<Maybe<ResolversTypes['UploadFileEntityResponse']>, ParentType, ContextType, Partial<QueryUploadFileArgs>>;
   uploadFiles?: Resolver<Maybe<ResolversTypes['UploadFileEntityResponseCollection']>, ParentType, ContextType, RequireFields<QueryUploadFilesArgs, 'pagination' | 'sort'>>;
-  usersPermissionsRole?: Resolver<Maybe<ResolversTypes['UsersPermissionsRoleEntityResponse']>, ParentType, ContextType, RequireFields<QueryUsersPermissionsRoleArgs, never>>;
+  usersPermissionsRole?: Resolver<Maybe<ResolversTypes['UsersPermissionsRoleEntityResponse']>, ParentType, ContextType, Partial<QueryUsersPermissionsRoleArgs>>;
   usersPermissionsRoles?: Resolver<Maybe<ResolversTypes['UsersPermissionsRoleEntityResponseCollection']>, ParentType, ContextType, RequireFields<QueryUsersPermissionsRolesArgs, 'pagination' | 'sort'>>;
-  usersPermissionsUser?: Resolver<Maybe<ResolversTypes['UsersPermissionsUserEntityResponse']>, ParentType, ContextType, RequireFields<QueryUsersPermissionsUserArgs, never>>;
+  usersPermissionsUser?: Resolver<Maybe<ResolversTypes['UsersPermissionsUserEntityResponse']>, ParentType, ContextType, Partial<QueryUsersPermissionsUserArgs>>;
   usersPermissionsUsers?: Resolver<Maybe<ResolversTypes['UsersPermissionsUserEntityResponseCollection']>, ParentType, ContextType, RequireFields<QueryUsersPermissionsUsersArgs, 'pagination' | 'sort'>>;
 };
 
@@ -1656,6 +2069,7 @@ export type UploadFileResolvers<ContextType = any, ParentType extends ResolversP
   height?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   mime?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  placeholder?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   previewUrl?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   provider?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   provider_metadata?: Resolver<Maybe<ResolversTypes['JSON']>, ParentType, ContextType>;
@@ -1817,10 +2231,18 @@ export type Resolvers<ContextType = any> = {
   ComponentPartsQuality?: ComponentPartsQualityResolvers<ContextType>;
   ComponentPartsSkill?: ComponentPartsSkillResolvers<ContextType>;
   ComponentSeoSeoMeta?: ComponentSeoSeoMetaResolvers<ContextType>;
+  ContactForm?: ContactFormResolvers<ContextType>;
+  ContactFormEntity?: ContactFormEntityResolvers<ContextType>;
+  ContactFormEntityResponse?: ContactFormEntityResponseResolvers<ContextType>;
+  ContactFormEntityResponseCollection?: ContactFormEntityResponseCollectionResolvers<ContextType>;
   DateTime?: GraphQLScalarType;
   Digitalworkpage?: DigitalworkpageResolvers<ContextType>;
   DigitalworkpageEntity?: DigitalworkpageEntityResolvers<ContextType>;
   DigitalworkpageEntityResponse?: DigitalworkpageEntityResponseResolvers<ContextType>;
+  EmailDesignerEmailTemplate?: EmailDesignerEmailTemplateResolvers<ContextType>;
+  EmailDesignerEmailTemplateEntity?: EmailDesignerEmailTemplateEntityResolvers<ContextType>;
+  EmailDesignerEmailTemplateEntityResponse?: EmailDesignerEmailTemplateEntityResponseResolvers<ContextType>;
+  EmailDesignerEmailTemplateEntityResponseCollection?: EmailDesignerEmailTemplateEntityResponseCollectionResolvers<ContextType>;
   Freelancingpage?: FreelancingpageResolvers<ContextType>;
   FreelancingpageEntity?: FreelancingpageEntityResolvers<ContextType>;
   FreelancingpageEntityResponse?: FreelancingpageEntityResponseResolvers<ContextType>;
@@ -1838,6 +2260,10 @@ export type Resolvers<ContextType = any> = {
   LegalpageEntityResponse?: LegalpageEntityResponseResolvers<ContextType>;
   Mutation?: MutationResolvers<ContextType>;
   Pagination?: PaginationResolvers<ContextType>;
+  Post?: PostResolvers<ContextType>;
+  PostEntity?: PostEntityResolvers<ContextType>;
+  PostEntityResponse?: PostEntityResponseResolvers<ContextType>;
+  PostEntityResponseCollection?: PostEntityResponseCollectionResolvers<ContextType>;
   Privacypage?: PrivacypageResolvers<ContextType>;
   PrivacypageEntity?: PrivacypageEntityResolvers<ContextType>;
   PrivacypageEntityResponse?: PrivacypageEntityResponseResolvers<ContextType>;
@@ -2204,3 +2630,101 @@ export function useFreelancingpageLazyQuery(baseOptions?: Apollo.LazyQueryHookOp
 export type FreelancingpageQueryHookResult = ReturnType<typeof useFreelancingpageQuery>;
 export type FreelancingpageLazyQueryHookResult = ReturnType<typeof useFreelancingpageLazyQuery>;
 export type FreelancingpageQueryResult = Apollo.QueryResult<FreelancingpageQuery, FreelancingpageQueryVariables>;
+export const AllPostsDocument = gql`
+    query AllPosts {
+  posts {
+    data {
+      id
+      attributes {
+        slug
+        title
+        publishedAt
+        hero {
+          data {
+            attributes {
+              url
+              placeholder
+            }
+          }
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useAllPostsQuery__
+ *
+ * To run a query within a React component, call `useAllPostsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAllPostsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAllPostsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useAllPostsQuery(baseOptions?: Apollo.QueryHookOptions<AllPostsQuery, AllPostsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AllPostsQuery, AllPostsQueryVariables>(AllPostsDocument, options);
+      }
+export function useAllPostsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AllPostsQuery, AllPostsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AllPostsQuery, AllPostsQueryVariables>(AllPostsDocument, options);
+        }
+export type AllPostsQueryHookResult = ReturnType<typeof useAllPostsQuery>;
+export type AllPostsLazyQueryHookResult = ReturnType<typeof useAllPostsLazyQuery>;
+export type AllPostsQueryResult = Apollo.QueryResult<AllPostsQuery, AllPostsQueryVariables>;
+export const PostBySlugDocument = gql`
+    query PostBySlug($slug: String!) {
+  posts(filters: {slug: {eq: $slug}}) {
+    data {
+      attributes {
+        title
+        content
+        publishedAt
+        hero {
+          data {
+            attributes {
+              url
+              placeholder
+            }
+          }
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __usePostBySlugQuery__
+ *
+ * To run a query within a React component, call `usePostBySlugQuery` and pass it any options that fit your needs.
+ * When your component renders, `usePostBySlugQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = usePostBySlugQuery({
+ *   variables: {
+ *      slug: // value for 'slug'
+ *   },
+ * });
+ */
+export function usePostBySlugQuery(baseOptions: Apollo.QueryHookOptions<PostBySlugQuery, PostBySlugQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<PostBySlugQuery, PostBySlugQueryVariables>(PostBySlugDocument, options);
+      }
+export function usePostBySlugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PostBySlugQuery, PostBySlugQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<PostBySlugQuery, PostBySlugQueryVariables>(PostBySlugDocument, options);
+        }
+export type PostBySlugQueryHookResult = ReturnType<typeof usePostBySlugQuery>;
+export type PostBySlugLazyQueryHookResult = ReturnType<typeof usePostBySlugLazyQuery>;
+export type PostBySlugQueryResult = Apollo.QueryResult<PostBySlugQuery, PostBySlugQueryVariables>;

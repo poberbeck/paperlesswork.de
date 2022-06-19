@@ -11,7 +11,7 @@ const ContactForm = () => {
     const [hasError, sethasError] = useState(false);
 
     const onSubmit = useCallback(
-        async (e:FormEvent) => {
+        async (e: FormEvent) => {
             e.preventDefault();
             setIsLoading(true);
             try {

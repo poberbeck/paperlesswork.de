@@ -202,3 +202,48 @@ export const QUERY_FREELANCINGPAGE = gql`
         }
     }
 `;
+
+export const QUERY_ALL_POSTS = gql`
+    query AllPosts {
+        posts {
+            data {
+                id
+                attributes {
+                    slug
+                    title
+                    publishedAt
+                    hero {
+                        data {
+                            attributes {
+                                url
+                                placeholder
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+`;
+
+export const QUERY_POST_BY_SLUG = gql`
+    query PostBySlug($slug: String!) {
+        posts(filters: { slug: { eq: $slug } }) {
+            data {
+                attributes {
+                    title
+                    content
+                    publishedAt
+                    hero {
+                        data {
+                            attributes {
+                                url
+                                placeholder
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+`;
